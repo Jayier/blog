@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Category: jade | jayself</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link type="text/css" rel="stylesheet" href="/css/style.css">
+  <link type="text/css" rel="stylesheet" href="/css/font-awesome.min.css">
+</head>
+<body>
+  <header class="site-header"><nav class="site-nav">
+  <h1 class="site-title">
+    <a href="/" id="logo">jayself</a>
+  </h1>
+  <ul>
+    
+    <li>
+      <a class="main-nav-link" href="/">Home</a>
+    </li>
+    
+    <li>
+      <a class="main-nav-link" href="/archives">Archives</a>
+    </li>
+    
+  </ul>
+</nav></header>
+    <main class="site-main">
+  
+    <article id="post-Jade" class="post article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="post-header">
+      
+  
+    <h3 itemprop="name">
+      <a class="post-title" href="/2014/07/20/Jade/">Jage入门之路</a>
+    </h3>
+  
+
+    </header>
+  
+  <div class="post-meta">
+    <time datetime="2014-07-20T06:49:17.000Z" itemprop="datePublished">Jul 20 2014</time>
+    
+  <span class="article-category">
+    <a class="article-category-link" href="/categories/jade/">jade</a>
+  </span>
+
+  </div>
+  <div class="post-content" itemprop="articleBody">
+    
+      <p><code>jade.jade</code></p>
+<pre><code>doctype html
+html(lang=<span class="string">"en"</span>)
+  head
+    - <span class="keyword">var</span> name = '<span class="type">Jade</span>'
+    title= name
+    meta(charset=<span class="string">"utf-8"</span>)
+    link(rel=<span class="string">"stylesheet"</span>, <span class="keyword">type</span>=<span class="string">"text/css"</span> href=<span class="string">"/stylesheets/style.css"</span>)
+
+  body
+    h1 <span class="type">Jade</span> - node <span class="keyword">template</span> engine
+    <span class="comment">#container.col</span>
+      <span class="keyword">if</span> name === '<span class="type">Jade</span>'
+        p <span class="comment">#{name} is very cool</span>
+      <span class="keyword">else</span>
+        p <span class="type">Get</span> on <span class="type">Jade</span>
+    footer
+      p.
+        <span class="type">Jade</span> <span class="keyword">is</span> a terse <span class="keyword">and</span> simplae
+        templating language <span class="keyword">with</span> a
+        strong focus on performance
+        <span class="keyword">and</span> powerful features.
+</code></pre><p><code>jade.html</code></p>
+<pre><code><span class="doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"en"</span>&gt;</span>
+<span class="tag">&lt;<span class="title">head</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">title</span>&gt;</span>Jade<span class="tag">&lt;/<span class="title">title</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">type</span>=<span class="value">"text/css"</span> <span class="attribute">href</span>=<span class="value">"/stylesheets/style.css"</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">head</span>&gt;</span>
+<span class="tag">&lt;<span class="title">body</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">h1</span>&gt;</span>Jade - node template engine<span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"container"</span> <span class="attribute">class</span>=<span class="value">"col"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">p</span>&gt;</span>Jade is very cool<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">footer</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">p</span>&gt;</span>
+      Jade is a terse and simplae
+      templating language with a
+      strong focus on performance
+      and powerful features.
+    <span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">footer</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">body</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">html</span>&gt;</span>
+</code></pre><h3 id="install">install</h3>
+<p><code>npm install -g jade</code></p>
+<p><code>jade</code>， 以空格或缩进和换行来组织代码，每行开始的第一个单词被定义为一个 tag</p>
+<h3 id="Tags">Tags</h3>
+<p>默认，每行开始的第一个单词代表一个标签，可以是自定义的标签：</p>
+<pre><code><span class="comment">//jade</span>
+h1 h1 <span class="built_in">tag</span>
+custom custom <span class="built_in">tag</span>
+img(src<span class="subst">=</span><span class="string">"/images/logo.png"</span>, alt<span class="subst">=</span><span class="string">""</span>)
+
+<span class="comment">//html</span>
+<span class="subst">&lt;</span>h1<span class="subst">&gt;</span>h1 <span class="built_in">tag</span><span class="subst">&lt;</span>/h1<span class="subst">&gt;</span>
+<span class="subst">&lt;</span>custom<span class="subst">&gt;</span>custom <span class="built_in">tag</span><span class="subst">&lt;</span>/custom<span class="subst">&gt;&lt;</span>img src<span class="subst">=</span><span class="string">"/images/logo.png"</span> alt<span class="subst">=</span><span class="string">""</span><span class="subst">&gt;</span>
+</code></pre><p>使用缩进能进行标签嵌套：</p>
+<pre><code>//jade
+ul
+  li Item A
+    a(href="javascript:;") a link
+  li Item B
+  li Item C
+
+//html
+<span class="tag">&lt;<span class="title">ul</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">li</span>&gt;</span>Item A<span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"javascript:;"</span>&gt;</span>a link<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">li</span>&gt;</span>Item B<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">li</span>&gt;</span>Item C<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">ul</span>&gt;</span>
+</code></pre><h3 id="doctype">doctype</h3>
+<p>在 <code>jade</code>， 中统一用 <code>doctype</code> 前缀，然后后边跟关键字进行区分使用的文档类型；</p>
+<ul>
+<li><p>html5</p>
+<p>  jade：<code>doctype html</code></p>
+<p>  html： <code>&lt;!DOCTYPE html&gt;</code></p>
+</li>
+<li><p>xml</p>
+<p>  jade：<code>doctype xml</code></p>
+<p>  html： <code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;</code></p>
+</li>
+<li><p>strict</p>
+<p>  jade：<code>doctype strict</code></p>
+<p>  html： <code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;</code></p>
+</li>
+<li><p>frameset</p>
+<p>  jade：<code>doctype frameset</code></p>
+<p>  html： <code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Frameset//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd&quot;&gt;</code></p>
+</li>
+<li><p>1.1</p>
+<p>  jade：<code>doctype 1.1</code></p>
+<p>  html： <code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.1//EN&quot; &quot;http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd&quot;&gt;</code></p>
+</li>
+<li><p>basic</p>
+<p>  jade：<code>doctype basic</code></p>
+<p>  html： <code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML Basic 1.1//EN&quot; &quot;http://www.w3.org/TR/xhtml-basic/xhtml-basic11.dtd&quot;&gt;</code></p>
+</li>
+<li><p>mobile</p>
+<p>  jade：<code>doctype mobile</code></p>
+<p>  html： <code>&lt;!DOCTYPE html PUBLIC &quot;-//WAPFORUM//DTD XHTML Mobile 1.2//EN&quot; &quot;http://www.openmobilealliance.org/tech/DTD/xhtml-mobile12.dtd&quot;&gt;</code></p>
+</li>
+<li><p>也可以用自定义的</p>
+<p>  jade：<code>doctype www.jayzhang.cn</code></p>
+<p>  html： <code>&lt;!DOCTYPE www.jayzhang.cn&gt;</code></p>
+</li>
+</ul>
+<h3 id="Attributes">Attributes</h3>
+<p>属性必须用括号包起来，多个属性用逗号分隔，<code>class</code> 和 <code>id</code>,可以直接用 (.) 和 (#) 而不需要放到括号内；</p>
+<pre><code>//jade
+div.container.flow<span class="comment">#container Content</span>
+a(<span class="variable">class=</span><span class="string">"btn"</span>, <span class="variable">href=</span><span class="string">"javascript:;"</span>, <span class="variable">title=</span><span class="string">"submit"</span>) Button
+
+//html
+&lt;div <span class="variable">id=</span><span class="string">"container"</span> <span class="variable">class=</span><span class="string">"container flow"</span>&gt;Content&lt;/div&gt;&lt;a <span class="variable">href=</span><span class="string">"javascript:;"</span> <span class="variable">title=</span><span class="string">"submit"</span> <span class="variable">class=</span><span class="string">"btn"</span>&gt;Button&lt;/a&gt;
+</code></pre><p>对于 <code>class</code> 和 <code>id</code>， 还可以省略 tag 而直接用，最终会自动生成一个 <code>div</code>:</p>
+<pre><code>//jade
+.content content
+<span class="comment">#content.content.box content</span>
+<span class="comment">
+//html</span>
+&lt;<span class="operator">div</span> class=<span class="string">"content"</span>&gt;content&lt;/<span class="operator">div</span>&gt;
+&lt;<span class="operator">div</span> id=<span class="string">"content"</span> class=<span class="string">"content box"</span>&gt;content&lt;/<span class="operator">div</span>&gt;
+</code></pre><h3 id="Plain_Text">Plain Text</h3>
+<p>根据不同的情况，<code>jade</code> 提供了三种方式获取纯文本</p>
+<ul>
+<li><p>Piped Text</p>
+<p>  方式一，在文本的开头使用管道符 (<code>|</code>)</p>
+<pre><code> <span class="comment"> //jade</span>
+  | Plain <span class="keyword">text</span> can <span class="built_in">include</span> &lt;strong&gt;html&lt;/strong&gt;
+  p
+    | It must always be <span class="command"><span class="keyword">on</span> <span class="title">its</span> <span class="title">own</span> <span class="title">line</span></span>
+
+ <span class="comment"> //html</span>
+  Plain <span class="keyword">text</span> can <span class="built_in">include</span> &lt;strong&gt;html&lt;/strong&gt;
+  &lt;p&gt;It must always be <span class="command"><span class="keyword">on</span> <span class="title">its</span> <span class="title">own</span> <span class="title">line</span>&lt;/<span class="title">p</span>&gt;</span>
+</code></pre></li>
+<li><p>Inline in a Tag</p>
+<p>  方式二，文本与 tag 放到同一行</p>
+<pre><code> <span class="comment"> //jade</span>
+  .content content
+  <span class="comment">#content.content.box content</span>
+
+ <span class="comment"> //html</span>
+  &lt;<span class="operator">div</span> class=<span class="string">"content"</span>&gt;content&lt;/<span class="operator">div</span>&gt;
+  &lt;<span class="operator">div</span> id=<span class="string">"content"</span> class=<span class="string">"content box"</span>&gt;content&lt;/<span class="operator">div</span>&gt;
+</code></pre></li>
+<li><p>Block in a Tag</p>
+<p>  方式三，适合有大量文本的情况；在 tag 后使用一个点号 (.)， tag 与 点号之间不能有空格</p>
+<pre><code> <span class="comment"> //jade</span>
+  p.
+    Jade is <span class="operator">a</span> terse <span class="operator">and</span> simplae
+    templating language <span class="operator">with</span> <span class="operator">a</span>
+    strong focus <span class="command"><span class="keyword">on</span> <span class="title">performance</span></span>
+    <span class="operator">and</span> powerful features.
+
+ <span class="comment"> //html</span>
+  &lt;p&gt;
+    Jade is <span class="operator">a</span> terse <span class="operator">and</span> simplae
+    templating language <span class="operator">with</span> <span class="operator">a</span>
+    strong focus <span class="command"><span class="keyword">on</span> <span class="title">performance</span></span>
+    <span class="operator">and</span> powerful features.
+  &lt;/p&gt;
+</code></pre></li>
+</ul>
+<h3 id="case">case</h3>
+<p><code>case</code>， 类似于 javascript 中的 <code>switch</code>，可用于在多个代码块中显示 <code>case</code> 与<code>when</code> 匹配的代码块</p>
+<p><strong>语法如下：</strong></p>
+<pre><code><span class="keyword">case</span> condition
+  <span class="keyword">when</span> state1
+    code <span class="number">1</span>
+  <span class="keyword">when</span> state2
+    code <span class="number">2</span>
+  <span class="keyword">when</span> staten
+    code n
+  <span class="keyword">default</span>
+    code <span class="keyword">default</span>
+</code></pre><p>例：</p>
+<pre><code><span class="regexp">//</span>jade
+- <span class="reserved">var</span> friends = <span class="number">10</span>
+<span class="reserved">case</span> friends
+  <span class="keyword">when</span> <span class="number">0</span>
+    p you have <span class="literal">no</span> friends
+  <span class="keyword">when</span> <span class="number">1</span>
+    p you have a friend
+  <span class="reserved">default</span>
+    p you have <span class="comment">#{friends} friends</span>
+
+<span class="regexp">//</span>html
+&lt;p&gt;you have <span class="number">10</span> friends&lt;/p&gt;
+</code></pre><ul>
+<li><p>Case Fall Through</p>
+<p>  我们也可以多个 <code>when</code>， 执行一个代码块</p>
+<pre><code>  <span class="comment">//jade</span>
+  - <span class="keyword">var</span> friends = <span class="number">1</span>
+  <span class="keyword">case</span> friends
+    when <span class="number">0</span>
+    when <span class="number">1</span>
+      p you have very few friends
+    <span class="keyword">default</span>
+      p you have <span class="preprocessor">#{friends} friends</span>
+
+  <span class="comment">//html</span>
+  &lt;p&gt;you have very few friends&lt;/p&gt;
+</code></pre></li>
+<li><p>Block Expansion</p>
+<p>  我们还可以将 <code>when</code>加上冒号(:)，与代码块放到一行；</p>
+<pre><code>  <span class="comment">//jade</span>
+  - <span class="keyword">var</span> friends = <span class="number">1</span>
+  <span class="keyword">case</span> friends
+    when <span class="number">0</span>: p you have no friends
+    when <span class="number">1</span>: p you have a friend
+    <span class="keyword">default</span>: p you have <span class="preprocessor">#{friends} friends</span>
+
+  <span class="comment">//html</span>
+  &lt;p&gt;you have a friends&lt;/p&gt;
+</code></pre></li>
+</ul>
+<h3 id="code">code</h3>
+<p><code>jade</code>， 支持三种类型的 code</p>
+<ul>
+<li><p>Unbuffered Code</p>
+<p>  这种类型的 <code>code</code> 以一个中横线 (<code>-</code>) 开头，不会直接输出</p>
+<pre><code>  //jade
+  ul
+    -for (var x = 0; x <span class="variable">&lt; 3; x++)
+      li item
+
+  //html
+  &lt;ul&gt;</span>
+    <span class="variable">&lt;li&gt;</span>item<span class="variable">&lt;/li&gt;</span>
+    <span class="variable">&lt;li&gt;</span>item<span class="variable">&lt;/li&gt;</span>
+    <span class="variable">&lt;li&gt;</span>item<span class="variable">&lt;/li&gt;</span>
+  <span class="variable">&lt;/ul&gt;</span>
+</code></pre></li>
+<li><p>Buffered Code</p>
+<p>  此类型的 <code>code</code> 以一个等号 (<code>=</code>) 开头；为了安全， jade 会将 <code>html</code> 代码进行转义；</p>
+<pre><code>  <span class="comment">//jade</span>
+  p
+    <span class="subst">=</span> <span class="string">'This code is &lt;escaped&gt;!'</span>
+
+  <span class="comment">//html</span>
+  <span class="subst">&lt;</span>p<span class="subst">&gt;</span>This code is <span class="subst">&amp;</span><span class="literal">lt</span>;escaped<span class="subst">&amp;</span><span class="literal">gt</span>;<span class="subst">!</span>
+  <span class="subst">&lt;</span>/p<span class="subst">&gt;</span>
+</code></pre><p>  当然，我们也可以把 <code>=</code>及后面的文本与 <code>tag</code> 放在同一行</p>
+<pre><code>  <span class="comment">//jade</span>
+  p<span class="subst">=</span> <span class="string">'This code is'</span> <span class="subst">+</span> <span class="string">' &lt;escaped&gt;!'</span>
+
+  <span class="comment">//html</span>
+  <span class="subst">&lt;</span>p<span class="subst">&gt;</span>This code is <span class="subst">&amp;</span><span class="literal">lt</span>;escaped<span class="subst">&amp;</span><span class="literal">gt</span>;<span class="subst">!&lt;</span>/p<span class="subst">&gt;</span>
+</code></pre></li>
+<li><p>Unescaped Buffered Code</p>
+<p>  此类型的 <code>code</code> 以一个叹号加一个等号 (<code>!=</code>) 开头，而且 jade 不会转义 <code>html</code> 代码；如果是变量，可以写成 !{var}作用于#{val}，只是不转义；</p>
+<pre><code>  //jade
+  p
+    != <span class="attribute">'This</span> code <span class="keyword">is</span> &lt;<span class="keyword">strong</span>&gt;<span class="keyword">not</span>&lt;/<span class="keyword">strong</span>&gt; escaped!'
+
+  //html
+  &lt;p&gt;This code <span class="keyword">is</span> &lt;<span class="keyword">strong</span>&gt;<span class="keyword">not</span>&lt;/<span class="keyword">strong</span>&gt; escaped!
+  &lt;/p&gt;
+  <span class="comment">--------------------------------------------------</span>
+  //jade
+  p!= <span class="attribute">'This</span> code <span class="keyword">is</span> &lt;<span class="keyword">strong</span>&gt;<span class="keyword">not</span>&lt;/<span class="keyword">strong</span>&gt; escaped!'
+
+  //html
+  &lt;p&gt;This code <span class="keyword">is</span> &lt;<span class="keyword">strong</span>&gt;<span class="keyword">not</span>&lt;/<span class="keyword">strong</span>&gt; escaped!&lt;/p&gt;
+</code></pre></li>
+</ul>
+<h3 id="comments">comments</h3>
+<p><code>jade</code> 使用双斜线 (<code>//</code>)进行单行注释；如果不想让注释的内容显示到生成的 <code>html</code> 代码中，可以在双斜线 (<code>//</code>)后跟一个单横线(<code>-</code>)；</p>
+<p>例：</p>
+<pre><code>//jade
+//just some paragraphs
+p foo
+p bar
+
+//-will not output within markup
+p foo
+p bar
+
+//html
+<span class="comment">&lt;!--just some paragraphs--&gt;</span>
+<span class="tag">&lt;<span class="title">p</span>&gt;</span>foo<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+<span class="tag">&lt;<span class="title">p</span>&gt;</span>bar<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+
+<span class="tag">&lt;<span class="title">p</span>&gt;</span>foo<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+<span class="tag">&lt;<span class="title">p</span>&gt;</span>bar<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+</code></pre><ul>
+<li><p>Block Comments</p>
+<p>  双斜线 (<code>//</code>)后面的注释内容换行并缩进可进行块级注释；</p>
+<p>  例：</p>
+<pre><code>  //jade
+  body
+    //
+      As much text as you want
+      can go here.
+
+  //html
+  <span class="tag">&lt;<span class="title">body</span>&gt;</span>
+    <span class="comment">&lt;!--
+    As much text as you want
+    can go here.
+    --&gt;</span>
+  <span class="tag">&lt;/<span class="title">body</span>&gt;</span>
+</code></pre></li>
+<li><p>Conditional Comments</p>
+<p>  条件注释，只有在 <code>IE10</code>，及以下的 <code>IE</code>浏览器才支持，<code>jade</code>中的条件注释没有特别的语法，而是直接采用一般的 <code>html</code> 条件注释</p>
+<p>  例：</p>
+<pre><code>  //jade
+  <span class="comment">&lt;!--[if IE 8]&gt;
+  &lt;html lang="en" class="lt-ie9"&gt;
+  &lt;![endif]--&gt;</span>
+  <span class="comment">&lt;!--[if gt IE 8]&gt;&lt;!--&gt;</span>
+  <span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"en"</span>&gt;</span>
+  <span class="comment">&lt;!--&lt;![endif]--&gt;</span>
+
+  //html
+  <span class="comment">&lt;!--[if IE 8]&gt;
+  &lt;html lang="en" class="lt-ie9"&gt;
+  &lt;![endif]--&gt;</span>
+  <span class="comment">&lt;!--[if gt IE 8]&gt;&lt;!--&gt;</span>
+  <span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"en"</span>&gt;</span>
+  <span class="comment">&lt;!--&lt;![endif]--&gt;</span>
+</code></pre></li>
+</ul>
+<h3 id="conditionals">conditionals</h3>
+<p>条件语句，其实也就跟普通 <code>javascript</code> 一样，不过在 <code>jade</code> 中，我们可以省略括号；</p>
+<p>要注意，在 <code>jade</code> 中，使用 <code>var</code> 定义变量时，一定要在 <code>var</code> 前，加一个中横线(<code>-</code>)，不然的话，<code>var</code> 会被解析成一个 <code>&lt;var&gt;</code> 标签；</p>
+<p>例：</p>
+<pre><code>//jade
+- var user = { description: <span class="string">'foo bar baz'</span> }
+- var authorised = <span class="constant">false</span>
+<span class="comment">#user</span>
+  <span class="keyword">if</span> user.description
+    h2 Description
+    p.description= user.description
+  <span class="keyword">else</span> <span class="keyword">if</span> authorised
+    h2 Description
+    p.description.
+      User has no description,
+      why <span class="operator">not</span> <span class="built_in">add</span> <span class="constant">one</span>...
+  <span class="keyword">else</span>
+    h1 Description
+    p.description User has no description
+<span class="comment">
+//html</span>
+&lt;<span class="operator">div</span> id=<span class="string">"user"</span>&gt;
+  &lt;h2&gt;Description&lt;/h2&gt;
+  &lt;p class=<span class="string">"description"</span>&gt;foo bar baz&lt;/p&gt;
+&lt;/<span class="operator">div</span>&gt;
+</code></pre><p><code>jdade</code>， 还提供了一个表否定的语法 <code>unless</code>， 作用跟 <code>if !expr</code> 是等价的；</p>
+<p>下面两是等价的：</p>
+<pre><code>unless user.isAnonymous
+  p Yo<span class="string">ur're logged in as #{user.name}
+
+等价于：
+
+if !user.isAnonymous
+  p You'</span>re logged <span class="keyword">in</span> <span class="keyword">as</span> <span class="comment">#{user.name}</span>
+</code></pre><h3 id="extends">extends</h3>
+<p><strong>Extedns - Template Inheritance</strong></p>
+<p><code>jade</code>，允许使用 <code>extedns</code> 关键字结合 <code>block</code> 关键字预定义一个模板文件给其他子模板调用，来实现模板之间的继承；</p>
+<p>如果父模板里面定义了某块内容，而子模板中没有定义，那默认就会显示父模板的块内容；这样我们就可以把一些公共的东西定义到一个父模板中，然后子模板直接调用，来达到高效输出；</p>
+<p>模板还可以多重继承哟，写更少的代码，做更多的事；嘿嘿</p>
+<p><strong>同一个页面，只能 extends 一个模板；多个模块可以使用 include</strong></p>
+<p>例：</p>
+<pre><code><span class="comment">//- laytout.jade</span>
+doctype <span class="tag">html</span>
+<span class="tag">html</span>
+  <span class="tag">head</span>
+    <span class="value">block</span> <span class="tag">title</span>
+      <span class="tag">title</span> <span class="value">Default</span> <span class="tag">title</span>
+  <span class="tag">body</span>
+    <span class="value">block</span> <span class="attribute">content</span>
+</code></pre><p></p><p><br>    //- index.jade<br>    extends ./layout.jade</p>
+<pre><code><span class="value">block</span> <span class="tag">title</span>
+  <span class="tag">title</span> <span class="tag">Article</span> <span class="tag">Title</span>
+
+<span class="value">block</span> <span class="attribute">content</span>
+  <span class="tag">h1</span> My <span class="tag">Article</span>
+</code></pre><p></p><p><br>    //最终生成的html如下<br>    &lt;!doctype html&gt;<br>    <html><br>      <head><br>        <title>Article Title</title><br>      </head><br>      <body><br>        <h1>My Article</h1><br>      </body><br>    </html></p>
+<h3 id="filters">filters</h3>
+<p>过滤器，可以让我们在 <code>jade</code> 里面写其他的语言；</p>
+<p>过滤器，语法是一个前置的冒号 (<code>:</code>) 加上过滤器的名称；</p>
+<p><code>jade</code> 支持的过滤器有如下几种：</p>
+<ul>
+<li><p><code>:stylus</code> 必须已安装 <a href="http://github.com/LearnBoost/stylus" target="_blank" rel="external">stylus</a></p>
+</li>
+<li><p><code>:less</code> 必须已安装 <a href="http://github.com/cloudhead/less.js" target="_blank" rel="external">less.js</a></p>
+</li>
+<li><p><code>:markdown</code> 必须已安装 <a href="http://github.com/evilstreak/markdown-js" target="_blank" rel="external">markdown-js</a> 或 <a href="http://github.com/visionmedia/node-discount" target="_blank" rel="external">node-discount</a></p>
+</li>
+<li><p><code>:cdate</code></p>
+</li>
+<li><p><code>:coffeescript</code> 必须已安装 <a href="http://jashkenas.github.com/coffee-script/" target="_blank" rel="external">coffee-script</a></p>
+</li>
+</ul>
+<p>例：</p>
+<pre><code><span class="comment">//jade</span>
+:markdown
+  <span class="preprocessor">#Markdown</span>
+
+  I often like including markdown documents.
+script
+  :coffee
+  console.<span class="built_in">log</span> <span class="string">'This is coffe script'</span>
+</code></pre><p>
+
+<pre><code>//html
+<span class="tag">&lt;<span class="title">h1</span>&gt;</span>Markdown<span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
+
+<span class="tag">&lt;<span class="title">p</span>&gt;</span>I often like including markdown documents.<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+<span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">(<span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+
+
+}).call(<span class="keyword">this</span>);
+
+  <span class="xml"><span class="tag">&lt;<span class="title">console</span> <span class="attribute">class</span>=<span class="value">"log"</span>&gt;</span>'This is coffe script'<span class="tag">&lt;/<span class="title">console</span>&gt;</span>
+</span></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+</code></pre><h3 id="includes">includes</h3>
+</p><p><code>inclues</code> 允许我们可以插入另一个 <code>jade</code> 文件到当前的 <code>jdade</code> 文件中；</p>
+<p>例：</p>
+<pre><code><span class="comment">//- index.jade</span>
+doctype html
+  html
+    <span class="keyword">include</span> .<span class="regexp">/includes/</span>header.jade
+    body
+    h1 My Site
+    p Welcome to my <span class="keyword">super</span> lame site.
+    <span class="keyword">include</span> .<span class="regexp">/includes/</span>footer.jade
+</code></pre><p>
+
+<pre><code><span class="comment">//- includes/header.jade</span>
+head
+  title My Site
+  script(src=<span class="string">'/javascripts/jquery.js'</span>)
+  script(src=<span class="string">'/javascripts/app.js'</span>)
+</code></pre></p><p>
+
+<pre><code><span class="comment">//- includes/footer.jade</span>
+<span class="preprocessor">#footer</span>
+  p Copyright (c) Reg.Jay
+<span class="comment">//- 怎么让 &amp;copy; 转义字符生效呢？</span>
+</code></pre><ul>
+<li><p>Including Plain Text</p>
+<p>  <code>include</code> 非 <code>jade</code> 文件，比如 <code>css</code>，<code>js</code>以及纯文本文件等，一定要记得把文件的后缀名加上咯；</p>
+</li>
+</ul>
+</p><p>例：</p>
+<pre><code><span class="comment">//- index.jade</span>
+doctype html
+html
+  head
+    style
+      <span class="keyword">include</span> style.css
+  body
+    h1 My Site
+    p Welcome to my <span class="keyword">super</span> lame site.
+    script
+      <span class="keyword">include</span> script.js
+</code></pre><p>
+
+<pre><code><span class="comment">/* style.css */</span>
+<span class="tag">h1</span> <span class="rules">{ <span class="rule"><span class="attribute">color</span>:<span class="value"> red</span></span>; <span class="rule">}</span></span>
+</code></pre></p><p>
+
+<pre><code><span class="comment">// script.js</span>
+<span class="built_in">console</span>.log(<span class="string">'You are awesome'</span>);
+</code></pre></p><p>
+
+<pre><code>//index.html
+<span class="doctype">&lt;!doctype html&gt;</span>
+<span class="tag">&lt;<span class="title">html</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">head</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css">
+      <span class="comment">/* style.css */</span>
+      <span class="tag">h1</span> <span class="rules">{ <span class="rule"><span class="attribute">color</span>:<span class="value"> red</span></span>; <span class="rule">}</span></span>
+    </span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">head</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">body</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">h1</span>&gt;</span>My Site<span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">p</span>&gt;</span>Welcome to my super lame site.<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">
+      <span class="comment">// script.js</span>
+      <span class="built_in">console</span>.log(<span class="string">'You are awesome'</span>);
+    </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">body</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">html</span>&gt;</span>
+</code></pre><ul>
+<li><p>Including Filtered Text</p>
+<p>  还可以 <code>include</code> 过滤器，语法是 <code>include:FilterName FilterFile.FilterType</code></p>
+</li>
+</ul>
+</p><p>例：</p>
+<pre><code><span class="comment">//- index.jade</span>
+doctype html
+html
+  head
+    title An Article
+  body
+    <span class="keyword">include</span>:markdown article.md
+</code></pre><p>
+
+<pre><code><span class="preprocessor"># article.md</span>
+
+This <span class="keyword">is</span> an article written <span class="keyword">in</span> markdown.
+</code></pre></p><p>
+
+<pre><code>//index.html
+<span class="doctype">&lt;!doctype html&gt;</span>
+<span class="tag">&lt;<span class="title">html</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">head</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">title</span>&gt;</span>An Article<span class="tag">&lt;/<span class="title">title</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">head</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">body</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">h1</span>&gt;</span>article.md<span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">p</span>&gt;</span>This is an article written in markdown.<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">body</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">html</span>&gt;</span>
+</code></pre><h3 id="iteration">iteration</h3>
+</p><p><code>jade</code>支持两种主要的迭代方法， <code>each</code> 和 <code>while</code>，当然如果个人喜欢也可以使用 <code>for</code>，因为 <code>jade</code> 是支持 <code>javascript</code> 原生代码的。很强大的吧。嘿嘿。</p>
+<ul>
+<li><p><strong>each</strong></p>
+<p>  推荐使用 <code>each</code>， 因为它更容易迭代一个数组和对象；</p>
+<p>  语法：<code>each val, [key] in obj</code></p>
+<p>  例：</p>
+<pre><code>  ul
+    each val in [1, 2, 3, 4, 5]
+      li= val
+
+  //output
+  <span class="tag">&lt;<span class="title">ul</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">li</span>&gt;</span>1<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">li</span>&gt;</span>2<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">li</span>&gt;</span>3<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">li</span>&gt;</span>4<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">li</span>&gt;</span>5<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">ul</span>&gt;</span>
+</code></pre><p>  注意啦，这里要在标签中使用变量，必须使用等号 (<code>=</code>)，如果要混合使用变量和字符串，那应该把变量放到 <code>#{}</code> 中，并且不能使用等号，如#{val}</p>
+<p>  例2：同时获取索引和值：</p>
+<pre><code>  ul
+    <span class="keyword">each</span> val, index <span class="operator">in</span> [<span class="string">'zero'</span>, <span class="string">'one'</span>, <span class="string">'two'</span>]
+      li= index + <span class="string">': '</span> + val
+
+ <span class="comment"> //output</span>
+  &lt;ul&gt;
+    &lt;li&gt;<span class="number">0</span>: <span class="constant">zero</span>&lt;/li&gt;
+    &lt;li&gt;<span class="number">1</span>: <span class="constant">one</span>&lt;/li&gt;
+    &lt;li&gt;<span class="number">2</span>: <span class="constant">two</span>&lt;/li&gt;
+  &lt;/ul&gt;
+</code></pre><p>  例3：还可以用来迭代一个对象的 <code>key</code>：</p>
+<pre><code>  ul
+    <span class="keyword">each</span> val, index <span class="operator">in</span> {<span class="string">'one'</span>: <span class="string">'one'</span>,<span class="string">'two'</span>: <span class="string">'world'</span>,<span class="string">'three'</span>: <span class="string">'one'</span>, <span class="string">'four'</span>: <span class="string">'dream'</span>}
+      li= index + <span class="string">': '</span> + val
+
+ <span class="comment"> //output</span>
+  &lt;ul&gt;
+    &lt;li&gt;<span class="constant">one</span>: <span class="constant">one</span>&lt;/li&gt;
+    &lt;li&gt;<span class="constant">two</span>: world&lt;/li&gt;
+    &lt;li&gt;<span class="constant">three</span>: <span class="constant">one</span>&lt;/li&gt;
+    &lt;li&gt;<span class="constant">four</span>: dream&lt;/li&gt;
+  &lt;/ul&gt;
+</code></pre></li>
+<li><p>while</p>
+<p>  用法跟 <code>javascript</code> 一样</p>
+<p>  例：</p>
+<pre><code>  - var n = 0
+  ul
+    while n <span class="variable">&lt; 4
+      li= n++
+
+  //output
+  &lt;ul&gt;</span>
+    <span class="variable">&lt;li&gt;</span>0<span class="variable">&lt;/li&gt;</span>
+    <span class="variable">&lt;li&gt;</span>1<span class="variable">&lt;/li&gt;</span>
+    <span class="variable">&lt;li&gt;</span>2<span class="variable">&lt;/li&gt;</span>
+    <span class="variable">&lt;li&gt;</span>3<span class="variable">&lt;/li&gt;</span>
+  <span class="variable">&lt;/ul&gt;</span>
+</code></pre></li>
+</ul>
+<h3 id="mixins">mixins</h3>
+<p>使用 <code>mixin</code> 可以创建可重用的代码块；</p>
+<p>语法：<code>minxin mixinName</code>，调用的时候直接<code>+mixinName</code></p>
+<p>例：</p>
+<pre><code>//- Declaration
+mixin list
+  ul
+    li foo
+    li bar
+    li baz
+//- Use
++list
++list
+
+//output
+<span class="tag">&lt;<span class="title">ul</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">li</span>&gt;</span>foo<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">li</span>&gt;</span>bar<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">li</span>&gt;</span>baz<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">ul</span>&gt;</span>
+<span class="tag">&lt;<span class="title">ul</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">li</span>&gt;</span>foo<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">li</span>&gt;</span>bar<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">li</span>&gt;</span>baz<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">ul</span>&gt;</span>
+</code></pre><p>在使用的时候，还可以给<code>mixin</code>定义参数，当作一个函数来使用；</p>
+<p>例：</p>
+<pre><code>mixin pet(name)
+  li.pet= name
+ul
+  +pet('cat')
+  +pet('dog')
+  +pet('pig')
+
+//output
+<span class="tag">&lt;<span class="title">ul</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">li</span> <span class="attribute">class</span>=<span class="value">"pet"</span>&gt;</span>cat<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">li</span> <span class="attribute">class</span>=<span class="value">"pet"</span>&gt;</span>dog<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">li</span> <span class="attribute">class</span>=<span class="value">"pet"</span>&gt;</span>pig<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">ul</span>&gt;</span>
+</code></pre><p><strong>Mixin Blocks</strong></p>
+<p><code>mixin</code> 也可以使用像 <code>include</code> 那样的块</p>
+<p>例：</p>
+<pre><code>mixin article(title)
+  .article
+    .article-wrapper
+      h1= title
+      <span class="keyword">if</span> <span class="keyword">block</span>
+        <span class="keyword">block</span>
+      <span class="keyword">else</span>
+        p No content provided
+
++article(<span class="attribute">'Hello</span> world')
+
++article(<span class="attribute">'Hello</span> world')
+  p This <span class="keyword">is</span> my
+  p Amazing article
+</code></pre><p>
+
+<pre><code><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"article"</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"article-wrapper"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">h1</span>&gt;</span>Hello world<span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">p</span>&gt;</span>No content provided<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"article"</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"article-wrapper"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">h1</span>&gt;</span>Hello world<span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">p</span>&gt;</span>This is my<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">p</span>&gt;</span>Amazing article<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</code></pre><ul>
+<li>Mixin Attributes</li>
+</ul>
+</p><p>例：</p>
+<pre><code>mixin link(href, name)
+  <span class="comment">//- attributes == {class: "btn"}</span>
+  a(<span class="keyword">class</span>!=attributes.<span class="keyword">class</span>, href=href)= name
+
++link(<span class="string">'/foo'</span>, <span class="string">'foo'</span>)(<span class="keyword">class</span>=<span class="string">"btn"</span>)
+
+<span class="comment">//output</span>
+&lt;a href=<span class="string">"/foo"</span> <span class="keyword">class</span>=<span class="string">"btn"</span>&gt;foo&lt;<span class="regexp">/a&gt;</span>
+</code></pre>
+    
+  </div>
+  <footer class="post-footer">
+    
+  </footer>
+</article>
+
+  
+  
+</main>
+    
+      <aside class="site-aside" id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/jade/">jade</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07">July 2014</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2014/07/20/Jade/">Jage入门之路</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+    
+  <footer class="site-footer"><div id="footer-info" class="inner">
+  <span>&copy; 2014 Jay</span>
+  <span> Theme by Jay.Zhang</span>
+  <span>Powered by </span><a href="http://hexo.io/" target="_blank">Hexo</a>
+</div></footer>
+</body>
+</html>
