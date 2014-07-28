@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Mongoose基础01 | jayself</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link type="text/css" rel="stylesheet" href="/css/style.css">
+  <link type="text/css" rel="stylesheet" href="/css/font-awesome.min.css">
+</head>
+<body>
+  <header class="site-header"><nav class="site-nav">
+  <h1 class="site-title">
+    <a href="/" id="logo">jayself</a>
+  </h1>
+  <ul>
+    
+    <li>
+      <a class="main-nav-link" href="/">Home</a>
+    </li>
+    
+    <li>
+      <a class="main-nav-link" href="/archives">Archives</a>
+    </li>
+    
+  </ul>
+</nav></header>
+  <main class="site-scroll">
+    <section class="site-main"><article id="post-mongoose_learn01" class="post article-type-post">
+  
+    <header class="post-header">
+      
+  
+    <h3 class="post-title" itemprop="name">
+      Mongoose基础01
+    </h3>
+  
+
+    </header>
+  
+  <div class="post-meta">
+    <time datetime="2014-07-28T03:53:38.000Z" itemprop="datePublished">Jul 28 2014</time>
+    
+  <span class="article-category">
+    <a class="article-category-link" href="/categories/mongodb/">mongodb</a>
+  </span>
+
+  </div>
+  <div class="post-content">
+    
+      <p><strong>Mongoose是MongoDB的一个对象模型工具，可以工作于异步环境下</strong></p>
+<h3 id="install">install</h3>
+<p>安装：<code>npm install -g mongoose</code></p>
+<p>使用：<code>var mongoose = require(&#39;mongoose&#39;);</code></p>
+<a id="more"></a>
+
+<h3 id="连接到MongoDB数据库">连接到MongoDB数据库</h3>
+<p>首先，我们需要定义一个连接；</p>
+<p>如果应用只使用一个数据库，直接使用 <code>mongoose.connect()</code>；</p>
+<p>如果需要创建附加数据库连接，需要使用 <code>mongoose.createConnection()</code>；</p>
+<p><code>mongoose</code> 连接数据库的方式支持 URI 或参数(host, databse, port)的形式：</p>
+<pre><code><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>);
+mongoose.connect(<span class="string">'mongodb://localhost/blog'</span>);
+
+<span class="comment">//- URI组成 = mongodb:// + 数据库主机地址 + 数据库名</span>
+</code></pre><p>连接一旦建立成功，该连接实例的 <code>open</code> 事件就被触发；</p>
+<p>如果，数据库名不存在，会自动创建它；</p>
+<p>如果，使用的是 <code>mongoose.connect()</code> 方式，连接对象为 <code>mongoose.connection</code>；</p>
+<p>如果，使用的是 <code>mongoose.createConnection()</code> 方式，返回的是 <code>Connection</code> 对象；</p>
+<p><strong>注</strong>：<code>mongoose</code> 在与数据库真正建立连接之前便缓存了所有的命令，也就是说在定义模型、执行查询时不必非得确认与 <code>MongoDB</code> 数据库的连接是否成功；</p>
+<h3 id="定义schema">定义<code>schema</code></h3>
+<p>Everything in <code>Mongoose</code> starts with a <code>Schema</code>；</p>
+<p>通过 <code>Schema</code> 我们可以快速定义映射到 <code>MongoDB</code> 的文档结构和存储数据的类型等；如：</p>
+<pre><code><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>);
+<span class="keyword">var</span> Schema = mongoose.Schema;
+
+<span class="keyword">var</span> blogSchema = <span class="keyword">new</span> Schema({
+  title:  <span class="built_in">String</span>,
+  author: <span class="built_in">String</span>,
+  body:   <span class="built_in">String</span>,
+  comments: [{ body: <span class="built_in">String</span>, date: <span class="built_in">Date</span> }],
+  date: { type: <span class="built_in">Date</span>, <span class="keyword">default</span>: <span class="built_in">Date</span>.now },
+  hidden: <span class="built_in">Boolean</span>,
+  meta: {
+    votes: <span class="built_in">Number</span>,
+    favs:  <span class="built_in">Number</span>
+  }
+});
+</code></pre><p>当我们定义好 <code>Schema</code> 之后，如果想再追加一些文档，可以使用 <code>Schema</code> 的 <code>add()</code> 方法：</p>
+<pre><code><span class="tag">blogSchema</span><span class="class">.add</span>(<span class="rules">{ <span class="rule"><span class="attribute">category</span>:<span class="value"> <span class="string">'string'</span>, titlecolor: <span class="string">'string'</span> </span></span></span>});
+</code></pre><p><strong>注</strong>， 文档如同关系型数据库中的行；</p>
+<p><code>Schema</code> 支持的类型有：</p>
+<ul>
+<li>String</li>
+<li>Number</li>
+<li>Date</li>
+<li>Buffer</li>
+<li>Boolean</li>
+<li>Mixed</li>
+<li>ObjectId</li>
+<li>Array</li>
+</ul>
+<p><code>Schema</code> 不仅仅能用来定义文档结构和存储的数据类型，还可以用来定义如下内容：</p>
+<ul>
+<li>validators 异步和同步</li>
+<li>defaults 默认值</li>
+<li>getters</li>
+<li>setters</li>
+<li>indexes 索引</li>
+<li>middleware 中间件</li>
+<li>methods definition 方法定义</li>
+<li>static definition 静态定义</li>
+<li>plugins 插件</li>
+</ul>
+<p>下面的代码向我们展示了这些功能的一部分：</p>
+<pre><code><span class="keyword">var</span> Comment = <span class="keyword">new</span> Schema({
+  name: { type: <span class="built_in">String</span>, dafult: <span class="string">'Reg.Jay'</span> },
+  age: { type: <span class="built_in">Number</span>, min: <span class="number">18</span>, index: <span class="literal">true</span> },
+  bio: { type: <span class="built_in">String</span>, match: <span class="regexp">/[a-z]/</span> },
+  date: { type: <span class="built_in">Date</span>, <span class="keyword">default</span>: <span class="built_in">Date</span>.now }
+});
+
+<span class="comment">//- 定义setter</span>
+Comment.path(<span class="string">'name'</span>).set(<span class="function"><span class="keyword">function</span><span class="params">(arg)</span> </span>{
+  <span class="keyword">return</span> arg.capitalize();
+});
+
+<span class="comment">//- 定义中间件</span>
+Comment.pre(<span class="string">'save'</span>, <span class="function"><span class="keyword">function</span><span class="params">(next)</span> </span>{
+  notify(<span class="keyword">this</span>.get(<span class="string">'email'</span>));
+  next();
+});
+</code></pre><h3 id="创建模型">创建模型</h3>
+<p>模型是通过 <code>Schema interface</code> 定义的；一个模型就是 <code>MongoDB</code> 的一个集合；</p>
+<p>要使用我们定义的 <code>schema</code>，需要转换 <code>schema</code> 到模型上通过 <code>mongoose.model(modelName, schema)</code> 方法(也就是创建模型)：</p>
+<pre><code><span class="keyword">var</span> Blog = mongoose.model(<span class="string">'Blog'</span>, blogSchema);
+</code></pre><p>创建好模型之后，可以通过实例化模型来使用它，文档就是实例化的模型；通过文档我们就能很方便的操作数据库了；</p>
+<pre><code>var newblog = <span class="keyword">new</span> Blog({
+  title:  <span class="string">"Mongoose"</span>,
+  author: <span class="string">"Reg.Jay"</span>,
+  <span class="keyword">body</span>:   <span class="string">"Documents are instances of out model. Creating them and saving to the database is easy"</span>,
+  comments: [{ <span class="keyword">body</span>: <span class="string">"It's very cool! Thanks a lot!"</span>, date: <span class="string">"2014.07.28"</span> }],
+  hidden: <span class="literal">false</span>,
+  meta: {
+    votes: <span class="number">100</span>,
+    favs:  <span class="number">99</span>
+  }
+});
+</code></pre><p>实例化模型后，需要保存才能写入到数据库哟：</p>
+<pre><code>newblog.save(<span class="function"><span class="keyword">function</span><span class="params">(err)</span> </span>{});
+</code></pre><h3 id="最终完整的代码：">最终完整的代码：</h3>
+<p><code>model.js</code>源代码：</p>
+<pre><code><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>);
+<span class="keyword">var</span> Schema = mongoose.Schema;
+mongoose.connect(<span class="string">'mongodb://localhost/blog'</span>);
+
+<span class="keyword">var</span> blogSchema = <span class="keyword">new</span> Schema({
+  title: <span class="built_in">String</span>,
+  author: <span class="built_in">String</span>,
+  body: <span class="built_in">String</span>,
+  comments: [{ body: <span class="built_in">String</span>, date: <span class="built_in">Date</span> }],
+  date: { type: <span class="built_in">Date</span>, <span class="keyword">default</span>: <span class="built_in">Date</span>.now },
+  hidden: <span class="built_in">Boolean</span>,
+  meta: {
+    votes: <span class="built_in">Number</span>,
+    favs: <span class="built_in">Number</span>
+  }
+});
+
+<span class="built_in">module</span>.exports = blogSchema;
+</code></pre><p><code>blog.js</code>源代码：</p>
+<pre><code><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>);
+<span class="keyword">var</span> blogSchema = <span class="built_in">require</span>(<span class="string">'./model'</span>);
+<span class="keyword">var</span> Blog = mongoose.model(<span class="string">'Blog'</span>, blogSchema);
+
+<span class="keyword">var</span> newblog = <span class="keyword">new</span> Blog({
+  title: <span class="string">"Mongoose"</span>,
+  author: <span class="string">"Reg.Jay"</span>,
+  body: <span class="string">"Document are instances of out model. Creating them add saving to the database is easy"</span>,
+  hidden: <span class="literal">false</span>,
+  meta: {
+    votes: <span class="number">100</span>,
+    favs: <span class="number">99</span>
+  }
+});
+
+newblog.save(<span class="function"><span class="keyword">function</span><span class="params">(err)</span> </span>{
+  <span class="keyword">if</span> (err) handleError(err);
+  <span class="built_in">console</span>.log(<span class="string">'Success'</span>);
+});
+</code></pre><p>终端下查看数据：</p>
+<pre><code><span class="input"><span class="prompt">$ mongo
+MongoDB shell version: 2.4.9
+connecting to: test
+&gt;</span> show dbs;
+blog    <span class="number">0</span>.<span class="number">203125</span>GB</span>
+<span class="input"><span class="prompt">jay        0.203125GB
+local    0.078125GB
+test    0.203125GB
+&gt;</span> use blog;
+switched to db blog</span>
+<span class="input"><span class="prompt">&gt; show collections;
+blogs
+system.indexes
+&gt;</span> db.blogs.find()</span>
+{ <span class="string">"title"</span> <span class="symbol">:</span> <span class="string">"Mongoose"</span>, <span class="string">"author"</span> <span class="symbol">:</span> <span class="string">"Reg.Jay"</span>, <span class="string">"body"</span> <span class="symbol">:</span> <span class="string">"Document are instances of out model. Creating them add saving to the database is easy"</span>, <span class="string">"hidden"</span> <span class="symbol">:</span> <span class="keyword">false</span>, <span class="string">"_id"</span> <span class="symbol">:</span> <span class="constant">ObjectId</span>(<span class="string">"53cba279f8e875aa0c4d4d19"</span>), <span class="string">"meta"</span> <span class="symbol">:</span> { <span class="string">"votes"</span> <span class="symbol">:</span> <span class="number">100</span>, <span class="string">"favs"</span> <span class="symbol">:</span> <span class="number">99</span> }, <span class="string">"date"</span> <span class="symbol">:</span> <span class="constant">ISODate</span>(<span class="string">"2014-07-20T11:05:29.747Z"</span>), <span class="string">"comments"</span> <span class="symbol">:</span> [ ], <span class="string">"__v"</span> <span class="symbol">:</span> <span class="number">0</span> }
+&gt;
+</code></pre>
+    
+  </div>
+  <footer class="post-footer">
+    
+  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/mongodb/">mongodb</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/mongoose/">mongoose</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/node/">node</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/nosql/">nosql</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/sql/">sql</a></li></ul>
+
+  </footer>
+</article>
+
+  
+<nav class="post-nav">
+  
+    <a href="/2014/07/28/mongoose_learn02/" class="post-nav-link-wrap post-nav-prev">
+      <strong class="post-nav-caption">Prev:</strong>
+      <span class="post-nav-title">
+        
+          Mongoose基础02
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2014/07/28/mongod_basic/" class="post-nav-link-wrap post-nav-next">
+      <strong class="post-nav-caption">Next:</strong>
+      <span class="post-nav-title">MongoDB语法基础</span>
+    </a>
+  
+</nav>
+
+</section>
+    
+      <aside class="site-aside" id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/compass/">compass</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mongodb/">mongodb</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/node/express/">express</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/vim/">vim</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/appjs/">app.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compass/">compass</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/express/">express</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ide/">ide</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jade/">jade</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/json/">json</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/module/">module</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/">mongodb</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongoose/">mongoose</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mvc/">mvc</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nosql/">nosql</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sass/">sass</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scss/">scss</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/">sql</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/appjs/" style="font-size: 10.00px;">app.js</a><a href="/tags/compass/" style="font-size: 10.00px;">compass</a><a href="/tags/express/" style="font-size: 16.67px;">express</a><a href="/tags/ide/" style="font-size: 10.00px;">ide</a><a href="/tags/jade/" style="font-size: 10.00px;">jade</a><a href="/tags/js/" style="font-size: 13.33px;">js</a><a href="/tags/json/" style="font-size: 10.00px;">json</a><a href="/tags/module/" style="font-size: 10.00px;">module</a><a href="/tags/mongodb/" style="font-size: 16.67px;">mongodb</a><a href="/tags/mongoose/" style="font-size: 13.33px;">mongoose</a><a href="/tags/mvc/" style="font-size: 10.00px;">mvc</a><a href="/tags/node/" style="font-size: 20.00px;">node</a><a href="/tags/nosql/" style="font-size: 16.67px;">nosql</a><a href="/tags/sass/" style="font-size: 10.00px;">sass</a><a href="/tags/scss/" style="font-size: 10.00px;">scss</a><a href="/tags/sql/" style="font-size: 16.67px;">sql</a><a href="/tags/vim/" style="font-size: 10.00px;">vim</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07">July 2014</a><span class="archive-list-count">11</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2014/07/28/vim_command/">vim常用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2014/07/28/node_express_basic/">Express4.x基础</a>
+          </li>
+        
+          <li>
+            <a href="/2014/07/28/node_modules/">Node模块解析基础</a>
+          </li>
+        
+          <li>
+            <a href="/2014/07/28/node_basic_express_app/">Node之 app.js 基础讲解</a>
+          </li>
+        
+          <li>
+            <a href="/2014/07/28/mongoose_learn02/">Mongoose基础02</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+    
+  </main>
+  <footer class="site-footer"><div id="footer-info" class="inner">
+  <span>&copy; 2014 Jay.Zhang</span>
+  <span> Theme by Jay.Zhang</span>
+  <span>Powered by </span><a href="http://hexo.io/" target="_blank">Hexo</a>
+</div>
+<script type="text/javascript" src="/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="/js/tomyself.js"></script>
+</footer>
+</body>
+</html>

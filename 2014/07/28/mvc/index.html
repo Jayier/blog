@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2014/7 | jayself</title>
+  <title>前端MVC模式 | jayself</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link type="text/css" rel="stylesheet" href="/css/style.css">
   <link type="text/css" rel="stylesheet" href="/css/font-awesome.min.css">
@@ -26,163 +26,83 @@
   </ul>
 </nav></header>
   <main class="site-scroll">
-    <section class="site-main">
+    <section class="site-main"><article id="post-mvc" class="post article-type-post">
   
-  
-    
-    
+    <header class="post-header">
       
-      
-      <article class="post page-archive">
-        <h2 class="page-archive-title">
-          <a href="/archives/2014" class="archive-year">2014</a>
-        </h2>
-        <ul class="page-archive-content">
-    
-    <li class="archive-item archive-type-post">
-  <time datetime="2014-07-28T04:45:04.000Z" itemprop="datePublished">Jul 28</time>
   
-  
-    <h3 itemprop="name">
-      <a class="archive-item-title" href="/2014/07/28/vim_command/">vim常用命令</a>
+    <h3 class="post-title" itemprop="name">
+      前端MVC模式
     </h3>
   
 
-</li>
+    </header>
   
+  <div class="post-meta">
+    <time datetime="2014-07-28T03:45:28.000Z" itemprop="datePublished">Jul 28 2014</time>
     
-    
-    <li class="archive-item archive-type-post">
-  <time datetime="2014-07-28T04:42:03.000Z" itemprop="datePublished">Jul 28</time>
-  
-  
-    <h3 itemprop="name">
-      <a class="archive-item-title" href="/2014/07/28/node_express_basic/">Express4.x基础</a>
-    </h3>
-  
+  <span class="article-category">
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+  </span>
 
-</li>
-  
+  </div>
+  <div class="post-content">
     
-    
-    <li class="archive-item archive-type-post">
-  <time datetime="2014-07-28T04:40:16.000Z" itemprop="datePublished">Jul 28</time>
-  
-  
-    <h3 itemprop="name">
-      <a class="archive-item-title" href="/2014/07/28/node_modules/">Node模块解析基础</a>
-    </h3>
-  
+      <p><strong><code>MVC</code></strong>模式(Model - View - Controller) 是软件工程中的一种软件架构模式，把软件系统分为三个基本部分：模型(Model)、视图(View)和控制器(Controller)；</p>
+<p><code>MVC</code> 模式的目的是实现一种动态的程序设计，使后续对程序的修改和扩展简化，并且使程序某一个部分的重复利用成为可能；</p>
+<p>除此之外，此模式通过对复杂度的简化，使程序结构更加直观。</p>
+<p>软件系统通过对自身基本部分分离的同时也赋予了各个基本应用的功能。</p>
+<a id="more"></a>
 
+<p>专业人员可以通过自身的专长分组：</p>
+<ul>
+<li><p>模型(Model)：程序员编写程序应有的功能(实现算法等)、数据库专家进行数据管理和数据库设计(可以实现具体的功能)；</p>
+<p>  模型用于封装与应用程序的业务逻辑相关的数据以及对数据的处理方法。</p>
+<p>  模型有对数据直接访问的权力，例如对数据库的访问。</p>
+<p>  模型不依赖视图和控制器，也就是说，模型不关心它会被如何显示或是如何被操作，但是模型中数据的变化一般会通过一种刷新机制被公布。</p>
+<p>  为了实现这种机制，那些用于监视此模型的视图必须事先在此模型上注册，从而，视图可以了解在数据模型上发生的改变。</p>
 </li>
-  
-    
-    
-    <li class="archive-item archive-type-post">
-  <time datetime="2014-07-28T04:37:35.000Z" itemprop="datePublished">Jul 28</time>
-  
-  
-    <h3 itemprop="name">
-      <a class="archive-item-title" href="/2014/07/28/node_basic_express_app/">Node之 app.js 基础讲解</a>
-    </h3>
-  
+<li><p>视图(Vies)：界面设计人员进行图形界面设计；</p>
+<p>  视图能够实现数据有目的的显示。</p>
+<p>  在视图中一般没有程序上的逻辑。</p>
+<p>  为了实现视图上的刷新功能，视图需要访问它监视的数据模型(Model)，因此应该事先在被它监视的数据那里注册。</p>
+</li>
+<li><p>控制器(Controller)：负责转发请求，对请求进行处理；</p>
+<p>  控制器起到不同层面间的组织作用，用于控制应用程序的流程。</p>
+<p>  它处理事件并作出响应。事件包括用户的行为和数据模型上的改变。</p>
+</li>
+</ul>
+<p>在 <code>javascript</code> 对 <code>MVC</code> 的实现有如：<code>Backbone.js</code>、<code>Angular.js</code>、<code>Ember.js</code>以及 <code>JavaScriptMVC</code>等；</p>
 
-</li>
-  
     
+  </div>
+  <footer class="post-footer">
     
-    <li class="archive-item archive-type-post">
-  <time datetime="2014-07-28T03:53:48.000Z" itemprop="datePublished">Jul 28</time>
-  
-  
-    <h3 itemprop="name">
-      <a class="archive-item-title" href="/2014/07/28/mongoose_learn02/">Mongoose基础02</a>
-    </h3>
-  
+  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/js/">js</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/mvc/">mvc</a></li></ul>
 
-</li>
-  
-    
-    
-    <li class="archive-item archive-type-post">
-  <time datetime="2014-07-28T03:53:38.000Z" itemprop="datePublished">Jul 28</time>
-  
-  
-    <h3 itemprop="name">
-      <a class="archive-item-title" href="/2014/07/28/mongoose_learn01/">Mongoose基础01</a>
-    </h3>
-  
+  </footer>
+</article>
 
-</li>
   
-    
-    
-    <li class="archive-item archive-type-post">
-  <time datetime="2014-07-28T03:51:28.000Z" itemprop="datePublished">Jul 28</time>
+<nav class="post-nav">
+  
+    <a href="/2014/07/28/json_basic/" class="post-nav-link-wrap post-nav-prev">
+      <strong class="post-nav-caption">Prev:</strong>
+      <span class="post-nav-title">
+        
+          JSON基础
+        
+      </span>
+    </a>
   
   
-    <h3 itemprop="name">
-      <a class="archive-item-title" href="/2014/07/28/mongod_basic/">MongoDB语法基础</a>
-    </h3>
+    <a href="/2014/07/28/Jade/" class="post-nav-link-wrap post-nav-next">
+      <strong class="post-nav-caption">Next:</strong>
+      <span class="post-nav-title">Jade中文教程</span>
+    </a>
   
+</nav>
 
-</li>
-  
-    
-    
-    <li class="archive-item archive-type-post">
-  <time datetime="2014-07-28T03:48:51.000Z" itemprop="datePublished">Jul 28</time>
-  
-  
-    <h3 itemprop="name">
-      <a class="archive-item-title" href="/2014/07/28/json_basic/">JSON基础</a>
-    </h3>
-  
-
-</li>
-  
-    
-    
-    <li class="archive-item archive-type-post">
-  <time datetime="2014-07-28T03:45:28.000Z" itemprop="datePublished">Jul 28</time>
-  
-  
-    <h3 itemprop="name">
-      <a class="archive-item-title" href="/2014/07/28/mvc/">前端MVC模式</a>
-    </h3>
-  
-
-</li>
-  
-    
-    
-    <li class="archive-item archive-type-post">
-  <time datetime="2014-07-28T03:45:28.000Z" itemprop="datePublished">Jul 28</time>
-  
-  
-    <h3 itemprop="name">
-      <a class="archive-item-title" href="/2014/07/28/Jade/">Jade中文教程</a>
-    </h3>
-  
-
-</li>
-  
-    
-    
-    <li class="archive-item archive-type-post">
-  <time datetime="2014-07-28T03:22:26.000Z" itemprop="datePublished">Jul 28</time>
-  
-  
-    <h3 itemprop="name">
-      <a class="archive-item-title" href="/2014/07/28/Compass/">Compass基础</a>
-    </h3>
-  
-
-</li>
-  
-  
-    </ul></article>
-  
 </section>
     
       <aside class="site-aside" id="sidebar">

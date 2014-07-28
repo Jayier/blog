@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2014/7 | jayself</title>
+  <title>Category: node | jayself</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link type="text/css" rel="stylesheet" href="/css/style.css">
   <link type="text/css" rel="stylesheet" href="/css/font-awesome.min.css">
@@ -28,160 +28,199 @@
   <main class="site-scroll">
     <section class="site-main">
   
+    <article id="post-node_express_basic" class="post article-type-post">
   
-    
-    
+    <header class="post-header">
       
+  
+    <h3 itemprop="name">
+      <a class="post-title" href="/2014/07/28/node_express_basic/">Express4.x基础</a>
+    </h3>
+  
+
+    </header>
+  
+  <div class="post-meta">
+    <time datetime="2014-07-28T04:42:03.000Z" itemprop="datePublished">Jul 28 2014</time>
+    
+  <span class="article-category">
+    <a class="article-category-link" href="/categories/node/">node</a>►<a class="article-category-link" href="/categories/node/express/">express</a>
+  </span>
+
+  </div>
+  <div class="post-content">
+    
+      <h3 id="在线安装_express">在线安装 express</h3>
+<p>首先，要确保电脑上安装好了 <code>nodejs</code> 和 <code>npm</code>；</p>
+<h4 id="Ubuntu下安装">Ubuntu下安装</h4>
+<ol>
+<li><p>Ctrl + Alt + T，打开终端；</p>
+</li>
+<li><p>输入 <code>sudo apt-get install nodejs</code>；</p>
+</li>
+<li><p>输入 <code>sudo apt-get install nodejs-legacy</code>；</p>
+</li>
+<li><p>输入 <code>sudo apt-get install npm</code>；</p>
+</li>
+</ol>
+
       
-      <article class="post page-archive">
-        <h2 class="page-archive-title">
-          <a href="/archives/2014" class="archive-year">2014</a>
-        </h2>
-        <ul class="page-archive-content">
     
-    <li class="archive-item archive-type-post">
-  <time datetime="2014-07-28T04:45:04.000Z" itemprop="datePublished">Jul 28</time>
+  </div>
+  <footer class="post-footer">
+    
+  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/express/">express</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/node/">node</a></li></ul>
+
+  </footer>
+</article>
+
   
+    <article id="post-node_modules" class="post article-type-post">
+  
+    <header class="post-header">
+      
   
     <h3 itemprop="name">
-      <a class="archive-item-title" href="/2014/07/28/vim_command/">vim常用命令</a>
+      <a class="post-title" href="/2014/07/28/node_modules/">Node模块解析基础</a>
     </h3>
   
 
+    </header>
+  
+  <div class="post-meta">
+    <time datetime="2014-07-28T04:40:16.000Z" itemprop="datePublished">Jul 28 2014</time>
+    
+  <span class="article-category">
+    <a class="article-category-link" href="/categories/node/">node</a>►<a class="article-category-link" href="/categories/node/express/">express</a>
+  </span>
+
+  </div>
+  <div class="post-content">
+    
+      <h3 id="什么是模块">什么是模块</h3>
+<p>在 node 中模块与文件是一一对应的，也就是说一个 node 文件就是一个模块；</p>
+<h3 id="模块文件类型">模块文件类型</h3>
+<p>node可以加载的文件类型有三种: <code>.js</code>, <code>.json</code>, <code>.node</code>，在加载的时候可以省略后缀名；</p>
+<ul>
+<li><p><code>.js</code> 就是常规的 javascript 文件；</p>
 </li>
-  
+<li><p><code>.json</code> 则是 json 格式对象，这两者(<code>.js</code>和<code>.json</code>)加载的时候被视为 javascript 动态编译和处理使用；</p>
+</li>
+<li><p><code>.node</code> 则是预编译好的插件模块；</p>
+</li>
+</ul>
+
+      
     
+  </div>
+  <footer class="post-footer">
     
-    <li class="archive-item archive-type-post">
-  <time datetime="2014-07-28T04:42:03.000Z" itemprop="datePublished">Jul 28</time>
+  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/express/">express</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/module/">module</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/node/">node</a></li></ul>
+
+  </footer>
+</article>
+
   
+    <article id="post-node_basic_express_app" class="post article-type-post">
+  
+    <header class="post-header">
+      
   
     <h3 itemprop="name">
-      <a class="archive-item-title" href="/2014/07/28/node_express_basic/">Express4.x基础</a>
+      <a class="post-title" href="/2014/07/28/node_basic_express_app/">Node之 app.js 基础讲解</a>
     </h3>
   
 
+    </header>
+  
+  <div class="post-meta">
+    <time datetime="2014-07-28T04:37:35.000Z" itemprop="datePublished">Jul 28 2014</time>
+    
+  <span class="article-category">
+    <a class="article-category-link" href="/categories/node/">node</a>►<a class="article-category-link" href="/categories/node/express/">express</a>
+  </span>
+
+  </div>
+  <div class="post-content">
+    
+      <h4 id="模块的注册">模块的注册</h4>
+<ul>
+<li><p>使用 <code>require(packageName)</code> 注册模块；</p>
+<p>  <code>var path = require(&#39;path&#39;);</code>, 注册 <code>path</code> 核心模块；</p>
+<p>  <code>var express = require(&#39;express&#39;);</code>, 注册 ‘express’ 核心模块；</p>
+<p>  <code>var routes = require(&#39;./routes/index&#39;);</code>， 注册用户自定义的模块 <code>index.js</code>；</p>
+<p>  一个点 ( . ) 代表是当前目录， ( ./routes/index ) 意为与当前文件同目录的 <code>routes</code> 目录内的 ‘index.js’文件；</p>
 </li>
-  
+</ul>
+
+      
     
+  </div>
+  <footer class="post-footer">
     
-    <li class="archive-item archive-type-post">
-  <time datetime="2014-07-28T04:40:16.000Z" itemprop="datePublished">Jul 28</time>
+  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/appjs/">app.js</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/express/">express</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/node/">node</a></li></ul>
+
+  </footer>
+</article>
+
   
+    <article id="post-Jade" class="post article-type-post">
+  
+    <header class="post-header">
+      
   
     <h3 itemprop="name">
-      <a class="archive-item-title" href="/2014/07/28/node_modules/">Node模块解析基础</a>
+      <a class="post-title" href="/2014/07/28/Jade/">Jade中文教程</a>
     </h3>
   
 
-</li>
+    </header>
   
+  <div class="post-meta">
+    <time datetime="2014-07-28T03:45:28.000Z" itemprop="datePublished">Jul 28 2014</time>
     
-    
-    <li class="archive-item archive-type-post">
-  <time datetime="2014-07-28T04:37:35.000Z" itemprop="datePublished">Jul 28</time>
-  
-  
-    <h3 itemprop="name">
-      <a class="archive-item-title" href="/2014/07/28/node_basic_express_app/">Node之 app.js 基础讲解</a>
-    </h3>
-  
+  <span class="article-category">
+    <a class="article-category-link" href="/categories/node/">node</a>
+  </span>
 
-</li>
-  
+  </div>
+  <div class="post-content">
     
-    
-    <li class="archive-item archive-type-post">
-  <time datetime="2014-07-28T03:53:48.000Z" itemprop="datePublished">Jul 28</time>
-  
-  
-    <h3 itemprop="name">
-      <a class="archive-item-title" href="/2014/07/28/mongoose_learn02/">Mongoose基础02</a>
-    </h3>
-  
+      <p>先来看一下例子</p>
+<p><code>jade.jade</code></p>
+<pre><code>doctype html
+html(lang=<span class="string">"en"</span>)
+  head
+    - <span class="keyword">var</span> name = '<span class="type">Jade</span>'
+    title= name
+    meta(charset=<span class="string">"utf-8"</span>)
+    link(rel=<span class="string">"stylesheet"</span>, <span class="keyword">type</span>=<span class="string">"text/css"</span> href=<span class="string">"/stylesheets/style.css"</span>)
 
-</li>
-  
+  body
+    h1 <span class="type">Jade</span> - node <span class="keyword">template</span> engine
+    <span class="comment">#container.col</span>
+      <span class="keyword">if</span> name === '<span class="type">Jade</span>'
+        p <span class="comment">#{name} is very cool</span>
+      <span class="keyword">else</span>
+        p <span class="type">Get</span> on <span class="type">Jade</span>
+    footer
+      p.
+        <span class="type">Jade</span> <span class="keyword">is</span> a terse <span class="keyword">and</span> simplae
+        templating language <span class="keyword">with</span> a
+        strong focus on performance
+        <span class="keyword">and</span> powerful features.
+</code></pre>
+      
     
+  </div>
+  <footer class="post-footer">
     
-    <li class="archive-item archive-type-post">
-  <time datetime="2014-07-28T03:53:38.000Z" itemprop="datePublished">Jul 28</time>
-  
-  
-    <h3 itemprop="name">
-      <a class="archive-item-title" href="/2014/07/28/mongoose_learn01/">Mongoose基础01</a>
-    </h3>
-  
+  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/jade/">jade</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/node/">node</a></li></ul>
 
-</li>
-  
-    
-    
-    <li class="archive-item archive-type-post">
-  <time datetime="2014-07-28T03:51:28.000Z" itemprop="datePublished">Jul 28</time>
-  
-  
-    <h3 itemprop="name">
-      <a class="archive-item-title" href="/2014/07/28/mongod_basic/">MongoDB语法基础</a>
-    </h3>
-  
+  </footer>
+</article>
 
-</li>
   
-    
-    
-    <li class="archive-item archive-type-post">
-  <time datetime="2014-07-28T03:48:51.000Z" itemprop="datePublished">Jul 28</time>
-  
-  
-    <h3 itemprop="name">
-      <a class="archive-item-title" href="/2014/07/28/json_basic/">JSON基础</a>
-    </h3>
-  
-
-</li>
-  
-    
-    
-    <li class="archive-item archive-type-post">
-  <time datetime="2014-07-28T03:45:28.000Z" itemprop="datePublished">Jul 28</time>
-  
-  
-    <h3 itemprop="name">
-      <a class="archive-item-title" href="/2014/07/28/mvc/">前端MVC模式</a>
-    </h3>
-  
-
-</li>
-  
-    
-    
-    <li class="archive-item archive-type-post">
-  <time datetime="2014-07-28T03:45:28.000Z" itemprop="datePublished">Jul 28</time>
-  
-  
-    <h3 itemprop="name">
-      <a class="archive-item-title" href="/2014/07/28/Jade/">Jade中文教程</a>
-    </h3>
-  
-
-</li>
-  
-    
-    
-    <li class="archive-item archive-type-post">
-  <time datetime="2014-07-28T03:22:26.000Z" itemprop="datePublished">Jul 28</time>
-  
-  
-    <h3 itemprop="name">
-      <a class="archive-item-title" href="/2014/07/28/Compass/">Compass基础</a>
-    </h3>
-  
-
-</li>
-  
-  
-    </ul></article>
   
 </section>
     
