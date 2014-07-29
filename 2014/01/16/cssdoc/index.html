@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>CSSDOC | jayself</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link type="text/css" rel="stylesheet" href="/css/style.css">
+  <link type="text/css" rel="stylesheet" href="/css/font-awesome.min.css">
+</head>
+<body>
+  <header class="site-header"><nav class="site-nav">
+  <h3 class="site-title">
+    <a href="/tojayself">to myself. Jay</a>
+  </h3>
+  <ul>
+    
+    <li>
+      <a class="main-nav-link" href="/">Home</a>
+    </li>
+    
+    <li>
+      <a class="main-nav-link" href="/archives">Archives</a>
+    </li>
+    
+    <li>
+      <a class="main-nav-link" href="/about">About</a>
+    </li>
+    
+    <li>
+      <a class="main-nav-link" href="/whole">Whole</a>
+    </li>
+    
+  </ul>
+</nav></header>
+  <main class="site-scroll">
+    <section class="site-main"><article id="post-cssdoc" class="post article-type-post">
+  
+    <header class="post-header">
+      
+  
+    <h3 class="post-title" itemprop="name">
+      CSSDOC
+    </h3>
+  
+
+    </header>
+  
+  <div class="post-meta">
+    <time datetime="2014-01-16T15:22:23.000Z" itemprop="datePublished">Jan 16 2014</time>
+    
+  <span class="article-category">
+    <a class="article-category-link" href="/categories/css/">css</a>
+  </span>
+
+  </div>
+  <div class="post-content">
+    
+      <p><code>CSSDOC</code>采用的是<code>DocBlock</code>，一个借鉴自<code>PHPDocumentor</code>项目的术语。一段<code>DocBlock</code>是一段可供人类和机器读取的数据块；</p>
+<p>一段<code>DocBlock</code>以 <code>/**</code> 开头，以空格加 <code>*/</code> 结尾(像正常<code>CSS</code>注释一样)。而它的每一行必须以空格加星号(<code>*</code>)开头，否则将被文档生成器忽略。标签以<code>@</code>开始，紧跟着名字，中间不带空格。标签的描述或值应该放在标签名称之后，前面用空格分开。</p>
+<a id="more"></a>
+
+<p><code>CSSDOC</code>建议，应该在每个<code>CSS</code>文件的开头包含一个文件注释(file comment)，内容是与整个文档相关的元数据。在文件注释中，应该包括文件的标题、描述、标签等信息；在文件注释后面，可加入零或多个区块注释(section comment)，对样式表进行内容相关的区块划分；</p>
+<p>下面是一些常用的<code>CSSDOC</code>标签：</p>
+<pre><code>/<span class="keyword">*</span><span class="keyword">*</span>
+ <span class="keyword">*</span> <span class="comment">@project</span>
+ <span class="keyword">*</span> <span class="comment">@version</span>
+ <span class="keyword">*</span> <span class="comment">@package</span>
+ <span class="keyword">*</span> <span class="comment">@author</span>
+ <span class="keyword">*</span> <span class="comment">@copyright</span>
+ <span class="keyword">*</span> <span class="comment">@cssdoc</span>
+ <span class="keyword">*</span> <span class="comment">@license</span>
+ <span class="keyword">*</span> <span class="comment">@colordef</span>
+ <span class="keyword">*</span> <span class="comment">@subpackage</span>
+ <span class="keyword">*</span> <span class="comment">@section</span>
+ <span class="keyword">*</span> <span class="comment">@subsection</span>
+ <span class="keyword">*</span> <span class="comment">@bugfix</span>
+ <span class="keyword">*</span> <span class="comment">@workaround</span>
+ <span class="keyword">*</span> <span class="comment">@affected</span>
+ <span class="keyword">*</span> <span class="comment">@css-for</span>
+ <span class="keyword">*</span> <span class="comment">@see</span>
+ <span class="keyword">*</span> <span class="comment">@link</span>
+ <span class="keyword">*</span> <span class="comment">@valid</span>
+ <span class="keyword">*</span> <span class="comment">@todo</span>
+ <span class="keyword">*</span> <span class="comment">@date</span>
+ <span class="keyword">*</span> <span class="comment">@lastmodified</span>
+ <span class="keyword">*</span> <span class="comment">@since</span>
+ <span class="keyword">*</span> <span class="comment">@revision</span>
+ <span class="keyword">*</span> <span class="comment">@since-revision</span>
+ <span class="keyword">*</span>/
+</code></pre><p>下面再给一个实例：</p>
+<pre><code><span class="javadoc">/**
+ *<span class="javadoctag">@project</span> jayself
+ *<span class="javadoctag">@author</span> jay.zhang
+ *<span class="javadoctag">@copyright</span> blog.jayself.com
+ *<span class="javadoctag">@colordef</span> #333; main text
+ *<span class="javadoctag">@colordef</span> #2c3e50; links
+ */</span>
+</code></pre><p>国内打不开cssdoc的官网，所以谷歌上找到下面两个网站做为参考：</p>
+<p><a href="http://habrahabr.ru/post/87406/" target="_blank" rel="external">http://habrahabr.ru/post/87406/</a><br><a href="http://webkrauts.de/artikel/2007/stylesheets-kommentieren-mit-cssdoc" target="_blank" rel="external">http://webkrauts.de/artikel/2007/stylesheets-kommentieren-mit-cssdoc</a></p>
+
+    
+  </div>
+  <footer class="post-footer">
+    
+  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/css/">css</a></li></ul>
+
+  </footer>
+</article>
+
+  
+<nav class="post-nav">
+  
+    <a href="/2014/07/28/Compass/" class="post-nav-link-wrap post-nav-prev">
+      <strong class="post-nav-caption">Prev:</strong>
+      <span class="post-nav-title">
+        
+          Compass基础
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2013/12/26/emmet_css/" class="post-nav-link-wrap post-nav-next">
+      <strong class="post-nav-caption">Next:</strong>
+      <span class="post-nav-title">用 Emmet 书写 css</span>
+    </a>
+  
+</nav>
+
+</section>
+    
+      <aside class="site-aside" id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/compass/">compass</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/emmet/">emmet</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mongodb/">mongodb</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vim/">vim</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/appjs/">app.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compass/">compass</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emmet/">emmet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/express/">express</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ide/">ide</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jade/">jade</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/json/">json</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/module/">module</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/">mongodb</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongoose/">mongoose</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mvc/">mvc</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nosql/">nosql</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sass/">sass</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scss/">scss</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/">sql</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/appjs/" style="font-size: 10.00px;">app.js</a><a href="/tags/compass/" style="font-size: 10.00px;">compass</a><a href="/tags/css/" style="font-size: 13.33px;">css</a><a href="/tags/emmet/" style="font-size: 13.33px;">emmet</a><a href="/tags/express/" style="font-size: 16.67px;">express</a><a href="/tags/html/" style="font-size: 10.00px;">html</a><a href="/tags/ide/" style="font-size: 10.00px;">ide</a><a href="/tags/jade/" style="font-size: 10.00px;">jade</a><a href="/tags/js/" style="font-size: 13.33px;">js</a><a href="/tags/json/" style="font-size: 10.00px;">json</a><a href="/tags/module/" style="font-size: 10.00px;">module</a><a href="/tags/mongodb/" style="font-size: 16.67px;">mongodb</a><a href="/tags/mongoose/" style="font-size: 13.33px;">mongoose</a><a href="/tags/mvc/" style="font-size: 10.00px;">mvc</a><a href="/tags/node/" style="font-size: 20.00px;">node</a><a href="/tags/nosql/" style="font-size: 16.67px;">nosql</a><a href="/tags/sass/" style="font-size: 10.00px;">sass</a><a href="/tags/scss/" style="font-size: 10.00px;">scss</a><a href="/tags/sql/" style="font-size: 16.67px;">sql</a><a href="/tags/vim/" style="font-size: 10.00px;">vim</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07">July 2014</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01">January 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12">December 2013</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2014/07/28/vim_command/">vim常用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2014/07/28/node_express_basic/">Express4.x基础</a>
+          </li>
+        
+          <li>
+            <a href="/2014/07/28/node_modules/">Node模块解析基础</a>
+          </li>
+        
+          <li>
+            <a href="/2014/07/28/node_basic_express_app/">Node之 app.js 基础讲解</a>
+          </li>
+        
+          <li>
+            <a href="/2014/07/28/mongoose_learn02/">Mongoose基础02</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+    
+  </main>
+  <footer class="site-footer"><div id="footer-info" class="inner">
+  <span>&copy; 2014 Jay.Zhang</span>
+  <span> Theme by Jay.Zhang</span>
+  <span>Powered by </span><a href="http://hexo.io/" target="_blank">Hexo</a>
+</div>
+<script type="text/javascript" src="/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="/js/tomyself.js"></script>
+</footer>
+</body>
+</html>
