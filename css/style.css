@@ -5,7 +5,8 @@ html, body {
 body {
   font: 14px "Microsoft YaHei", "Lucida Grande", Helvetica, Arial, sans-serif;
   margin: 0;
-  background-color: #f9f9f9;
+  color: #333;
+  background-color: #000;
   display: inline-block;
 }
 table {
@@ -47,7 +48,7 @@ h5,h6 {
 .site-header {
   margin-bottom: 15px;
   color: #444;
-  position: absolute;
+  position: fixed;
   left: 0;
   right: 0;
   top: 0;
@@ -73,6 +74,9 @@ h5,h6 {
   padding: 14px;
   font-size: 15px;
   background-color: rgba(0, 0, 0, 0.1);
+}
+.site-nav .site-title a {
+  color: #eee;
 }
 .site-nav ul {
   padding-left: 0;
@@ -111,10 +115,10 @@ h5,h6 {
   content: '';
 }
 .site-nav li:nth-child(3) a:before {
-  content: '';
+  content: '';
 }
 .site-nav li:nth-child(4) a:before {
-  content: '';
+  content: '';
 }
 .site-nav li a:after {
   content: '';
@@ -151,18 +155,20 @@ h5,h6 {
   margin-bottom: 20px;
   position: relative;
 }
-.site-main a:hover {
-  color: #fff;
-  background-color: #00B7FF;
-  text-decoration: underline;
+.site-main a {
   -webkit-transition: all .3s;
   -moz-transition: all .3s;
   transition: all .3s;
+  border-radius: 3px;
+}
+.site-main a:hover {
+  color: #fff;
+  background-color: #00B7FF;
 }
 .site-main .post {
   margin-bottom: 20px;
   background-color: #fff;
-  /*box-shadow: 0 2px 5px rgba(100, 100, 100, 0.3);*/
+  box-shadow: 3px 3px 0 rgba(100, 100, 100, 0.5), -3px -3px 0 rgba(100, 100, 100, .5);
   margin-bottom: 20px;
   padding: 15px 25px;
   border: 1px solid rgba(100, 100, 100, 0.2);
@@ -214,12 +220,41 @@ h5,h6 {
 .post-nav, .page-nav {
   overflow: hidden;
   margin: 10px 0 -5px 0;
-  padding: 5px 0;
+  padding: 5px;
+  color: #ccc;
+  background-color: rgba(100, 100, 100, .3);
+  box-shadow: 0 3px 0 rgba(100, 100, 100, .8);
+  border-bottom: 1px solid #ccc;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.post-nav a,
+.page-nav a {
+  color: #ccc;
+  display: inline-block;
 }
 .post-nav-prev {
   float: left;
 }
 .post-nav-next {
+  float: right;
+}
+.page-nav {
+  text-align: center;
+}
+.page-nav a ,
+.page-nav .current {
+  padding: 0 5px;
+  border-radius: 3px;
+}
+.page-nav .current {
+  background-color: #00B7FF;
+  color: #fff;
+}
+.page-nav .prev {
+  float: left;
+}
+.page-nav .next {
   float: right;
 }
 .page-archive-title {
@@ -235,11 +270,13 @@ h5,h6 {
   border: 1px solid #ddd;
   background-color: #eee;
   position: absolute;
-  top: 80px;
-  right: 25px;
-  line-height: 1.5em;
+  top: 65px;
+  left: 0;
+  line-height: 2.5em;
 }
-
+.post-anchor a {
+  display: block;
+}
 
 
 .site-aside {
@@ -259,8 +296,65 @@ h5,h6 {
   margin-right: 5px;
 }
 
-/* syntax highlight
- **/
+/*
+ * Archives page
+ **********/
+.page-archive-content{
+  margin: 1em;
+  padding-left: 1em;
+  list-style: none;
+  overflow: hidden;
+}
+.archive-item {
+  float: left;
+  width: 50%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 2em;
+}
+
+/*
+ * Whole page
+ **********/
+.whole-categories-list,
+.whole-tags-list {
+  margin: 1em;
+  padding: 1px;
+  list-style: none;
+  overflow: hidden;
+}
+.whole-categories-list li,
+.whole-tags-list li {
+  float: left;
+  border: 1px solid #ccc;
+  margin: 0 -1px -1px 0;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.whole-categories-list li a,
+.whole-tags-list li a ,
+.whole-categories-list li a:hover,
+.whole-tags-list li a:hover {
+  display: inline-block;
+  padding: 20px 30px 20px 20px;
+  border-radius: 0;
+  color: inherit;
+  background: transparent;
+}
+.whole-categories-list li:hover,
+.whole-tags-list li:hover{
+   
+}
+.whole-categories-list li span,
+.whole-tags-list li span {
+  display: inline-block;
+  width: 25px;
+  margin-left: -25px; 
+}
+/*
+ * syntax highlight
+ **********/
 pre,
 code {
   font-family: "Source Code Pro", Monaco, Menlo, Consolas, monospace;
@@ -388,4 +482,32 @@ pre .coffeescript .title {
 pre .keyword,
 pre .javascript .function {
   color: #8959a8;
+}
+
+/*
+ * for phone
+ **********/
+@media(max-width:960px) {
+  .site-nav,
+  .site-main,
+  .site-footer .inner {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  .post-anchor {
+    display: none;
+  }
+}
+@media(max-width: 480px) {
+  .site-nav,
+  .site-main,
+  .site-footer .inner {
+    margin-left: 2%;
+    margin-right: 2%;
+    min-width: 320px;
+  }
+  .site-footer .inner > a,
+  .site-footer .inner > span:not(:first-child) {
+    display: none;
+  }
 }

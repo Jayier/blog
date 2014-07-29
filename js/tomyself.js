@@ -22,5 +22,22 @@ $(function() {
     });
     var ol = $(ol).append(li);
     $('.site-main').append(ol);
+    setAnchorLeft(ol);
   }
+  function setAnchorLeft(ol) {
+    ol.css('left', -(ol.outerWidth() - 1) + 'px');
+    var offset = ol.offset();
+    ol.css({
+      'position': 'fixed',
+      'top': offset.top + 'px',
+      'left': offset.left + 'px'
+    });
+  };
+  $(window).on('resize', function() {
+    var ol = $('.post-anchor');
+    if (ol && ol.length === 1) {
+      ol.removeAttr('style');
+      setAnchorLeft(ol);
+    }
+  });
 });
