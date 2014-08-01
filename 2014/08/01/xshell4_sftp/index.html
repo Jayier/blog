@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Xshell连接远程主机与本机进行文件传输 | jayself = { &#39;HTML&#39;, &#39;CSS&#39;, &#39;JS&#39; }</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="keywords" content="前端程序员, 前端制作, javascript, css, html, jayself, jayzhang">
+  <link type="text/css" rel="stylesheet" href="/css/style.css">
+  <link type="text/css" rel="stylesheet" href="/css/font-awesome.min.css">
+</head>
+
+<body>
+  <header class="site-header"><nav class="site-nav">
+  <h3 class="site-title">
+    <a href="/tojayself">to myself. Jay</a>
+  </h3>
+  <ul>
+    
+    <li>
+      <a class="main-nav-link" href="/">Home</a>
+    </li>
+    
+    <li>
+      <a class="main-nav-link" href="/archives">Archives</a>
+    </li>
+    
+    <li>
+      <a class="main-nav-link" href="/about">About</a>
+    </li>
+    
+    <li>
+      <a class="main-nav-link" href="/whole">Whole</a>
+    </li>
+    
+  </ul>
+</nav></header>
+  <main class="site-scroll">
+    <section class="site-main"><article id="post-xshell4_sftp" class="post article-type-post">
+  
+    <header class="post-header">
+      
+  
+    <h3 class="post-title" itemprop="name">
+      Xshell连接远程主机与本机进行文件传输
+    </h3>
+  
+
+    </header>
+  
+  <div class="post-meta">
+    <time datetime="2014-08-01T06:04:15.000Z" itemprop="datePublished">Aug 1 2014</time>
+    
+  <span class="article-category">
+    <a class="article-category-link" href="/categories/ubuntu/">ubuntu</a>
+  </span>
+
+  </div>
+  <div class="post-content">
+    
+      <p><code>Xshell</code>提供熟悉终端环境的高级用户使用的与UNIX/Linux的FTP相类似的指令。各指令说明内容如下，具体使用方法请用SFTP提示的help命令进行确认。</p>
+<p>在进行远程主机与本机文件传输时，只支持文件或压缩包的传输，不支持文件夹的传输；</p>
+<a id="more"></a>
+
+<h4 id="几个常用的简单的linux命令">几个常用的简单的linux命令</h4>
+<ul>
+<li><p><code>linux</code>下文件打包命令：<code>tar</code></p>
+<pre><code>  tar -cvf <span class="tag">&lt;<span class="title">压缩后的文件名</span>&gt;</span>.tar <span class="tag">&lt;<span class="title">需要压缩的文件或文件夹、多个文件用空格分隔</span>&gt;</span>
+</code></pre></li>
+<li><p><code>ls [-a] [-l]</code> 显示当前目录下的文件及文件夹；<code>[-a]</code> 显示所有文件包括隐藏的；<code>[-l]</code>以列表形式显示，并显示文件相关的其他信息；</p>
+</li>
+<li><p><code>cd [directory]</code> 打开指定的目录；<code>cd ..</code> 回到上一级目录；<code>cd /</code> 回到根目录；</p>
+</li>
+<li><p><code>pwd</code>，显示当前所在位置的绝对路径；</p>
+<pre><code>  reg<span class="variable">@Express</span><span class="symbol">:~</span><span class="variable">$ </span>cd jayself/
+  reg<span class="variable">@Express</span><span class="symbol">:~/jayself</span><span class="variable">$ </span>ls
+  _config.yml  db.json  node_modules  package.json  public  scaffolds  source  themes
+  reg<span class="variable">@Express</span><span class="symbol">:~/jayself</span><span class="variable">$ </span>pwd
+  /home/reg/jayself
+  reg<span class="variable">@Express</span><span class="symbol">:~/jayself</span>$
+</code></pre></li>
+</ul>
+<h4 id="实例演示">实例演示</h4>
+<p>比如，我要把远程主机 <code>/home/reg/jayself</code> 目录内指定的文件进行打包然后传送给我本地主机</p>
+<ol>
+<li><p>首先 <code>cd</code> 进入到 <code>jayself</code> 目录</p>
+<pre><code> $ <span class="keyword">cd</span> /home/<span class="keyword">reg</span>/jayself
+</code></pre></li>
+<li><p>然后 <code>ls</code> 可以查看一下我的 <code>jayself</code>目录内所有的文件及文件夹</p>
+<pre><code> $ <span class="tag">ls</span> <span class="tag">-al</span>
+ 总用量 300
+ <span class="tag">drwxrwxr-x</span>  8 <span class="tag">reg</span> <span class="tag">reg</span>   4096  7月 30 09<span class="pseudo">:18</span> .
+ <span class="tag">drwxr-xr-x</span> 30 <span class="tag">reg</span> <span class="tag">reg</span>   4096  8月  1 13<span class="pseudo">:58</span> ..
+ <span class="tag">-rwxrwxr-x</span>  1 <span class="tag">reg</span> <span class="tag">reg</span>   1974  7月 30 09<span class="pseudo">:06</span> _<span class="tag">config</span><span class="class">.yml</span>
+ <span class="tag">-rw-rw-r--</span>  1 <span class="tag">reg</span> <span class="tag">reg</span> 260832  8月  1 13<span class="pseudo">:54</span> <span class="tag">db</span><span class="class">.json</span>
+ <span class="tag">drwxrwxr-x</span> 15 <span class="tag">reg</span> <span class="tag">reg</span>   4096  7月 30 09<span class="pseudo">:18</span> <span class="class">.deploy</span>
+ <span class="tag">-rw-rw-r--</span>  1 <span class="tag">reg</span> <span class="tag">reg</span>     68  7月 27 19<span class="pseudo">:41</span> <span class="class">.gitignore</span>
+ <span class="tag">drwxrwxr-x</span>  5 <span class="tag">reg</span> <span class="tag">reg</span>   4096  7月 27 19<span class="pseudo">:41</span> <span class="tag">node_modules</span>
+ <span class="tag">-rwxrwxr-x</span>  1 <span class="tag">reg</span> <span class="tag">reg</span>    186  7月 27 19<span class="pseudo">:53</span> <span class="tag">package</span><span class="class">.json</span>
+ <span class="tag">drwxrwxr-x</span> 14 <span class="tag">reg</span> <span class="tag">reg</span>   4096  7月 30 09<span class="pseudo">:35</span> <span class="tag">public</span>
+ <span class="tag">drwxrwxr-x</span>  2 <span class="tag">reg</span> <span class="tag">reg</span>   4096  7月 28 10<span class="pseudo">:43</span> <span class="tag">scaffolds</span>
+ <span class="tag">drwxrwxr-x</span>  8 <span class="tag">reg</span> <span class="tag">reg</span>   4096  7月 29 18<span class="pseudo">:36</span> <span class="tag">source</span>
+ <span class="tag">drwxrwxr-x</span>  4 <span class="tag">reg</span> <span class="tag">reg</span>   4096  7月 27 19<span class="pseudo">:45</span> <span class="tag">themes</span>
+</code></pre></li>
+<li><p>选择要传输的文件进行打包(比如，这里我们要传输 <code>package.json</code>、<code>public</code>和<code>source</code>以及<code>themes</code>)</p>
+<pre><code> $ tar -cvf jayself.tar <span class="keyword">package</span>.json <span class="keyword">public</span>/ source/ themes/
+ <span class="comment">//完成后，可以 ls 查看当前目录是否有一个 jayself.tar 的包</span>
+ $ ls
+</code></pre></li>
+<li><p>打包完成后，<code>ctrl + alt + f</code>，新建文件传输窗口；</p>
+<pre><code> sftp:<span class="regexp">/home/</span>reg&gt;
+ <span class="comment">// shell 下已 sftp: 显示说明文件传输窗口新建成功；</span>
+</code></pre></li>
+<li><p><code>lcd</code>选择本地主机的目录</p>
+<pre><code> sftp:/home/reg&gt; lcd
+ Local directory <span class="keyword">is</span> now E:\
+ <span class="comment">//上面的信息，我们可以知道当前的远程主机目录为 /home/reg/ 目录，而本地主机目录为 E:\ 盘</span>
+</code></pre></li>
+<li><p>因为我们要传输的远程主机压缩包在 <code>/home/reg/jayself</code>目录内，所以需要 <code>cd</code> 进入到 <code>jayself</code> 目录内</p>
+<p> <strong>在 <code>sftp:</code> 下的所有的命令并不是<code>linux</code>的命令，而是<code>Xshell</code>自带的一些命令</strong></p>
+<pre><code> sftp:<span class="regexp">/home/</span>reg&gt; cd jayself/
+ sftp:<span class="regexp">/home/</span>reg/jayself&gt;
+</code></pre></li>
+<li><p>远程主机的目录已经切换到<code>jayself</code>，那我们本地主机的当前目录呢？可以使用<code>lpwd</code>查看当前本机主机目录的绝对路径</p>
+<pre><code> sftp:<span class="regexp">/home/</span>reg/jayself&gt; lpwd
+ Local directory is E:\
+ sftp:<span class="regexp">/home/</span>reg/jayself&gt;
+</code></pre></li>
+<li><p>本地主机目录还是在<code>E:\</code>盘，我们可以<code>lcd</code>进入到<code>E:\test</code>目录内</p>
+<pre><code> sftp:<span class="regexp">/home/</span>reg/jayself&gt; lcd test
+ Local directory is now E:\\test
+ sftp:<span class="regexp">/home/</span>reg/jayself&gt; pwd
+ Remote directory is /home/reg/jayself
+ sftp:<span class="regexp">/home/</span>reg/jayself&gt; lpwd
+ Local directory is E:\\test
+ sftp:<span class="regexp">/home/</span>reg/jayself&gt;
+</code></pre></li>
+<li><p>最后使用 <code>get</code> 把远程主机的文件导入到本地主机</p>
+<pre><code> sftp:/home/reg/jayself&gt; <span class="built_in">get</span> jayself.tar
+ Fetching /home/reg/jayself/jayself.tar <span class="built_in">to</span> jayself.tar
+ sftp: received <span class="number">3.60</span> MB <span class="operator">in</span> <span class="number">0.22</span> <span class="built_in">seconds</span>
+ sftp:/home/reg/jayself&gt;
+</code></pre></li>
+<li><p>文件传输完后，可以打开<code>E:\test</code>目录查看是否有<code>jayself.tar</code>包</p>
+</li>
+<li><p>如果是要把本地主机的文件传输到远程主机的话，只需要最后一步改用 <code>put</code></p>
+<pre><code><span class="input"><span class="prompt">sftp:/home/reg/jayself&gt;</span> put test.txt</span>
+<span class="constant">Uploading</span> test.txt to <span class="symbol">remote:</span>/home/reg/jayself/test.txt
+<span class="symbol">sftp:</span> sent <span class="number">0</span> ؖ½ؠ<span class="keyword">in</span> <span class="number">0</span>.<span class="number">02</span> seconds
+<span class="symbol">sftp:</span>/home/reg/jayself&gt;
+</code></pre></li>
+</ol>
+<h4 id="Xshell_SFTP指令说明">Xshell SFTP指令说明</h4>
+<ul>
+<li><p><code>get file1 [file2] [file3] ...</code></p>
+<p>把远程主机的指定文件导入到本地主机；(如果是<code>win</code>下连接的虚拟机，那<code>win</code>就是我们的本地主机)</p>
+</li>
+<li><p><code>put file1 [file2] [file3] ...</code></p>
+<p>把本地主机的指定文件发送到远程主机</p>
+</li>
+<li><p><code>mkdir directory</code></p>
+<p>创建远程主机指定的Directory</p>
+</li>
+<li><p><code>rmdir directory</code></p>
+<p>删除远程主机指定的Directory</p>
+</li>
+<li><p><code>rm file</code></p>
+<p>删除远程主机指定的文件</p>
+</li>
+<li><p><code>cd directory</code></p>
+<p>打开远程主机指定的目录</p>
+</li>
+<li><p><code>lcd directory</code></p>
+<p>打开本地主机指定的目录</p>
+</li>
+<li><p><code>pwd</code></p>
+<p>显示远程主机当前目录的绝对路径</p>
+</li>
+<li><p><code>lpwd</code></p>
+<p>显示本地主机当前目录的绝对路径</p>
+</li>
+<li><p><code>ls [directory]</code></p>
+<p>显示远程主机的文件目录</p>
+</li>
+<li><p><code>lls [directory]</code></p>
+<p>显示本地主机的文件目录</p>
+</li>
+<li><p><code>explore [directory]</code></p>
+<p>用Windows资源管理器浏览当前(或指定的)Directory</p>
+</li>
+<li><p><code>bye/exit/quit</code></p>
+<p>终止SFTP连接</p>
+</li>
+</ul>
+
+    
+  </div>
+  <footer class="post-footer">
+    
+  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/ssh/">ssh</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/xshell/">xshell</a></li></ul>
+
+  </footer>
+</article>
+
+  
+<nav class="post-nav">
+  
+  
+    <a href="/2014/07/30/vim_conf_plugin/" class="post-nav-link-wrap post-nav-next">
+      <strong class="post-nav-caption">Next:</strong>
+      <span class="post-nav-title">vim常用配置与插件安装</span>
+    </a>
+  
+</nav>
+
+
+
+<section class="site-comment" id="comments">
+  <div class="ds-thread" data-thread-key="post-xshell4_sftp" data-title="Xshell连接远程主机与本机进行文件传输" data-url="/2014/08/01/xshell4_sftp/"></div>
+</section>
+
+</section>
+    
+      <aside class="site-aside" id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/compass/">compass</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/emmet/">emmet</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mongodb/">mongodb</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ubuntu/">ubuntu</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vim/">vim</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/appjs/">app.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compass/">compass</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/">css3</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emmet/">emmet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/express/">express</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ide/">ide</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jade/">jade</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/json/">json</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/module/">module</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/">mongodb</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongoose/">mongoose</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mvc/">mvc</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nosql/">nosql</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sass/">sass</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scss/">scss</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/">sql</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/">ssh</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xshell/">xshell</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/appjs/" style="font-size: 10.00px;">app.js</a><a href="/tags/compass/" style="font-size: 10.00px;">compass</a><a href="/tags/css/" style="font-size: 17.50px;">css</a><a href="/tags/css3/" style="font-size: 12.50px;">css3</a><a href="/tags/emmet/" style="font-size: 12.50px;">emmet</a><a href="/tags/express/" style="font-size: 15.00px;">express</a><a href="/tags/html/" style="font-size: 10.00px;">html</a><a href="/tags/ide/" style="font-size: 12.50px;">ide</a><a href="/tags/jade/" style="font-size: 10.00px;">jade</a><a href="/tags/js/" style="font-size: 12.50px;">js</a><a href="/tags/json/" style="font-size: 10.00px;">json</a><a href="/tags/module/" style="font-size: 10.00px;">module</a><a href="/tags/mongodb/" style="font-size: 15.00px;">mongodb</a><a href="/tags/mongoose/" style="font-size: 12.50px;">mongoose</a><a href="/tags/mvc/" style="font-size: 10.00px;">mvc</a><a href="/tags/node/" style="font-size: 20.00px;">node</a><a href="/tags/nosql/" style="font-size: 15.00px;">nosql</a><a href="/tags/sass/" style="font-size: 10.00px;">sass</a><a href="/tags/scss/" style="font-size: 10.00px;">scss</a><a href="/tags/sql/" style="font-size: 15.00px;">sql</a><a href="/tags/ssh/" style="font-size: 10.00px;">ssh</a><a href="/tags/ubuntu/" style="font-size: 12.50px;">ubuntu</a><a href="/tags/vim/" style="font-size: 12.50px;">vim</a><a href="/tags/xshell/" style="font-size: 10.00px;">xshell</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07">July 2014</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04">April 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01">January 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12">December 2013</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2014/08/01/xshell4_sftp/">Xshell连接远程主机与本机进行文件传输</a>
+          </li>
+        
+          <li>
+            <a href="/2014/07/30/vim_conf_plugin/">vim常用配置与插件安装</a>
+          </li>
+        
+          <li>
+            <a href="/2014/07/28/vim_command/">vim常用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2014/07/28/node_express_basic/">Express4.x基础</a>
+          </li>
+        
+          <li>
+            <a href="/2014/07/28/node_modules/">Node模块解析基础</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+    
+  </main>
+  <footer class="site-footer"><div id="footer-info" class="inner">
+  <span>&copy; 2014 Jay.Zhang</span>
+  <span> Theme by Jay.Zhang</span>
+  <span>Powered by </span><a href="http://hexo.io/" target="_blank">Hexo</a>
+</div>
+<script type="text/javascript" src="/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="/js/tomyself.js"></script>
+<script type="text/javascript" src="/js/duoshuo.js"></script>
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fa0b0be95a722cee5d961503045be2a81' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</footer>
+</body>
+</html>

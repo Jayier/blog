@@ -3,11 +3,13 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Category: css | jayself</title>
+  <title>Category: css | jayself = { &#39;HTML&#39;, &#39;CSS&#39;, &#39;JS&#39; }</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="keywords" content="前端程序员, 前端制作, javascript, css, html, jayself, jayzhang">
   <link type="text/css" rel="stylesheet" href="/css/style.css">
   <link type="text/css" rel="stylesheet" href="/css/font-awesome.min.css">
 </head>
+
 <body>
   <header class="site-header"><nav class="site-nav">
   <h3 class="site-title">
@@ -35,6 +37,127 @@
 </nav></header>
   <main class="site-scroll">
     <section class="site-main">
+  
+    <article id="post-css3_inherit_particularity_stack" class="post article-type-post">
+  
+    <header class="post-header">
+      
+  
+    <h3 itemprop="name">
+      <a class="post-title" href="/2014/04/26/css3_inherit_particularity_stack/">CSS3继承、特殊性、重要性与层叠</a>
+    </h3>
+  
+
+    </header>
+  
+  <div class="post-meta">
+    <time datetime="2014-04-26T15:10:25.000Z" itemprop="datePublished">Apr 26 2014</time>
+    
+  <span class="article-category">
+    <a class="article-category-link" href="/categories/css/">css</a>
+  </span>
+
+  </div>
+  <div class="post-content">
+    
+      <h3 id="特殊性">特殊性</h3>
+<p>同一个元素可以设置多个选择器，就会导致可能有重复的规则，但是浏览器不可能两个规则都显示，所以最终只会显示一个规则，那到底是运用哪一个规则呢？</p>
+<p>答案就在于每个选择器的特殊性，最高特殊性的声明会胜出。</p>
+<p>选择器的特殊性由选择器本身的组件确定。特殊性值表述为4个部分：0 0 0 0</p>
+<p>一个选择器的具体特殊性如下：</p>
+<pre><code>ID选择器                              0  1  0  0
+类选择器、属性选择器以及伪类选择器    0  0  1  0 (这里伪类包括结构性伪类和UI元素状态伪类)
+元素选择器、伪元素选择器              0  0  0  1
+其他像通配选择器、派生选择器          0  0  0  0
+内联样式                              1  0  0  0
+</code></pre><p><strong>注，这里的4位数字跟数学里面的个、十、百、千位数是不一样的</strong>；</p>
+<p><code>0 1 0 0</code> 是大于 <code>0 0 100 0</code> 的</p>
+<h3 id="重要性">重要性</h3>
+<p>有时某个声明可能非常重要，超过了所有其他声明，此时就可以在这具体规则后加上 <code>!important</code> 来标志；</p>
+<p>加上重要性的标志后其特殊性比没有重要性标志的特殊性更高，即比内联样式(<code>1 0 0 0</code>)的特殊性还高；</p>
+<h3 id="继承">继承</h3>
+<p>基于继承机制，样式不仅可以应用到指定的元素，同时还会运用到其后代元素。这样可以减少很多没必要的选择器声明；</p>
+<p>不过，也不是所有的属性都能继承，有部分属性是不能继承的，比如<code>padding</code>和<code>margin</code>以及<code>border</code>等；</p>
+<p>还有一个特殊的地方，即如果<code>&lt;html&gt;</code>上没有设置<code>background</code>相关属性，而<code>&lt;body&gt;</code>上有设置，则<code>&lt;body&gt;</code>会向上传播到<code>&lt;html&gt;</code>上；</p>
+<p><strong>继承没特殊性</strong>连0都没，通配选择符特殊性为0，因此当继承遇到通配选择符的时候，通配选择符会胜出；</p>
+<h3 id="层叠">层叠</h3>
+<p>正常情况下，按规则出现的顺序，越后出现其权重越大</p>
+
+    
+  </div>
+  <footer class="post-footer">
+    
+  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/css/">css</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/css3/">css3</a></li></ul>
+
+  </footer>
+</article>
+
+
+
+  
+    <article id="post-css3_selectors" class="post article-type-post">
+  
+    <header class="post-header">
+      
+  
+    <h3 itemprop="name">
+      <a class="post-title" href="/2014/04/26/css3_selectors/">CSS3选择器整理总结</a>
+    </h3>
+  
+
+    </header>
+  
+  <div class="post-meta">
+    <time datetime="2014-04-26T13:00:27.000Z" itemprop="datePublished">Apr 26 2014</time>
+    
+  <span class="article-category">
+    <a class="article-category-link" href="/categories/css/">css</a>
+  </span>
+
+  </div>
+  <div class="post-content">
+    
+      <h3 id="CSS选择器规则结构">CSS选择器规则结构</h3>
+<p>规则结构由两基本部分组成：选择器<code>(selector)</code>和声明块<code>(declaration block)</code>；</p>
+<p>选择器必须以字母或下划线开头，其后可以是数字、字母、下划线、中横线等，区分大小写；</p>
+<ul>
+<li><p>声明块由一个或多个声明(declaration)组成；</p>
+</li>
+<li><p>每个声明是一个属性—值对(property-value)；</p>
+</li>
+<li><p>每个样式表由一系列的规则组成；</p>
+<p>  <code>h1 {font-size:14px; color:#ff0;}</code> 这是一条简单的声明，选择所有的 <code>h1</code> 标签，其中：</p>
+</li>
+<li><p><code>h1</code>就是选择器；</p>
+</li>
+<li><p><code>{}</code>大括号里面的是声明块；</p>
+<ul>
+<li><p><code>font-size:14px</code>和<code>color:#ff0</code>是两个声明；</p>
+</li>
+<li><p><code>font-size</code>和<code>color</code>是属性；</p>
+</li>
+<li><p><code>14px</code>和<code>#ff0</code>是值；</p>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+        <p class="article-more-link">
+          <a href="/2014/04/26/css3_selectors/#more">Read More...</a>
+        </p>
+      
+    
+  </div>
+  <footer class="post-footer">
+    
+  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/css/">css</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/css3/">css3</a></li></ul>
+
+  </footer>
+</article>
+
+
+
   
     <article id="post-cssdoc" class="post article-type-post">
   
@@ -87,7 +210,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/compass/">compass</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/emmet/">emmet</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mongodb/">mongodb</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vim/">vim</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/compass/">compass</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/emmet/">emmet</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mongodb/">mongodb</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ubuntu/">ubuntu</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vim/">vim</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -96,7 +219,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/appjs/">app.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compass/">compass</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emmet/">emmet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/express/">express</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ide/">ide</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jade/">jade</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/json/">json</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/module/">module</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/">mongodb</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongoose/">mongoose</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mvc/">mvc</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nosql/">nosql</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sass/">sass</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scss/">scss</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/">sql</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/appjs/">app.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compass/">compass</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/">css3</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emmet/">emmet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/express/">express</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ide/">ide</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jade/">jade</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/json/">json</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/module/">module</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/">mongodb</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongoose/">mongoose</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mvc/">mvc</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nosql/">nosql</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sass/">sass</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scss/">scss</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/">sql</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/">ssh</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xshell/">xshell</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -105,7 +228,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/appjs/" style="font-size: 10.00px;">app.js</a><a href="/tags/compass/" style="font-size: 10.00px;">compass</a><a href="/tags/css/" style="font-size: 13.33px;">css</a><a href="/tags/emmet/" style="font-size: 13.33px;">emmet</a><a href="/tags/express/" style="font-size: 16.67px;">express</a><a href="/tags/html/" style="font-size: 10.00px;">html</a><a href="/tags/ide/" style="font-size: 10.00px;">ide</a><a href="/tags/jade/" style="font-size: 10.00px;">jade</a><a href="/tags/js/" style="font-size: 13.33px;">js</a><a href="/tags/json/" style="font-size: 10.00px;">json</a><a href="/tags/module/" style="font-size: 10.00px;">module</a><a href="/tags/mongodb/" style="font-size: 16.67px;">mongodb</a><a href="/tags/mongoose/" style="font-size: 13.33px;">mongoose</a><a href="/tags/mvc/" style="font-size: 10.00px;">mvc</a><a href="/tags/node/" style="font-size: 20.00px;">node</a><a href="/tags/nosql/" style="font-size: 16.67px;">nosql</a><a href="/tags/sass/" style="font-size: 10.00px;">sass</a><a href="/tags/scss/" style="font-size: 10.00px;">scss</a><a href="/tags/sql/" style="font-size: 16.67px;">sql</a><a href="/tags/vim/" style="font-size: 10.00px;">vim</a>
+      <a href="/tags/appjs/" style="font-size: 10.00px;">app.js</a><a href="/tags/compass/" style="font-size: 10.00px;">compass</a><a href="/tags/css/" style="font-size: 17.50px;">css</a><a href="/tags/css3/" style="font-size: 12.50px;">css3</a><a href="/tags/emmet/" style="font-size: 12.50px;">emmet</a><a href="/tags/express/" style="font-size: 15.00px;">express</a><a href="/tags/html/" style="font-size: 10.00px;">html</a><a href="/tags/ide/" style="font-size: 12.50px;">ide</a><a href="/tags/jade/" style="font-size: 10.00px;">jade</a><a href="/tags/js/" style="font-size: 12.50px;">js</a><a href="/tags/json/" style="font-size: 10.00px;">json</a><a href="/tags/module/" style="font-size: 10.00px;">module</a><a href="/tags/mongodb/" style="font-size: 15.00px;">mongodb</a><a href="/tags/mongoose/" style="font-size: 12.50px;">mongoose</a><a href="/tags/mvc/" style="font-size: 10.00px;">mvc</a><a href="/tags/node/" style="font-size: 20.00px;">node</a><a href="/tags/nosql/" style="font-size: 15.00px;">nosql</a><a href="/tags/sass/" style="font-size: 10.00px;">sass</a><a href="/tags/scss/" style="font-size: 10.00px;">scss</a><a href="/tags/sql/" style="font-size: 15.00px;">sql</a><a href="/tags/ssh/" style="font-size: 10.00px;">ssh</a><a href="/tags/ubuntu/" style="font-size: 12.50px;">ubuntu</a><a href="/tags/vim/" style="font-size: 12.50px;">vim</a><a href="/tags/xshell/" style="font-size: 10.00px;">xshell</a>
     </div>
   </div>
 
@@ -114,7 +237,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07">July 2014</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01">January 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12">December 2013</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07">July 2014</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04">April 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01">January 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12">December 2013</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -126,6 +249,14 @@
       <ul>
         
           <li>
+            <a href="/2014/08/01/xshell4_sftp/">Xshell连接远程主机与本机进行文件传输</a>
+          </li>
+        
+          <li>
+            <a href="/2014/07/30/vim_conf_plugin/">vim常用配置与插件安装</a>
+          </li>
+        
+          <li>
             <a href="/2014/07/28/vim_command/">vim常用命令</a>
           </li>
         
@@ -135,14 +266,6 @@
         
           <li>
             <a href="/2014/07/28/node_modules/">Node模块解析基础</a>
-          </li>
-        
-          <li>
-            <a href="/2014/07/28/node_basic_express_app/">Node之 app.js 基础讲解</a>
-          </li>
-        
-          <li>
-            <a href="/2014/07/28/mongoose_learn02/">Mongoose基础02</a>
           </li>
         
       </ul>
@@ -160,6 +283,11 @@
 </div>
 <script type="text/javascript" src="/js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="/js/tomyself.js"></script>
-<script type="text/javascript" src="/js/duoshuo.js"></script></footer>
+<script type="text/javascript" src="/js/duoshuo.js"></script>
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fa0b0be95a722cee5d961503045be2a81' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</footer>
 </body>
 </html>

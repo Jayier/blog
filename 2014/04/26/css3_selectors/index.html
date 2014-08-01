@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>CSS3选择器整理总结 | jayself = { &#39;HTML&#39;, &#39;CSS&#39;, &#39;JS&#39; }</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="keywords" content="前端程序员, 前端制作, javascript, css, html, jayself, jayzhang">
+  <link type="text/css" rel="stylesheet" href="/css/style.css">
+  <link type="text/css" rel="stylesheet" href="/css/font-awesome.min.css">
+</head>
+
+<body>
+  <header class="site-header"><nav class="site-nav">
+  <h3 class="site-title">
+    <a href="/tojayself">to myself. Jay</a>
+  </h3>
+  <ul>
+    
+    <li>
+      <a class="main-nav-link" href="/">Home</a>
+    </li>
+    
+    <li>
+      <a class="main-nav-link" href="/archives">Archives</a>
+    </li>
+    
+    <li>
+      <a class="main-nav-link" href="/about">About</a>
+    </li>
+    
+    <li>
+      <a class="main-nav-link" href="/whole">Whole</a>
+    </li>
+    
+  </ul>
+</nav></header>
+  <main class="site-scroll">
+    <section class="site-main"><article id="post-css3_selectors" class="post article-type-post">
+  
+    <header class="post-header">
+      
+  
+    <h3 class="post-title" itemprop="name">
+      CSS3选择器整理总结
+    </h3>
+  
+
+    </header>
+  
+  <div class="post-meta">
+    <time datetime="2014-04-26T13:00:27.000Z" itemprop="datePublished">Apr 26 2014</time>
+    
+  <span class="article-category">
+    <a class="article-category-link" href="/categories/css/">css</a>
+  </span>
+
+  </div>
+  <div class="post-content">
+    
+      <h3 id="CSS选择器规则结构">CSS选择器规则结构</h3>
+<p>规则结构由两基本部分组成：选择器<code>(selector)</code>和声明块<code>(declaration block)</code>；</p>
+<p>选择器必须以字母或下划线开头，其后可以是数字、字母、下划线、中横线等，区分大小写；</p>
+<ul>
+<li><p>声明块由一个或多个声明(declaration)组成；</p>
+</li>
+<li><p>每个声明是一个属性—值对(property-value)；</p>
+</li>
+<li><p>每个样式表由一系列的规则组成；</p>
+<p>  <code>h1 {font-size:14px; color:#ff0;}</code> 这是一条简单的声明，选择所有的 <code>h1</code> 标签，其中：</p>
+</li>
+<li><p><code>h1</code>就是选择器；</p>
+</li>
+<li><p><code>{}</code>大括号里面的是声明块；</p>
+<ul>
+<li><p><code>font-size:14px</code>和<code>color:#ff0</code>是两个声明；</p>
+</li>
+<li><p><code>font-size</code>和<code>color</code>是属性；</p>
+</li>
+<li><p><code>14px</code>和<code>#ff0</code>是值；</p>
+</li>
+</ul>
+</li>
+</ul>
+<a id="more"></a>
+
+<h3 id="基础选择器">基础选择器</h3>
+<ul>
+<li><p><code>.class</code>：类选择器，必须以一个英文点( . )开始，all，0 0 1 0</p>
+<pre><code>  <span class="class">.wrapper</span> {<span class="attribute">width</span><span class="value">: <span class="number">960px</span>;</span> <span class="attribute">margin-left</span><span class="value">: auto;</span> <span class="attribute">margin-right</span><span class="value">: auto}
+  //选择class=<span class="string">"wrapper"</span>的所有元素；</span>
+</code></pre></li>
+<li><p><code>.class.class2.classN</code>：多类选择器，就是多个连续的选择器，中间不能有空格，!ie6</p>
+<pre><code>  p<span class="comment">#name.select.fw400 {font-size: 14px}</span>
+  //选择<span class="variable">id=</span><span class="string">"name"</span>且<span class="variable">class=</span><span class="string">"select fw400"</span>的p元素，必须是四个条件同时满足；
+  //IE6中同类的选择器只能存在一个，且最后出现的生效；`p<span class="comment">#name.fw400 {font-size: 14px;}`；</span>
+</code></pre></li>
+<li><p><code>#id</code>：ID选择器，必须以一个井号( # )开始，且同一个页面只能存在一个同名的ID，all，0 1 0 0</p>
+<pre><code>  <span class="array">#userId </span>{color: <span class="array">#F</span>00}
+  <span class="comment">//选择 id="userId" 的元素；</span>
+  <span class="comment">//一般情况下不建议使用ID选择器，而应该把ID留给JS使用；</span>
+</code></pre></li>
+<li><p><code>element</code>：元素选择器，必须是合法的HTML标签，all，0 0 0 1</p>
+<pre><code>  p {margin-bottom: <span class="number">10</span>px}
+  <span class="comment">//选择所有的 p 元素</span>
+</code></pre></li>
+<li><p><code>*</code>：通配选择器，会选择页面中所有的元素，all, 0 0 0 0</p>
+<pre><code>  * {<span class="keyword">color</span>: <span class="preprocessor">#333}</span>
+  <span class="comment">//设置页面中所有元素的颜色为 #333</span>
+</code></pre></li>
+</ul>
+<h3 id="派生选择器">派生选择器</h3>
+<ul>
+<li><p><code>selector, selector2</code>：群组选择器，在多个选择器的规则是相同的时候，就可以采用群组选择器，all，none</p>
+<pre><code>  p, .age, <span class="comment">#userId {background-color: gray}</span>
+  //选择页面中所有的 p 元素，<span class="variable">class=</span><span class="string">"age"</span>的元素，<span class="variable">id=</span><span class="string">"userId"</span>的元素；
+  //各选择器要用英文逗号分隔；
+</code></pre></li>
+<li><p><code>selector selector2</code>：后代选择器，选择嵌套元素里的所有子孙元素，all，none</p>
+<pre><code>  .box <span class="keyword">div</span> {border-bottom: <span class="number">1</span>px solid <span class="comment">#ccc}</span>
+  //选择class=<span class="string">"box"</span>里所有的<span class="keyword">div</span>元素，包括<span class="keyword">div</span>里面的<span class="keyword">div</span>甚至更多层的嵌套；
+  //要运用这条规则，那.box必须是<span class="keyword">div</span>的祖先元素；
+</code></pre></li>
+<li><p><code>selector &gt; selector2</code>：子选择器，元素之间必须是父子关系，!ie6，none</p>
+<pre><code>  .box &gt; <span class="keyword">div</span> <span class="tuple">{font-weight: <span class="number">700</span>}</span>
+  //选择class=<span class="string">"box"</span>里第一层的<span class="keyword">div</span>元素，.box与<span class="keyword">div</span>必须只能嵌套一层；
+</code></pre></li>
+<li><p><code>selector + selector2</code>：相邻兄弟选择器，元素间必须有共同的父元素且是同级，!ie6，none</p>
+<pre><code>  .hd + .main {padding: <span class="number">10</span>px}
+  //选择紧挨着<span class="keyword">class</span>=<span class="string">"hd"</span>后面的第一个<span class="keyword">class</span>=<span class="string">"main"</span>的元素；
+  //.hd与.main必须有共同的父元素，且他俩必须是紧挨着的；
+</code></pre></li>
+<li><p><code>selector ~ selector2</code>：元素间必须有共同父元素且是同级，!ie6，none</p>
+<pre><code>  .hd ~ <span class="keyword">div</span> {color: <span class="comment">#f00}</span>
+  //选择class=<span class="string">"hd"</span>后面所有的<span class="keyword">div</span>元素；
+  //.hd与<span class="keyword">div</span>必须有共同的父元素；
+</code></pre></li>
+</ul>
+<h3 id="属性选择器">属性选择器</h3>
+<p>属性选择器，是根据元素的属性来匹配的，其属性可以是标准属性也可以是自定义属性；!ie6，0 0 1 0</p>
+<p>当然，也可以同时匹配多个属性；</p>
+<ul>
+<li><p><code>[attr]</code></p>
+<pre><code>  [title] {margin-<span class="keyword">left</span>: 10px}
+  <span class="comment">//选择具有 title 属性的所有元素；</span>
+</code></pre></li>
+<li><p><code>[attr=val]</code></p>
+<pre><code>  [title = <span class="string">'this'</span>] {margin-<span class="constant">right</span>: <span class="number">10</span>px}
+ <span class="comment"> //选择属性 title 的值等于 this 的所有元素</span>
+</code></pre></li>
+<li><p><code>[attr^=val]</code></p>
+<pre><code>  [title ^= <span class="string">'this'</span>] {margin-left: <span class="number">15</span>px}
+  <span class="comment">//选择属性title的值以this开头的所有元素</span>
+</code></pre></li>
+<li><p><code>[attr$=val]</code></p>
+<pre><code>  [title $= <span class="string">'this'</span>] {margin-<span class="constant">right</span>: <span class="number">15</span>px}
+ <span class="comment"> //选择属性title的值以this结尾的所有元素</span>
+</code></pre></li>
+<li><p><code>[attr*=val]</code></p>
+<pre><code>  [title *= <span class="string">'this'</span>] {margin: <span class="number">10</span>px}
+  <span class="comment">//选择属性title 的值包含 this 的所有元素</span>
+</code></pre></li>
+<li><p><code>[attr~=val]</code></p>
+<pre><code>  [title ~= <span class="string">'this'</span>] {margin-<span class="attribute">top</span>: <span class="number">10</span>px}
+  <span class="regexp">//</span>选择属性 title 的值包含一个以空格分隔的词为 <span class="keyword">this</span> 的所有元素，
+  <span class="regexp">//</span>即 title 的值里必须要有 <span class="keyword">this</span> 这个单词并且<span class="keyword">this</span>要与其他单词之间有空格分隔
+</code></pre></li>
+<li><p><code>[attr|=val]</code></p>
+<pre><code>  [title |= <span class="string">'this'</span>] {margin-<span class="attribute">bottom</span>: <span class="number">10</span>px}
+  <span class="regexp">//</span>选择属性 title 的值等于<span class="keyword">this</span>，或值以 <span class="keyword">this</span>- 开头的所有元素
+</code></pre></li>
+</ul>
+<h3 id="伪类选择器">伪类选择器</h3>
+<p><strong>链接伪类</strong>，只能运用于超链接元素上；而<strong>动态伪类</strong>，可以动用于所有元素；all，0 0 1 0</p>
+<p>超链接，必须有一个 <code>href</code> 属性才能称之为超链接；</p>
+<p>要注意定义时的顺序：<code>link - visited - focus - hover - active</code></p>
+<p><strong>注：IE6不支持动态伪类</strong></p>
+<ul>
+<li><p><code>:link</code>，链接伪类，指向所有未访问的链接</p>
+<pre><code>  a:link {text-decoration: underline; <span class="keyword">color</span>: <span class="preprocessor">#333}</span>
+  <span class="comment">//选择所有未访问的链接；</span>
+  <span class="comment">//使用的时候最好都加上a，因为某些浏览器可能会不正确地将:link解释为指向任何超链接，包括已访问和未访问的超链接；</span>
+</code></pre></li>
+<li><p><code>:visited</code>，链接伪类，指示所有已访问的链接</p>
+<pre><code>  <span class="tag">a</span><span class="pseudo">:visited</span> {<span class="attribute">text-decoration</span><span class="value">: underline;</span> <span class="attribute">color</span><span class="value">: <span class="hexcolor">#000</span>}
+  //选择所有已访问的链接；同`:link`使用时最好加上a；</span>
+</code></pre></li>
+<li><p><code>:focus</code>，动态伪类，指示获得焦点的元素样式</p>
+<pre><code>  a:focus, input:focus {background-<span class="keyword">color</span>: <span class="preprocessor">#efefef}</span>
+  <span class="comment">//选择获得焦点的a元素或获得焦点的input元素；</span>
+</code></pre></li>
+<li><p><code>:hover</code>，动态伪类，指示鼠标移上去的元素样式</p>
+<pre><code>  a:hover, input:hover {background-<span class="keyword">color</span>: <span class="preprocessor">#ccc}</span>
+  <span class="comment">//选择鼠标移上去时的a或input；</span>
+</code></pre></li>
+<li><p><code>:active</code>，动态伪类，指示元素被激活时的样式</p>
+<pre><code>  <span class="tag">a</span><span class="pseudo">:active</span>, <span class="tag">input</span><span class="pseudo">:active</span> {<span class="attribute">border</span><span class="value">: <span class="number">1px</span> solid <span class="hexcolor">#f00</span>}
+  //选择被激活时的a或input</span>
+</code></pre></li>
+<li><p><code>:lang(lang-val)</code>，根据元素的lang属性来设置样式，!lte IE7</p>
+<pre><code>  <span class="pseudo">:lang(en)</span> <span class="rules">{<span class="rule"><span class="attribute">color</span>:<span class="value"> <span class="hexcolor">#f00</span></span></span></span>}
+</code></pre></li>
+</ul>
+<h3 id="伪元素选择器">伪元素选择器</h3>
+<p>所有伪元素选择器都必须放在出现该伪元素的选择器的最后面，也就是说伪元素选择器不能跟任何派生选择器；</p>
+<p>如：p:first-letter em {} 这就是不合法的，!ie6，0 0 0 1</p>
+<ul>
+<li><p><code>:first-letter</code>，设置块元素首字母样式，行内元素转换成块元素和行内块元素也支持；</p>
+<pre><code>  <span class="keyword">div</span> p:first-letter {font-<span class="keyword">size</span>: <span class="number">20</span>px}
+  <span class="comment">//选择div元素里所有的p元素的第一个字母或汉字，如果把块元素转换成行内元素则就不支持了；</span>
+</code></pre></li>
+<li><p><code>:first-line</code>，设置第一个文本行样式；</p>
+<pre><code>  .box .main:<span class="keyword">first</span>-<span class="built_in">line</span> {color: <span class="comment">#f00}</span>
+ <span class="comment"> //只有部分属性允许first-line：所有font属性、color、所有background属性、word-spacing、letter-spacing、text-decoration、vertical-align、text-transform、line-height等支持</span>
+</code></pre></li>
+<li><p><code>:before</code>，设置之前的样式，可以插入生成的内容，并设置其样式；</p>
+<pre><code>  <span class="tag">body</span><span class="pseudo">:before</span> {<span class="attribute">content</span><span class="value">: <span class="string">'The Start:'</span>;</span> <span class="attribute">display</span><span class="value">: block}
+  //在body元素前插入文本内容<span class="string">'The Start:'</span>，并设置其为块元素</span>
+</code></pre></li>
+<li><p><code>:after</code>，设置之后的样式，可以插入生成的内容，并设置其样式；</p>
+<pre><code>  <span class="tag">body</span><span class="pseudo">:after</span> {<span class="attribute">content</span><span class="value">: <span class="string">'The End.'</span>;</span> <span class="attribute">display</span><span class="value">: block}
+  //在body元素最后插入文本内容<span class="string">'The End.'</span>，并设置其为块元素</span>
+</code></pre></li>
+</ul>
+<h3 id="结构性伪类选择器">结构性伪类选择器</h3>
+<p>HTML CODE:</p>
+<pre><code>1.<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"box"</span>&gt;</span>
+2.  <span class="tag">&lt;<span class="title">span</span>&gt;</span>First span<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+3.  <span class="tag">&lt;<span class="title">p</span> <span class="attribute">class</span>=<span class="value">"ft"</span>&gt;</span>First p<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+4.  <span class="tag">&lt;<span class="title">div</span>&gt;</span>First div<span class="tag">&lt;<span class="title">strong</span> <span class="attribute">class</span>=<span class="value">"ft"</span>&gt;</span>Strong text<span class="tag">&lt;/<span class="title">strong</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+5.  <span class="tag">&lt;<span class="title">p</span> <span class="attribute">class</span>=<span class="value">"ft"</span>&gt;</span>Second p<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+6.  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"ft"</span>&gt;</span>Second div <span class="tag">&lt;<span class="title">span</span>&gt;</span>Second span<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">span</span>&gt;</span>Third span<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+7.<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</code></pre><p>结构性伪类选择器的冒号前边可以跟一个其他选择器做为限定；</p>
+<p>带括号的选择器，里面一定要有参数；</p>
+<p>匹配子元素，同时也会匹配孙子元素，因为子元素是孙子元素的父元素；</p>
+<ul>
+<li><p><code>:first-of-type</code>，选择相对父元素里同类型子元素中的第一个，!lte8</p>
+<pre><code>  .box :first-<span class="keyword">of</span>-<span class="typedef"><span class="keyword">type</span> <span class="container">{<span class="title">color</span>: #<span class="title">f00</span>}</span></span>
+  //匹配<span class="number">2.3</span><span class="number">.4</span>以及<span class="number">4</span>里面的strong和<span class="number">6</span>里面的第一个span，因为这个span是<span class="number">6</span>里的第一个span子元素
+  .box .ft:first-<span class="keyword">of</span>-<span class="typedef"><span class="keyword">type</span> <span class="container">{<span class="title">color</span>: #<span class="title">ff0</span>}</span></span>
+  //匹配<span class="number">3</span>和<span class="number">4</span>里面的strong，因为<span class="number">3</span>是box里面的第一个p且<span class="keyword">class</span>=”ft”，而<span class="number">4</span>里只有一个strong且<span class="keyword">class</span>=”ft”，而<span class="number">5</span>和<span class="number">6</span>虽然<span class="keyword">class</span>=”ft”但是他们相对于box的同类型中不是第一个出现的；
+</code></pre></li>
+<li><p><code>:last-of-type</code>，选择相对父元素里同类型子元素中的最后一个，!lte8</p>
+<pre><code>  .box <span class="symbol">:last-of-type</span> {<span class="symbol">color:</span> <span class="comment">#f00}</span>
+  /<span class="regexp">/匹配2.5.6以及4里的strong和6里的最后一个span</span>
+</code></pre></li>
+<li><p><code>:only-of-type</code>，选择相对父元素里同类型子元素中只有一个的元素，!lte8</p>
+<pre><code>  .box :only-<span class="keyword">of</span>-<span class="class"><span class="keyword">type</span> {<span class="title">color</span>: #<span class="title">f00</span>}</span>
+  <span class="comment">//匹配2以及4里的strong，类为box里同类型元素只有一个的只有span</span>
+  .box .ft:only-<span class="keyword">of</span>-<span class="class"><span class="keyword">type</span> {<span class="title">color</span>: #<span class="title">f00</span>}</span>
+  <span class="comment">//只匹配4里的strong</span>
+</code></pre></li>
+<li><p><code>:only-child</code>，选择的元素相对于其父元素是唯一的子元素，!lte8</p>
+<pre><code>  .box <span class="symbol">:only-child</span> {<span class="symbol">color:</span> <span class="comment">#f00}</span>
+  /<span class="regexp">/只匹配4里的strong</span>
+</code></pre></li>
+<li><p><code>:nth-child(n)</code>，选择其父元素的第n个子元素或多个子元素，索引从1开始，当n用于表达式时索引从0开始!lte8</p>
+<pre><code>  .box :nth-child(<span class="number">3</span>) {color: <span class="comment">#f00}</span>
+  //匹配第三个子元素即这里的<span class="number">4</span>
+  .box :nth-child(odd) {color: <span class="comment">#f00} 等价于 .box :nth-child(2n + 1) {color: #f00}</span>
+  //匹配奇数即这里的<span class="number">2.4</span><span class="number">.6</span>以及<span class="number">4</span>里的strong和<span class="number">6</span>里的第一个span
+  .box :nth-child(even) {color: <span class="comment">#f00} 等价于 .box :nth-child(2n + 2) {color: #f00}和.box :nth-child(2n)</span>
+  //匹配偶数即这里的<span class="number">3.5</span>以及<span class="number">6</span>里的第二个span
+  .box :nth-child(n + <span class="number">1</span>) {color: <span class="comment">#f00}</span>
+  //匹配 n + <span class="number">1</span>开始的所有子元素即.box里所有的子元素以及子孙元素，因为这里n是从<span class="number">1</span>开始的即：
+  n = <span class="number">0</span> ----&gt; n + <span class="number">1</span> = <span class="number">0</span> + <span class="number">1</span> = <span class="number">1</span>，即这里的<span class="number">2</span>
+  n = <span class="number">1</span> ----&gt; n + <span class="number">1</span> = <span class="number">1</span> + <span class="number">1</span> = <span class="number">2</span>，即这里的<span class="number">3</span>
+  <span class="keyword">...</span> <span class="keyword">...</span>
+  n = <span class="number">4</span> ----&gt; n + <span class="number">1</span> = <span class="number">4</span> + <span class="number">1</span> = <span class="number">5</span>，即这里的<span class="number">6</span>
+</code></pre></li>
+<li><p><code>:nth-last-child(n)</code>，跟<code>:nth-child(n)</code>使用类似，只是索引是从最后开始往前数，!lte8</p>
+<pre><code>  .box <span class="symbol">:nth-last-child</span>(<span class="number">3</span>) {<span class="symbol">color:</span> <span class="comment">#f00}</span>
+  /<span class="regexp">/匹配倒数第三个子元素即这里的4</span>
+</code></pre></li>
+<li><p><code>:nth-of-type(n)</code>，选择父元素的第n个或多个同类型的子元素，!lte8</p>
+<pre><code>  .box <span class="symbol">:nth-of-type</span>(<span class="number">2</span>) {<span class="symbol">color:</span> <span class="comment">#f00}</span>
+  /<span class="regexp">/匹配5和6以及6里面的第二个span</span>
+</code></pre></li>
+<li><p><code>:nth-last-of-child(n)</code>，同上，只是从最后开始往前数，!lte8</p>
+<pre><code>  .box <span class="symbol">:nth-last-of-child</span>(<span class="number">2</span>) {<span class="symbol">color:</span> <span class="comment">#f00}</span>
+  /<span class="regexp">/匹配3和4以及6里面的第一个span</span>
+</code></pre></li>
+<li><p><code>:first-child</code>，选择父元素里的第一个子元素，!ie6</p>
+<pre><code>  .box <span class="symbol">:first-child</span> {<span class="symbol">color:</span> <span class="comment">#f00}</span>
+  /<span class="regexp">/匹配2和4里的strong以及6里的第一个span</span>
+</code></pre></li>
+<li><p><code>:last-child</code>，选择父元素里的最后一个子元素，!lte8</p>
+<pre><code>  .box <span class="symbol">:last-child</span> {<span class="symbol">color:</span> <span class="comment">#f00}</span>
+  /<span class="regexp">/匹配6和6里的最后一个span以及4里的strong</span>
+</code></pre></li>
+<li><p><code>:root</code>，选择文档的根元素，在HTML中就是指<code>&lt;html&gt;</code>标签，!lte8</p>
+</li>
+<li><p><code>:empty</code>，选择没有任何内容的元素，那怕是有一个空格也不行，!lte8</p>
+<pre><code>  table td:empty {background-<span class="keyword">color</span>: <span class="preprocessor">#ffc}</span>
+  <span class="comment">//匹配表格里没有内容的td</span>
+</code></pre></li>
+<li><p><code>:target</code>，选择当前活动的元素，指锚点点击后跳转到的那一个元素，!lte8</p>
+</li>
+<li><p><code>:not(selector)</code>，选择排除selector以外的其他所有元素，!lte8</p>
+<pre><code>  .box *:<span class="keyword">not</span>(<span class="keyword">div</span>) {background-color: <span class="comment">#ffc}</span>
+  //选择box里除<span class="keyword">div</span>以外的所有后代元素，如果<span class="keyword">div</span>里有其他非<span class="keyword">div</span>元素，也会选择上，如上的<span class="type">HTML</span> <span class="type">CODE</span>就会选择上<span class="keyword">div</span>里面的span和strong
+</code></pre></li>
+</ul>
+<h3 id="UI元素状态伪类选择器">UI元素状态伪类选择器</h3>
+<ul>
+<li><p><code>:enabled</code>，指定元素处于可用状态时的样式</p>
+<p>  一般用于input，select和textarea</p>
+</li>
+<li><p><code>:disabled</code>，指定元素处于不可用状态时的样式</p>
+<p>  一般用于input，select和textarea</p>
+</li>
+<li><p><code>:read-only</code>，指定元素为只读状态时的样式</p>
+<p>  FF为<code>-moz-read-only</code>，一般用于input和textarea</p>
+</li>
+<li><p><code>:read-write</code>，指定元素为只可写状态时的样式</p>
+<p>  FF为<code>-moz-read-write</code>，一般用于input和textarea</p>
+</li>
+<li><p><code>:checked</code>，指定元素被选中状态时的样式</p>
+<p>  FF为<code>-moz-checked</code>一般用于checkbox和radio</p>
+</li>
+<li><p><code>:default</code>，指定元素默认选中的样式</p>
+<p>  一般用于checkbox和radio</p>
+</li>
+<li><p><code>:indeterminate</code>，指定默认一组单选或复选都没被选中的样式，只要有一个被选中则样式被取消</p>
+<p>  一般用于checkbox和radio</p>
+</li>
+<li><p><code>::selection</code>，指定元素处理选中状态时的样式，可用于所有元素，上面的几个基本上只用于表单元素；!lte8</p>
+<p>  FF为::-moz-selection，不能用群组选择器来写；</p>
+<pre><code>  <span class="pseudo">::selection</span> <span class="rules">{<span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="hexcolor">#ffc</span></span></span>; <span class="rule"><span class="attribute">color</span>:<span class="value"> <span class="hexcolor">#fff</span></span></span></span>}
+  <span class="pseudo">::-moz-selection</span> <span class="rules">{<span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="hexcolor">#ffc</span></span></span>; <span class="rule"><span class="attribute">color</span>:<span class="value"> <span class="hexcolor">#fff</span></span></span></span>}
+</code></pre></li>
+</ul>
+
+    
+  </div>
+  <footer class="post-footer">
+    
+  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/css/">css</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/css3/">css3</a></li></ul>
+
+  </footer>
+</article>
+
+  
+<nav class="post-nav">
+  
+    <a href="/2014/04/26/css3_inherit_particularity_stack/" class="post-nav-link-wrap post-nav-prev">
+      <strong class="post-nav-caption">Prev:</strong>
+      <span class="post-nav-title">
+        
+          CSS3继承、特殊性、重要性与层叠
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2014/01/16/cssdoc/" class="post-nav-link-wrap post-nav-next">
+      <strong class="post-nav-caption">Next:</strong>
+      <span class="post-nav-title">CSSDOC</span>
+    </a>
+  
+</nav>
+
+
+
+<section class="site-comment" id="comments">
+  <div class="ds-thread" data-thread-key="post-css3_selectors" data-title="CSS3选择器整理总结" data-url="/2014/04/26/css3_selectors/"></div>
+</section>
+
+</section>
+    
+      <aside class="site-aside" id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/compass/">compass</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/emmet/">emmet</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mongodb/">mongodb</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ubuntu/">ubuntu</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vim/">vim</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/appjs/">app.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compass/">compass</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/">css3</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emmet/">emmet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/express/">express</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ide/">ide</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jade/">jade</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/json/">json</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/module/">module</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/">mongodb</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongoose/">mongoose</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mvc/">mvc</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nosql/">nosql</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sass/">sass</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scss/">scss</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/">sql</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/">ssh</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xshell/">xshell</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/appjs/" style="font-size: 10.00px;">app.js</a><a href="/tags/compass/" style="font-size: 10.00px;">compass</a><a href="/tags/css/" style="font-size: 17.50px;">css</a><a href="/tags/css3/" style="font-size: 12.50px;">css3</a><a href="/tags/emmet/" style="font-size: 12.50px;">emmet</a><a href="/tags/express/" style="font-size: 15.00px;">express</a><a href="/tags/html/" style="font-size: 10.00px;">html</a><a href="/tags/ide/" style="font-size: 12.50px;">ide</a><a href="/tags/jade/" style="font-size: 10.00px;">jade</a><a href="/tags/js/" style="font-size: 12.50px;">js</a><a href="/tags/json/" style="font-size: 10.00px;">json</a><a href="/tags/module/" style="font-size: 10.00px;">module</a><a href="/tags/mongodb/" style="font-size: 15.00px;">mongodb</a><a href="/tags/mongoose/" style="font-size: 12.50px;">mongoose</a><a href="/tags/mvc/" style="font-size: 10.00px;">mvc</a><a href="/tags/node/" style="font-size: 20.00px;">node</a><a href="/tags/nosql/" style="font-size: 15.00px;">nosql</a><a href="/tags/sass/" style="font-size: 10.00px;">sass</a><a href="/tags/scss/" style="font-size: 10.00px;">scss</a><a href="/tags/sql/" style="font-size: 15.00px;">sql</a><a href="/tags/ssh/" style="font-size: 10.00px;">ssh</a><a href="/tags/ubuntu/" style="font-size: 12.50px;">ubuntu</a><a href="/tags/vim/" style="font-size: 12.50px;">vim</a><a href="/tags/xshell/" style="font-size: 10.00px;">xshell</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07">July 2014</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04">April 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01">January 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12">December 2013</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2014/08/01/xshell4_sftp/">Xshell连接远程主机与本机进行文件传输</a>
+          </li>
+        
+          <li>
+            <a href="/2014/07/30/vim_conf_plugin/">vim常用配置与插件安装</a>
+          </li>
+        
+          <li>
+            <a href="/2014/07/28/vim_command/">vim常用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2014/07/28/node_express_basic/">Express4.x基础</a>
+          </li>
+        
+          <li>
+            <a href="/2014/07/28/node_modules/">Node模块解析基础</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+    
+  </main>
+  <footer class="site-footer"><div id="footer-info" class="inner">
+  <span>&copy; 2014 Jay.Zhang</span>
+  <span> Theme by Jay.Zhang</span>
+  <span>Powered by </span><a href="http://hexo.io/" target="_blank">Hexo</a>
+</div>
+<script type="text/javascript" src="/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="/js/tomyself.js"></script>
+<script type="text/javascript" src="/js/duoshuo.js"></script>
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fa0b0be95a722cee5d961503045be2a81' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</footer>
+</body>
+</html>
