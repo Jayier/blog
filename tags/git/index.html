@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Jay.Zhang的个人博客，记录分享工作、学习中的一些经验与问题!</title>
+  <title>Tag: git | Jay.Zhang的个人博客，记录分享工作、学习中的一些经验与问题!</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="keywords" content="前端程序员, 前端制作, javascript, css, html, jayself, jayzhang">
   <link type="text/css" rel="stylesheet" href="/css/style.css">
@@ -38,120 +38,44 @@
   <main class="site-scroll">
     <section class="site-main">
   
-    <article id="post-css3_inherit_particularity_stack" class="post article-type-post">
+    <article id="post-git" class="post article-type-post">
   
     <header class="post-header">
       
   
     <h3 itemprop="name">
-      <a class="post-title" href="/2014/04/26/css3_inherit_particularity_stack/">CSS3继承、特殊性、重要性与层叠</a>
+      <a class="post-title" href="/2014/08/03/git/">git 常用命令备忘录</a>
     </h3>
   
 
     </header>
   
   <div class="post-meta">
-    <time datetime="2014-04-26T15:10:25.000Z" itemprop="datePublished">Apr 26 2014</time>
+    <time datetime="2014-08-03T01:09:56.000Z" itemprop="datePublished">Aug 3 2014</time>
     
-  <span class="article-category">
-    <a class="article-category-link" href="/categories/css/">css</a>
-  </span>
-
   </div>
   <div class="post-content">
     
-      <h3 id="特殊性">特殊性</h3>
-<p>同一个元素可以设置多个选择器，就会导致可能有重复的规则，但是浏览器不可能两个规则都显示，所以最终只会显示一个规则，那到底是运用哪一个规则呢？</p>
-<p>答案就在于每个选择器的特殊性，最高特殊性的声明会胜出。</p>
-<p>选择器的特殊性由选择器本身的组件确定。特殊性值表述为4个部分：0 0 0 0</p>
-<p>一个选择器的具体特殊性如下：</p>
-<pre><code>ID选择器                              0  1  0  0
-类选择器、属性选择器以及伪类选择器    0  0  1  0 (这里伪类包括结构性伪类和UI元素状态伪类)
-元素选择器、伪元素选择器              0  0  0  1
-其他像通配选择器、派生选择器          0  0  0  0
-内联样式                              1  0  0  0
-</code></pre><p><strong>注，这里的4位数字跟数学里面的个、十、百、千位数是不一样的</strong>；</p>
-<p><code>0 1 0 0</code> 是大于 <code>0 0 100 0</code> 的</p>
-<h3 id="重要性">重要性</h3>
-<p>有时某个声明可能非常重要，超过了所有其他声明，此时就可以在这具体规则后加上 <code>!important</code> 来标志；</p>
-<p>加上重要性的标志后其特殊性比没有重要性标志的特殊性更高，即比内联样式(<code>1 0 0 0</code>)的特殊性还高；</p>
-<h3 id="继承">继承</h3>
-<p>基于继承机制，样式不仅可以应用到指定的元素，同时还会运用到其后代元素。这样可以减少很多没必要的选择器声明；</p>
-<p>不过，也不是所有的属性都能继承，有部分属性是不能继承的，比如<code>padding</code>和<code>margin</code>以及<code>border</code>等；</p>
-<p>还有一个特殊的地方，即如果<code>&lt;html&gt;</code>上没有设置<code>background</code>相关属性，而<code>&lt;body&gt;</code>上有设置，则<code>&lt;body&gt;</code>会向上传播到<code>&lt;html&gt;</code>上；</p>
-<p><strong>继承没特殊性</strong>连0都没，通配选择符特殊性为0，因此当继承遇到通配选择符的时候，通配选择符会胜出；</p>
-<h3 id="层叠">层叠</h3>
-<p>正常情况下，按规则出现的顺序，越后出现其权重越大</p>
-
-    
-  </div>
-  <footer class="post-footer">
-    
-  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/css/">css</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/css3/">css3</a></li></ul>
-
-  </footer>
-</article>
-
-
-
-  
-    <article id="post-css3_selectors" class="post article-type-post">
-  
-    <header class="post-header">
-      
-  
-    <h3 itemprop="name">
-      <a class="post-title" href="/2014/04/26/css3_selectors/">CSS3选择器整理总结</a>
-    </h3>
-  
-
-    </header>
-  
-  <div class="post-meta">
-    <time datetime="2014-04-26T13:00:27.000Z" itemprop="datePublished">Apr 26 2014</time>
-    
-  <span class="article-category">
-    <a class="article-category-link" href="/categories/css/">css</a>
-  </span>
-
-  </div>
-  <div class="post-content">
-    
-      <h3 id="CSS选择器规则结构">CSS选择器规则结构</h3>
-<p>规则结构由两基本部分组成：选择器<code>(selector)</code>和声明块<code>(declaration block)</code>；</p>
-<p>选择器必须以字母或下划线开头，其后可以是数字、字母、下划线、中横线等，区分大小写；</p>
+      <h3 id="创建(Create)">创建(Create)</h3>
 <ul>
-<li><p>声明块由一个或多个声明(declaration)组成；</p>
+<li><p><code>$ git clone git@github.com:jayself/jayselfsite.git</code> 或 <code>git clone https://github.com/jayself/jayselfsite.git</code></p>
+<p>  从一个现有的版本库克隆一份</p>
 </li>
-<li><p>每个声明是一个属性—值对(property-value)；</p>
-</li>
-<li><p>每个样式表由一系列的规则组成；</p>
-<p>  <code>h1 {font-size:14px; color:#ff0;}</code> 这是一条简单的声明，选择所有的 <code>h1</code> 标签，其中：</p>
-</li>
-<li><p><code>h1</code>就是选择器；</p>
-</li>
-<li><p><code>{}</code>大括号里面的是声明块；</p>
-<ul>
-<li><p><code>font-size:14px</code>和<code>color:#ff0</code>是两个声明；</p>
-</li>
-<li><p><code>font-size</code>和<code>color</code>是属性；</p>
-</li>
-<li><p><code>14px</code>和<code>#ff0</code>是值；</p>
-</li>
-</ul>
+<li><p><code>$ git init</code></p>
+<p>  把当前目录创建为一个本地版本库</p>
 </li>
 </ul>
 
       
         <p class="article-more-link">
-          <a href="/2014/04/26/css3_selectors/#more">Read More...</a>
+          <a href="/2014/08/03/git/#more">Read More...</a>
         </p>
       
     
   </div>
   <footer class="post-footer">
     
-  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/css/">css</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/css3/">css3</a></li></ul>
+  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/git/">git</a></li></ul>
 
   </footer>
 </article>
@@ -159,136 +83,6 @@
 
 
   
-    <article id="post-cssdoc" class="post article-type-post">
-  
-    <header class="post-header">
-      
-  
-    <h3 itemprop="name">
-      <a class="post-title" href="/2014/01/16/cssdoc/">CSSDOC</a>
-    </h3>
-  
-
-    </header>
-  
-  <div class="post-meta">
-    <time datetime="2014-01-16T15:22:23.000Z" itemprop="datePublished">Jan 16 2014</time>
-    
-  <span class="article-category">
-    <a class="article-category-link" href="/categories/css/">css</a>
-  </span>
-
-  </div>
-  <div class="post-content">
-    
-      <p><code>CSSDOC</code>采用的是<code>DocBlock</code>，一个借鉴自<code>PHPDocumentor</code>项目的术语。一段<code>DocBlock</code>是一段可供人类和机器读取的数据块；</p>
-<p>一段<code>DocBlock</code>以 <code>/**</code> 开头，以空格加 <code>*/</code> 结尾(像正常<code>CSS</code>注释一样)。而它的每一行必须以空格加星号(<code>*</code>)开头，否则将被文档生成器忽略。标签以<code>@</code>开始，紧跟着名字，中间不带空格。标签的描述或值应该放在标签名称之后，前面用空格分开。</p>
-
-      
-        <p class="article-more-link">
-          <a href="/2014/01/16/cssdoc/#more">Read More...</a>
-        </p>
-      
-    
-  </div>
-  <footer class="post-footer">
-    
-  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/css/">css</a></li></ul>
-
-  </footer>
-</article>
-
-
-
-  
-    <article id="post-emmet_css" class="post article-type-post">
-  
-    <header class="post-header">
-      
-  
-    <h3 itemprop="name">
-      <a class="post-title" href="/2013/12/26/emmet_css/">用 Emmet 书写 css</a>
-    </h3>
-  
-
-    </header>
-  
-  <div class="post-meta">
-    <time datetime="2013-12-26T15:45:35.000Z" itemprop="datePublished">Dec 26 2013</time>
-    
-  <span class="article-category">
-    <a class="article-category-link" href="/categories/emmet/">emmet</a>
-  </span>
-
-  </div>
-  <div class="post-content">
-    
-      <p>对于<code>css</code>的<code>emmet</code>语法，多数情况下直接取第一个字母，如果是多个单词连接，一般取每个单词的首字母或取第一个单词的首字母和第二个单词的前两字母；</p>
-<p>对于<code>sublime</code>，如果装了<code>emmet</code>插件，一般输入一个字母后就会有提示：</p>
-
-      
-        <p class="article-more-link">
-          <a href="/2013/12/26/emmet_css/#more">Read More...</a>
-        </p>
-      
-    
-  </div>
-  <footer class="post-footer">
-    
-  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/css/">css</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/emmet/">emmet</a></li></ul>
-
-  </footer>
-</article>
-
-
-
-  
-    <article id="post-emmet_html" class="post article-type-post">
-  
-    <header class="post-header">
-      
-  
-    <h3 itemprop="name">
-      <a class="post-title" href="/2013/12/26/emmet_html/">用 Emmet 书写 html</a>
-    </h3>
-  
-
-    </header>
-  
-  <div class="post-meta">
-    <time datetime="2013-12-26T15:29:15.000Z" itemprop="datePublished">Dec 26 2013</time>
-    
-  <span class="article-category">
-    <a class="article-category-link" href="/categories/emmet/">emmet</a>
-  </span>
-
-  </div>
-  <div class="post-content">
-    
-      <p><code>emmet</code>，一般是作为编辑器的一个插件使用，目前比较知名的编辑器都有<code>emmet</code>插件；其前身是 <code>zen coding</code>，熟练掌握后，可使书写 <code>html</code> 或 <code>css</code> 的效率大大提升；而且其学习成本非常低；</p>
-<p><strong>使用方法</strong>：大多数编辑器中都是按 <code>TAB</code> 健；</p>
-
-      
-        <p class="article-more-link">
-          <a href="/2013/12/26/emmet_html/#more">Read More...</a>
-        </p>
-      
-    
-  </div>
-  <footer class="post-footer">
-    
-  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/emmet/">emmet</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/html/">html</a></li></ul>
-
-  </footer>
-</article>
-
-
-
-  
-  
-    <nav class="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
-    </nav>
   
 </section>
     

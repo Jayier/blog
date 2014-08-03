@@ -11,6 +11,7 @@ body {
 }
 table {
   table-layout: fixed;
+  border-collapse: collapse;
   border-spacing: 0;
 }
 a {
@@ -33,17 +34,6 @@ h5,h6 {
   margin-bottom: .8em;
 }
 
-/* a[href^='http://']:after {
-  content: '';
-  font-family: FontAwesome;
-  font-style: normal;
-  font-weight: normal;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  padding-left: 5px;
-}
-*/
 .site-header {
   margin-bottom: 15px;
   color: #444;
@@ -151,7 +141,8 @@ h5,h6 {
   transition: all .3s;
   border-radius: 3px;
 }
-.site-main a:hover {
+.site-main a:hover,
+.article-more-link a:hover {
   color: #fff;
   background-color: #00B7FF;
 }
@@ -268,6 +259,12 @@ h5,h6 {
 .article-more-link {
   margin: 10px 0 5px 0;
 }
+.article-more-link a {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 20px;
+  background: #ccc;
+}
 
 
 .site-aside {
@@ -287,6 +284,9 @@ h5,h6 {
 .site-footer span {
   margin-right: 5px;
 }
+.site-footer img {
+	display: none;
+}
 
 /*
  * Archives page
@@ -304,6 +304,10 @@ h5,h6 {
   overflow: hidden;
   text-overflow: ellipsis;
   line-height: 2em;
+}
+
+.article-type-page p {
+  line-height: 2;
 }
 
 /*
@@ -336,20 +340,20 @@ h5,h6 {
 }
 .whole-categories-list li:hover,
 .whole-tags-list li:hover{
-  background-color: #00B7FF;   
+  background-color: #00B7FF;
 }
 .whole-categories-list li span,
 .whole-tags-list li span {
   display: inline-block;
   width: 25px;
-  margin-left: -25px; 
+  margin-left: -25px;
 }
 /*
  * syntax highlight
  **********/
 pre,
 code {
-  font-family: "Source Code Pro", Monaco, Menlo, Consolas, monospace;
+  font-family: "Microsoft YaHei","Source Code Pro", Monaco, Menlo, Consolas, monospace;
   color: #4d4d4c;
   background: #eee;
   font-size: 13px;
@@ -475,6 +479,15 @@ pre .keyword,
 pre .javascript .function {
   color: #8959a8;
 }
+blockquote {
+  margin: 1em 1em 1em 0;
+  padding: 0.3em 0;
+  background-color: #fafafa;
+  border-left: 5px solid #eee;
+}
+blockquote p {
+  margin: 0 0 0.5em 0;
+}
 
 /*
  * for phone
@@ -503,4 +516,8 @@ pre .javascript .function {
   .site-footer .inner > span:not(:first-child) {
     display: none;
   }
+}
+
+.ds-comments-tab-weibo {
+  display: none!important;
 }

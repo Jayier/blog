@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>jayself = { &#39;HTML&#39;, &#39;CSS&#39;, &#39;JS&#39; }</title>
+  <title>Jay.Zhang的个人博客，记录分享工作、学习中的一些经验与问题!</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="keywords" content="前端程序员, 前端制作, javascript, css, html, jayself, jayzhang">
   <link type="text/css" rel="stylesheet" href="/css/style.css">
@@ -37,6 +37,58 @@
 </nav></header>
   <main class="site-scroll">
     <section class="site-main">
+  
+    <article id="post-mongoose_learn02" class="post article-type-post">
+  
+    <header class="post-header">
+      
+  
+    <h3 itemprop="name">
+      <a class="post-title" href="/2014/07/28/mongoose_learn02/">Mongoose基础02</a>
+    </h3>
+  
+
+    </header>
+  
+  <div class="post-meta">
+    <time datetime="2014-07-28T03:53:48.000Z" itemprop="datePublished">Jul 28 2014</time>
+    
+  <span class="article-category">
+    <a class="article-category-link" href="/categories/mongodb/">mongodb</a>
+  </span>
+
+  </div>
+  <div class="post-content">
+    
+      <h3 id="Model-create(doc(s),_[fn])">Model.create(doc(s), [fn])</h3>
+<p>在 <code>Mongoose之01基础知识.md</code> 一文中，我们知道实例化的模型也就是创建了一个文档；</p>
+<p><code>Model.create(doc(s), [fn])</code> 是创建文档的一个快捷方式，如果文档是有效的，则自动保存到数据库中；</p>
+<p><strong>参数(Parameters)</strong></p>
+<ul>
+<li><p>doc(s) &lt; Array, Object… &gt;</p>
+</li>
+<li><p>[fn] &lt; Function &gt; callback</p>
+<p>  <code>callback</code> 的第一个参数是错误信息，后面的参数是对应的创建的文档信息；</p>
+</li>
+</ul>
+<p><strong>返回值(Returns)</strong></p>
+
+      
+        <p class="article-more-link">
+          <a href="/2014/07/28/mongoose_learn02/#more">Read More...</a>
+        </p>
+      
+    
+  </div>
+  <footer class="post-footer">
+    
+  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/mongodb/">mongodb</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/mongoose/">mongoose</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/node/">node</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/nosql/">nosql</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/sql/">sql</a></li></ul>
+
+  </footer>
+</article>
+
+
+
   
     <article id="post-mongoose_learn01" class="post article-type-post">
   
@@ -176,50 +228,6 @@
 
 
   
-    <article id="post-mvc" class="post article-type-post">
-  
-    <header class="post-header">
-      
-  
-    <h3 itemprop="name">
-      <a class="post-title" href="/2014/07/28/mvc/">前端MVC模式</a>
-    </h3>
-  
-
-    </header>
-  
-  <div class="post-meta">
-    <time datetime="2014-07-28T03:45:28.000Z" itemprop="datePublished">Jul 28 2014</time>
-    
-  <span class="article-category">
-    <a class="article-category-link" href="/categories/javascript/">javascript</a>
-  </span>
-
-  </div>
-  <div class="post-content">
-    
-      <p><strong><code>MVC</code></strong>模式(Model - View - Controller) 是软件工程中的一种软件架构模式，把软件系统分为三个基本部分：模型(Model)、视图(View)和控制器(Controller)；</p>
-<p><code>MVC</code> 模式的目的是实现一种动态的程序设计，使后续对程序的修改和扩展简化，并且使程序某一个部分的重复利用成为可能；</p>
-<p>除此之外，此模式通过对复杂度的简化，使程序结构更加直观。</p>
-<p>软件系统通过对自身基本部分分离的同时也赋予了各个基本应用的功能。</p>
-
-      
-        <p class="article-more-link">
-          <a href="/2014/07/28/mvc/#more">Read More...</a>
-        </p>
-      
-    
-  </div>
-  <footer class="post-footer">
-    
-  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/js/">js</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/mvc/">mvc</a></li></ul>
-
-  </footer>
-</article>
-
-
-
-  
     <article id="post-Jade" class="post article-type-post">
   
     <header class="post-header">
@@ -283,6 +291,50 @@ html(lang=<span class="string">"en"</span>)
 
 
   
+    <article id="post-mvc" class="post article-type-post">
+  
+    <header class="post-header">
+      
+  
+    <h3 itemprop="name">
+      <a class="post-title" href="/2014/07/28/mvc/">前端MVC模式</a>
+    </h3>
+  
+
+    </header>
+  
+  <div class="post-meta">
+    <time datetime="2014-07-28T03:45:28.000Z" itemprop="datePublished">Jul 28 2014</time>
+    
+  <span class="article-category">
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+  </span>
+
+  </div>
+  <div class="post-content">
+    
+      <p><strong><code>MVC</code></strong>模式(Model - View - Controller) 是软件工程中的一种软件架构模式，把软件系统分为三个基本部分：模型(Model)、视图(View)和控制器(Controller)；</p>
+<p><code>MVC</code> 模式的目的是实现一种动态的程序设计，使后续对程序的修改和扩展简化，并且使程序某一个部分的重复利用成为可能；</p>
+<p>除此之外，此模式通过对复杂度的简化，使程序结构更加直观。</p>
+<p>软件系统通过对自身基本部分分离的同时也赋予了各个基本应用的功能。</p>
+
+      
+        <p class="article-more-link">
+          <a href="/2014/07/28/mvc/#more">Read More...</a>
+        </p>
+      
+    
+  </div>
+  <footer class="post-footer">
+    
+  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/js/">js</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/mvc/">mvc</a></li></ul>
+
+  </footer>
+</article>
+
+
+
+  
     <article id="post-Compass" class="post article-type-post">
   
     <header class="post-header">
@@ -323,63 +375,6 @@ html(lang=<span class="string">"en"</span>)
 
 
   
-    <article id="post-css3_inherit_particularity_stack" class="post article-type-post">
-  
-    <header class="post-header">
-      
-  
-    <h3 itemprop="name">
-      <a class="post-title" href="/2014/04/26/css3_inherit_particularity_stack/">CSS3继承、特殊性、重要性与层叠</a>
-    </h3>
-  
-
-    </header>
-  
-  <div class="post-meta">
-    <time datetime="2014-04-26T15:10:25.000Z" itemprop="datePublished">Apr 26 2014</time>
-    
-  <span class="article-category">
-    <a class="article-category-link" href="/categories/css/">css</a>
-  </span>
-
-  </div>
-  <div class="post-content">
-    
-      <h3 id="特殊性">特殊性</h3>
-<p>同一个元素可以设置多个选择器，就会导致可能有重复的规则，但是浏览器不可能两个规则都显示，所以最终只会显示一个规则，那到底是运用哪一个规则呢？</p>
-<p>答案就在于每个选择器的特殊性，最高特殊性的声明会胜出。</p>
-<p>选择器的特殊性由选择器本身的组件确定。特殊性值表述为4个部分：0 0 0 0</p>
-<p>一个选择器的具体特殊性如下：</p>
-<pre><code>ID选择器                              0  1  0  0
-类选择器、属性选择器以及伪类选择器    0  0  1  0 (这里伪类包括结构性伪类和UI元素状态伪类)
-元素选择器、伪元素选择器              0  0  0  1
-其他像通配选择器、派生选择器          0  0  0  0
-内联样式                              1  0  0  0
-</code></pre><p><strong>注，这里的4位数字跟数学里面的个、十、百、千位数是不一样的</strong>；</p>
-<p><code>0 1 0 0</code> 是大于 <code>0 0 100 0</code> 的</p>
-<h3 id="重要性">重要性</h3>
-<p>有时某个声明可能非常重要，超过了所有其他声明，此时就可以在这具体规则后加上 <code>!important</code> 来标志；</p>
-<p>加上重要性的标志后其特殊性比没有重要性标志的特殊性更高，即比内联样式(<code>1 0 0 0</code>)的特殊性还高；</p>
-<h3 id="继承">继承</h3>
-<p>基于继承机制，样式不仅可以应用到指定的元素，同时还会运用到其后代元素。这样可以减少很多没必要的选择器声明；</p>
-<p>不过，也不是所有的属性都能继承，有部分属性是不能继承的，比如<code>padding</code>和<code>margin</code>以及<code>border</code>等；</p>
-<p>还有一个特殊的地方，即如果<code>&lt;html&gt;</code>上没有设置<code>background</code>相关属性，而<code>&lt;body&gt;</code>上有设置，则<code>&lt;body&gt;</code>会向上传播到<code>&lt;html&gt;</code>上；</p>
-<p><strong>继承没特殊性</strong>连0都没，通配选择符特殊性为0，因此当继承遇到通配选择符的时候，通配选择符会胜出；</p>
-<h3 id="层叠">层叠</h3>
-<p>正常情况下，按规则出现的顺序，越后出现其权重越大</p>
-
-    
-  </div>
-  <footer class="post-footer">
-    
-  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/css/">css</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/css3/">css3</a></li></ul>
-
-  </footer>
-</article>
-
-
-
-  
   
     <nav class="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -402,7 +397,7 @@ html(lang=<span class="string">"en"</span>)
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/appjs/">app.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compass/">compass</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/">css3</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emmet/">emmet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/express/">express</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ide/">ide</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jade/">jade</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/json/">json</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/module/">module</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/">mongodb</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongoose/">mongoose</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mvc/">mvc</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nosql/">nosql</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sass/">sass</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scss/">scss</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/">sql</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/">ssh</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xshell/">xshell</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/appjs/">app.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compass/">compass</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/">css3</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emmet/">emmet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/express/">express</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ide/">ide</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jade/">jade</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/json/">json</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/module/">module</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/">mongodb</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongoose/">mongoose</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mvc/">mvc</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nosql/">nosql</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sass/">sass</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scss/">scss</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/">sql</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/">ssh</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xshell/">xshell</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -411,7 +406,7 @@ html(lang=<span class="string">"en"</span>)
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/appjs/" style="font-size: 10.00px;">app.js</a><a href="/tags/compass/" style="font-size: 10.00px;">compass</a><a href="/tags/css/" style="font-size: 17.50px;">css</a><a href="/tags/css3/" style="font-size: 12.50px;">css3</a><a href="/tags/emmet/" style="font-size: 12.50px;">emmet</a><a href="/tags/express/" style="font-size: 15.00px;">express</a><a href="/tags/html/" style="font-size: 10.00px;">html</a><a href="/tags/ide/" style="font-size: 12.50px;">ide</a><a href="/tags/jade/" style="font-size: 10.00px;">jade</a><a href="/tags/js/" style="font-size: 12.50px;">js</a><a href="/tags/json/" style="font-size: 10.00px;">json</a><a href="/tags/module/" style="font-size: 10.00px;">module</a><a href="/tags/mongodb/" style="font-size: 15.00px;">mongodb</a><a href="/tags/mongoose/" style="font-size: 12.50px;">mongoose</a><a href="/tags/mvc/" style="font-size: 10.00px;">mvc</a><a href="/tags/node/" style="font-size: 20.00px;">node</a><a href="/tags/nosql/" style="font-size: 15.00px;">nosql</a><a href="/tags/sass/" style="font-size: 10.00px;">sass</a><a href="/tags/scss/" style="font-size: 10.00px;">scss</a><a href="/tags/sql/" style="font-size: 15.00px;">sql</a><a href="/tags/ssh/" style="font-size: 10.00px;">ssh</a><a href="/tags/ubuntu/" style="font-size: 12.50px;">ubuntu</a><a href="/tags/vim/" style="font-size: 12.50px;">vim</a><a href="/tags/xshell/" style="font-size: 10.00px;">xshell</a>
+      <a href="/tags/appjs/" style="font-size: 10.00px;">app.js</a><a href="/tags/compass/" style="font-size: 10.00px;">compass</a><a href="/tags/css/" style="font-size: 17.50px;">css</a><a href="/tags/css3/" style="font-size: 12.50px;">css3</a><a href="/tags/emmet/" style="font-size: 12.50px;">emmet</a><a href="/tags/express/" style="font-size: 15.00px;">express</a><a href="/tags/git/" style="font-size: 10.00px;">git</a><a href="/tags/html/" style="font-size: 10.00px;">html</a><a href="/tags/ide/" style="font-size: 12.50px;">ide</a><a href="/tags/jade/" style="font-size: 10.00px;">jade</a><a href="/tags/js/" style="font-size: 12.50px;">js</a><a href="/tags/json/" style="font-size: 10.00px;">json</a><a href="/tags/module/" style="font-size: 10.00px;">module</a><a href="/tags/mongodb/" style="font-size: 15.00px;">mongodb</a><a href="/tags/mongoose/" style="font-size: 12.50px;">mongoose</a><a href="/tags/mvc/" style="font-size: 10.00px;">mvc</a><a href="/tags/node/" style="font-size: 20.00px;">node</a><a href="/tags/nosql/" style="font-size: 15.00px;">nosql</a><a href="/tags/sass/" style="font-size: 10.00px;">sass</a><a href="/tags/scss/" style="font-size: 10.00px;">scss</a><a href="/tags/sql/" style="font-size: 15.00px;">sql</a><a href="/tags/ssh/" style="font-size: 10.00px;">ssh</a><a href="/tags/ubuntu/" style="font-size: 12.50px;">ubuntu</a><a href="/tags/vim/" style="font-size: 12.50px;">vim</a><a href="/tags/xshell/" style="font-size: 10.00px;">xshell</a>
     </div>
   </div>
 
@@ -420,7 +415,7 @@ html(lang=<span class="string">"en"</span>)
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07">July 2014</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04">April 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01">January 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12">December 2013</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08">August 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07">July 2014</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04">April 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01">January 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12">December 2013</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -430,6 +425,10 @@ html(lang=<span class="string">"en"</span>)
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2014/08/03/git/">git 常用命令备忘录</a>
+          </li>
         
           <li>
             <a href="/2014/08/01/xshell4_sftp/">Xshell连接远程主机与本机进行文件传输</a>
@@ -445,10 +444,6 @@ html(lang=<span class="string">"en"</span>)
         
           <li>
             <a href="/2014/07/28/node_express_basic/">Express4.x基础</a>
-          </li>
-        
-          <li>
-            <a href="/2014/07/28/node_modules/">Node模块解析基础</a>
           </li>
         
       </ul>
