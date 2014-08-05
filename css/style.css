@@ -86,7 +86,7 @@ h5,h6 {
   -moz-transition: all .3s;
   transition: all .3s;
 }
-.site-nav li a:before {
+/*.site-nav li a:before {
   display: inline-block;
   width: 14px;
   font-family: FontAwesome;
@@ -108,7 +108,7 @@ h5,h6 {
 }
 .site-nav li:nth-child(4) a:before {
   content: '';
-}
+}*/
 .site-nav li a:after {
   content: '';
   position: absolute;
@@ -359,8 +359,8 @@ code {
   font-size: 13px;
 }
 code {
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
   border: 1px solid #ddd;
   padding: 0 5px;
 }
