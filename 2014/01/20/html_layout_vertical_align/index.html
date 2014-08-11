@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Jay.Zhang的个人博客，记录分享工作、学习中的一些经验与问题!</title>
+  <title>HTML布局之垂直居中 | Jay.Zhang的个人博客，记录分享工作、学习中的一些经验与问题!</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="keywords" content="前端程序员, 前端制作, javascript, css, html, jayself, jayzhang">
   <link type="text/css" rel="stylesheet" href="/css/style.css">
@@ -36,346 +36,149 @@
   </ul>
 </nav></header>
   <main class="site-scroll">
-    <section class="site-main">
-  
-    <article id="post-git" class="post article-type-post">
+    <section class="site-main"><article id="post-html_layout_vertical_align" class="post article-type-post">
   
     <header class="post-header">
       
   
-    <h3 itemprop="name">
-      <a class="post-title" href="/2014/08/03/git/">git 常用命令备忘录</a>
+    <h3 class="post-title" itemprop="name">
+      HTML布局之垂直居中
     </h3>
   
 
     </header>
   
   <div class="post-meta">
-    <time datetime="2014-08-03T01:09:56.000Z" itemprop="datePublished">Aug 3 2014</time>
-    
-  </div>
-  <div class="post-content">
-    
-      <h3 id="创建(Create)">创建(Create)</h3>
-<ul>
-<li><p><code>$ git clone git@github.com:jayself/jayselfsite.git</code> 或 <code>git clone https://github.com/jayself/jayselfsite.git</code></p>
-<p>  从一个现有的版本库克隆一份</p>
-</li>
-<li><p><code>$ git init</code></p>
-<p>  把当前目录创建为一个本地版本库</p>
-</li>
-</ul>
-
-      
-        <p class="article-more-link">
-          <a href="/2014/08/03/git/#more">Read More...</a>
-        </p>
-      
-    
-  </div>
-  <footer class="post-footer">
-    
-  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/git/">git</a></li></ul>
-
-  </footer>
-</article>
-
-
-
-  
-    <article id="post-xshell4_sftp" class="post article-type-post">
-  
-    <header class="post-header">
-      
-  
-    <h3 itemprop="name">
-      <a class="post-title" href="/2014/08/01/xshell4_sftp/">Xshell连接远程主机与本机进行文件传输</a>
-    </h3>
-  
-
-    </header>
-  
-  <div class="post-meta">
-    <time datetime="2014-08-01T06:04:15.000Z" itemprop="datePublished">Aug 1 2014</time>
+    <time datetime="2014-01-20T12:14:46.000Z" itemprop="datePublished">Jan 20 2014</time>
     
   <span class="article-category">
-    <a class="article-category-link" href="/categories/ubuntu/">ubuntu</a>
+    <a class="article-category-link" href="/categories/html/">html</a>
   </span>
 
   </div>
   <div class="post-content">
     
-      <p><code>Xshell</code>提供熟悉终端环境的高级用户使用的与UNIX/Linux的FTP相类似的指令。各指令说明内容如下，具体使用方法请用SFTP提示的help命令进行确认。</p>
-<p>在进行远程主机与本机文件传输时，只支持文件或压缩包的传输，不支持文件夹的传输；</p>
+      <p>css 中虽然有 <code>vertical-align</code> 属性，但是这个属性并非是对布局设置垂直居中用的；</p>
+<p>这里，记录一下自己常用的布局垂直居中的方法：</p>
+<h3 id="设置_display:_table-cell">设置 <code>display: table-cell</code></h3>
+<p>表格单元格的内容默认是垂直居中显示的；所以，我们也可以将一个 div 模拟成一个 td，这样再设置内容垂直居中就行了；不过 IE7以下浏览器不支持 <code>display: table-cell</code>：</p>
+<p>HTML：</p>
+<pre><code>&lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"box"</span>&gt;
+    &lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"con"</span>&gt;con&lt;/<span class="keyword">div</span>&gt;
+&lt;/<span class="keyword">div</span>&gt;
+</code></pre><p>CSS:</p>
+<pre><code><span class="class">.box</span> <span class="rules">{
+    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100px</span></span></span>;
+    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100px</span></span></span>;
+    <span class="rule"><span class="attribute">display</span>:<span class="value"> table-cell</span></span>;
+    <span class="rule"><span class="attribute">vertical-align</span>:<span class="value"> middle</span></span>;
+    <span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="hexcolor">#03c6a8</span></span></span>;
+<span class="rule">}</span></span>
+<span class="class">.con</span> <span class="rules">{
+    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">50px</span></span></span>;
+    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">50px</span></span></span>;
+    <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">0</span> auto</span></span>;
+    <span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="hexcolor">#0a727d</span></span></span>;
+<span class="rule">}</span></span>
+</code></pre><p>显示效果：</p>
+<blockquote>
+<div class="box"> <style type="text/css" scoped> .box {width: 100px; height: 100px; display: table-cell; vertical-align: middle; background-color: #03c6a8; } .content {width: 50px; height: 50px; margin: 0 auto; background-color: #0a727d; } </style> <div class="content">div</div> </div>
 
-      
-        <p class="article-more-link">
-          <a href="/2014/08/01/xshell4_sftp/#more">Read More...</a>
-        </p>
-      
+</blockquote>
+<h3 id="定位">定位</h3>
+<p>定位，主要是设置子元素的 left 和 top 相对于父元素 50%，然后再用 margin-left 和 margin-top 设置其值为子元素宽度的一半；</p>
+<p>HTML：</p>
+<pre><code>&lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"box02"</span>&gt;
+    &lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"con02"</span>&gt;con&lt;/<span class="keyword">div</span>&gt;
+&lt;/<span class="keyword">div</span>&gt;
+</code></pre><p>CSS:</p>
+<pre><code><span class="class">.box02</span> <span class="rules">{
+    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100px</span></span></span>;
+    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100px</span></span></span>;
+    <span class="rule"><span class="attribute">position</span>:<span class="value"> relative</span></span>;
+    <span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="hexcolor">#03c6a8</span></span></span>;
+<span class="rule">}</span></span>
+<span class="class">.con02</span> <span class="rules">{
+    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">50px</span></span></span>;
+    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">50px</span></span></span>;
+    <span class="rule"><span class="attribute">position</span>:<span class="value"> absolute</span></span>;
+    <span class="rule"><span class="attribute">left</span>:<span class="value"> <span class="number">50%</span></span></span>;
+    <span class="rule"><span class="attribute">top</span>:<span class="value"> <span class="number">50%</span></span></span>;
+    <span class="rule"><span class="attribute">margin-left</span>:<span class="value"> -<span class="number">25px</span></span></span>;
+    <span class="rule"><span class="attribute">margin-top</span>:<span class="value"> -<span class="number">25px</span></span></span>;
+    <span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="hexcolor">#0a727d</span></span></span>;
+<span class="rule">}</span></span>
+</code></pre><p>显示效果：</p>
+<blockquote>
+<div class="box02"> <style type="text/css">.box02 {width: 100px; height: 100px; position: relative; background-color: #03c6a8; } .con02 {width: 50px; height: 50px; position: absolute; left: 50%; top: 50%; margin-left: -25px; margin-top: -25px; background-color: #0a727d; }</style> <div class="con02">div</div> </div>
+
+</blockquote>
+<h3 id="使用_vertical-align:_middle">使用 vertical-align: middle</h3>
+<p>vertical-align，不能运用于块元素，所以，如果要让 div 使这个属性，首先得设置 div 的 display: inline-block；行内元素如果要有宽、高也得先具有块元素的特性；</p>
+<p>HTML：</p>
+<pre><code><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"box03"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"con03"</span>&gt;</span>con03<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"con03-span"</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span>/* 两span间不要换行 */
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</code></pre><p>CSS：</p>
+<pre><code><span class="class">.box03</span> <span class="rules">{
+    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100px</span></span></span>;
+    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100px</span></span></span>;
+    <span class="rule"><span class="attribute">text-align</span>:<span class="value"> center</span></span>;
+    <span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="hexcolor">#03c6a8</span></span></span>;
+<span class="rule">}</span></span>
+<span class="class">.con03</span> <span class="rules">{
+    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">50px</span></span></span>;
+    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">50px</span></span></span>;
+    <span class="rule"><span class="attribute">display</span>:<span class="value"> inline-block</span></span>;
+    <span class="rule"><span class="attribute">vertical-align</span>:<span class="value"> middle</span></span>;
+<span class="rule">}</span></span>
+<span class="class">.con03-span</span> <span class="rules">{
+    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">1px</span></span></span>;
+    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100%</span></span></span>;
+    <span class="rule"><span class="attribute">margin-right</span>:<span class="value"> -<span class="number">1px</span></span></span>;
+    <span class="rule"><span class="attribute">display</span>:<span class="value"> inline-block</span></span>;
+    <span class="rule"><span class="attribute">vertical-align</span>:<span class="value"> middle</span></span>;
+<span class="rule">}</span></span>
+</code></pre><p>显示效果：</p>
+<blockquote>
+<div class="box03"> <style type="text/css"> .box03 {width: 100px; height: 100px; text-align: center; background-color: #03c6a8; } .con03 {width: 50px; height: 50px; text-align: left; display: inline-block; vertical-align: middle; background-color: #0a727d; } .con03-span {width: 1px; height: 100%; margin-right: -1px; display: inline-block; vertical-align: middle; } </style> <span class="con03">div</span><span class="con03-span"></span> </div>
+</blockquote>
+
     
   </div>
   <footer class="post-footer">
     
-  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/ssh/">ssh</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/xshell/">xshell</a></li></ul>
+  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/css/">css</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/html/">html</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/layout/">layout</a></li></ul>
 
   </footer>
 </article>
 
-
-
   
-    <article id="post-vim_conf_plugin" class="post article-type-post">
+<nav class="post-nav">
   
-    <header class="post-header">
-      
-  
-    <h3 itemprop="name">
-      <a class="post-title" href="/2014/07/30/vim_conf_plugin/">vim常用配置与插件安装</a>
-    </h3>
-  
-
-    </header>
-  
-  <div class="post-meta">
-    <time datetime="2014-07-30T09:32:54.000Z" itemprop="datePublished">Jul 30 2014</time>
-    
-  <span class="article-category">
-    <a class="article-category-link" href="/categories/ubuntu/">ubuntu</a>
-  </span>
-
-  </div>
-  <div class="post-content">
-    
-      <p>执行 <code>vim ~/.vimrc</code> 如果这个文件不存在，会自动创建，然后把我们的配置内容放写去；</p>
-<p>以下是我的配置：</p>
-
-      
-        <p class="article-more-link">
-          <a href="/2014/07/30/vim_conf_plugin/#more">Read More...</a>
-        </p>
-      
-    
-  </div>
-  <footer class="post-footer">
-    
-  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/ide/">ide</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/vim/">vim</a></li></ul>
-
-  </footer>
-</article>
-
-
-
-  
-    <article id="post-vim_command" class="post article-type-post">
-  
-    <header class="post-header">
-      
-  
-    <h3 itemprop="name">
-      <a class="post-title" href="/2014/07/28/vim_command/">vim常用命令</a>
-    </h3>
-  
-
-    </header>
-  
-  <div class="post-meta">
-    <time datetime="2014-07-28T04:45:04.000Z" itemprop="datePublished">Jul 28 2014</time>
-    
-  <span class="article-category">
-    <a class="article-category-link" href="/categories/vim/">vim</a>
-  </span>
-
-  </div>
-  <div class="post-content">
-    
-      <ul>
-<li><p>:w，保存；</p>
-</li>
-<li><p>%，匹配括号；</p>
-</li>
-<li><p><code>&gt;&gt;</code>，当前行增加缩进一个TAB；<code>n&gt;&gt;</code>，当前行开始的n行增加缩进一个TAB</p>
-</li>
-<li><p><code>&lt;&lt;</code>，当前行减少一个TAB；<code>n&lt;&lt;</code>，当前行开始的n行减少一个TAB</p>
-</li>
-</ul>
-
-      
-        <p class="article-more-link">
-          <a href="/2014/07/28/vim_command/#more">Read More...</a>
-        </p>
-      
-    
-  </div>
-  <footer class="post-footer">
-    
-  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/ide/">ide</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/vim/">vim</a></li></ul>
-
-  </footer>
-</article>
-
-
-
-  
-    <article id="post-node_express_basic" class="post article-type-post">
-  
-    <header class="post-header">
-      
-  
-    <h3 itemprop="name">
-      <a class="post-title" href="/2014/07/28/node_express_basic/">Express4.x基础</a>
-    </h3>
-  
-
-    </header>
-  
-  <div class="post-meta">
-    <time datetime="2014-07-28T04:42:03.000Z" itemprop="datePublished">Jul 28 2014</time>
-    
-  <span class="article-category">
-    <a class="article-category-link" href="/categories/node/">node</a>
-  </span>
-
-  </div>
-  <div class="post-content">
-    
-      <h3 id="在线安装_express">在线安装 express</h3>
-<p>首先，要确保电脑上安装好了 <code>nodejs</code> 和 <code>npm</code>；</p>
-<h4 id="Ubuntu下安装">Ubuntu下安装</h4>
-<ol>
-<li><p>Ctrl + Alt + T，打开终端；</p>
-</li>
-<li><p>输入 <code>sudo apt-get install nodejs</code>；</p>
-</li>
-<li><p>输入 <code>sudo apt-get install nodejs-legacy</code>；</p>
-</li>
-<li><p>输入 <code>sudo apt-get install npm</code>；</p>
-</li>
-</ol>
-
-      
-        <p class="article-more-link">
-          <a href="/2014/07/28/node_express_basic/#more">Read More...</a>
-        </p>
-      
-    
-  </div>
-  <footer class="post-footer">
-    
-  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/express/">express</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/node/">node</a></li></ul>
-
-  </footer>
-</article>
-
-
-
-  
-    <article id="post-node_modules" class="post article-type-post">
-  
-    <header class="post-header">
-      
-  
-    <h3 itemprop="name">
-      <a class="post-title" href="/2014/07/28/node_modules/">Node模块解析基础</a>
-    </h3>
-  
-
-    </header>
-  
-  <div class="post-meta">
-    <time datetime="2014-07-28T04:40:16.000Z" itemprop="datePublished">Jul 28 2014</time>
-    
-  <span class="article-category">
-    <a class="article-category-link" href="/categories/node/">node</a>
-  </span>
-
-  </div>
-  <div class="post-content">
-    
-      <h3 id="什么是模块">什么是模块</h3>
-<p>在 node 中模块与文件是一一对应的，也就是说一个 node 文件就是一个模块；</p>
-<h3 id="模块文件类型">模块文件类型</h3>
-<p>node可以加载的文件类型有三种: <code>.js</code>, <code>.json</code>, <code>.node</code>，在加载的时候可以省略后缀名；</p>
-<ul>
-<li><p><code>.js</code> 就是常规的 javascript 文件；</p>
-</li>
-<li><p><code>.json</code> 则是 json 格式对象，这两者(<code>.js</code>和<code>.json</code>)加载的时候被视为 javascript 动态编译和处理使用；</p>
-</li>
-<li><p><code>.node</code> 则是预编译好的插件模块；</p>
-</li>
-</ul>
-
-      
-        <p class="article-more-link">
-          <a href="/2014/07/28/node_modules/#more">Read More...</a>
-        </p>
-      
-    
-  </div>
-  <footer class="post-footer">
-    
-  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/express/">express</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/module/">module</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/node/">node</a></li></ul>
-
-  </footer>
-</article>
-
-
-
-  
-    <article id="post-node_basic_express_app" class="post article-type-post">
-  
-    <header class="post-header">
-      
-  
-    <h3 itemprop="name">
-      <a class="post-title" href="/2014/07/28/node_basic_express_app/">Node之 app.js 基础讲解</a>
-    </h3>
-  
-
-    </header>
-  
-  <div class="post-meta">
-    <time datetime="2014-07-28T04:37:35.000Z" itemprop="datePublished">Jul 28 2014</time>
-    
-  <span class="article-category">
-    <a class="article-category-link" href="/categories/node/">node</a>
-  </span>
-
-  </div>
-  <div class="post-content">
-    
-      <h4 id="模块的注册">模块的注册</h4>
-<ul>
-<li><p>使用 <code>require(packageName)</code> 注册模块；</p>
-<p>  <code>var path = require(&#39;path&#39;);</code>, 注册 <code>path</code> 核心模块；</p>
-<p>  <code>var express = require(&#39;express&#39;);</code>, 注册 ‘express’ 核心模块；</p>
-<p>  <code>var routes = require(&#39;./routes/index&#39;);</code>， 注册用户自定义的模块 <code>index.js</code>；</p>
-<p>  一个点 ( . ) 代表是当前目录， ( ./routes/index ) 意为与当前文件同目录的 <code>routes</code> 目录内的 ‘index.js’文件；</p>
-</li>
-</ul>
-
-      
-        <p class="article-more-link">
-          <a href="/2014/07/28/node_basic_express_app/#more">Read More...</a>
-        </p>
-      
-    
-  </div>
-  <footer class="post-footer">
-    
-  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/appjs/">app.js</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/express/">express</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/node/">node</a></li></ul>
-
-  </footer>
-</article>
-
-
-
+    <a href="/2014/03/22/meta/" class="post-nav-link-wrap post-nav-prev">
+      <strong class="post-nav-caption">Prev:</strong>
+      <span class="post-nav-title">
+        
+          针对移动端的一些常用 &lt;meta&gt; 讲解
+        
+      </span>
+    </a>
   
   
-    <nav class="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
+    <a href="/2014/01/19/html_layout_lr/" class="post-nav-link-wrap post-nav-next">
+      <strong class="post-nav-caption">Next:</strong>
+      <span class="post-nav-title">HTML布局之左右结构</span>
+    </a>
   
+</nav>
+
+
+
+<section class="site-comment" id="comments">
+  <div class="ds-thread" data-thread-key="post-html_layout_vertical_align" data-title="HTML布局之垂直居中" data-url="/2014/01/20/html_layout_vertical_align/"></div>
+</section>
+
 </section>
     
       <aside class="site-aside" id="sidebar">
