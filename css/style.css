@@ -255,6 +255,10 @@ h5,h6 {
 }
 .post-anchor a {
   display: block;
+	max-width: 200px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 .article-more-link {
   margin: 10px 0 5px 0;
@@ -353,7 +357,7 @@ h5,h6 {
  **********/
 pre,
 code {
-  font-family: "Microsoft YaHei","Source Code Pro", Monaco, Menlo, Consolas, monospace;
+  font-family: "courier new","Microsoft YaHei","Source Code Pro", Monaco, Menlo, Consolas, monospace;
   color: #4d4d4c;
   background: #eee;
   font-size: 13px;
