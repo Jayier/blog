@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: js | Jay.Zhang的个人博客，记录分享工作、学习中的一些经验与问题!</title>
+  <title>HTML5本地存储 | Jay.Zhang的个人博客，记录分享工作、学习中的一些经验与问题!</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="keywords" content="前端程序员, 前端制作, javascript, css, html, jayself, jayzhang">
   <link type="text/css" rel="stylesheet" href="/css/style.css">
@@ -36,100 +36,100 @@
   </ul>
 </nav></header>
   <main class="site-scroll">
-    <section class="site-main">
-  
-    <article id="post-json_basic" class="post article-type-post">
+    <section class="site-main"><article id="post-html5_localStorage_and_sessionStorage" class="post article-type-post">
   
     <header class="post-header">
       
   
-    <h3 itemprop="name">
-      <a class="post-title" href="/2014/07/28/json_basic/">JSON基础</a>
+    <h3 class="post-title" itemprop="name">
+      HTML5本地存储
     </h3>
   
 
     </header>
   
   <div class="post-meta">
-    <time datetime="2014-07-28T03:48:51.000Z" itemprop="datePublished">Jul 28 2014</time>
+    <time datetime="2014-08-14T13:22:23.000Z" itemprop="datePublished">Aug 14 2014</time>
     
   <span class="article-category">
-    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+    <a class="article-category-link" href="/categories/html5/">html5</a>
   </span>
 
   </div>
   <div class="post-content">
     
-      <h3 id="JSON语法">JSON语法</h3>
-<p>Javascript 对象表示法 (Javascript Object Notation，简称JSON) 是一种轻量级的数据交换格式，它是一种文本格式，与语言无关；</p>
-<p><strong>JSON有六种类型的值：</strong></p>
-<p>对象、数组、字符串、数字、布尔值和特殊值 null；</p>
-<p>JSON字符串必须是 <strong>双引号</strong> 的；</p>
-<p>数字的整数首位不允许为0，数字可以是整数、实数或科学计数；</p>
-<p>空白(空格符、制表符、回车符和换行符)可被插到任何值的前后，不过为了减少传输和存储成本，空白可以省略；</p>
+      <p>HTML5中的 Web Storage 包括两种存储方式： sessionStorage 和 localStorage 本地离线存储，同域下只能存储 5M 的空间；IE6.7中可以用 UserData 来实现</p>
+<p>sessionStorage 用于本地存储一个会话(session)中的数据，这些数据只有在同个会话中的页面才能访问并且当会话结束后数据也随之销毁，因此 seesionStorage 不是一种持久化的本地存储，仅仅是会话级别的存储；</p>
+<p>localStorage，用于持久化存储本地数据，如果不手动删除则会一直存在，就算把浏览器关了，清了浏览器缓存，关机等十天半个月再开，一样的存在；但是，它只是存在同一个域名下；</p>
+<a id="more"></a>
 
-      
-        <p class="article-more-link">
-          <a href="/2014/07/28/json_basic/#more">Read More...</a>
-        </p>
-      
+<h3 id="localStorage_和_sessionStorage操作">localStorage 和 sessionStorage操作</h3>
+<p>localStorage 和 sessionStorage 都具有相同的操作方法：</p>
+<p><strong>注意，下面 value 的值始终是字符串，即使传的是一个数字也会被转换成字符串</strong></p>
+<ul>
+<li><p>localStorage.setItem(“key”, “value”)，设置 key 的值为 value，如果 key 已经存在则更新其值为 value</p>
+<p>  localStorage[“key”] = value，也可以这样设置值，不推荐</p>
+<p>  localStorage.key = value，这样也行，不推荐</p>
+</li>
+<li><p>localStorage.getItem(“key”)，获取 key 的值，如果 key 不存在返回 null</p>
+<p>  localStorage[“key”]，也可以这样获取值，不推荐</p>
+<p>  localStorage.key，这样也可以获取值，不推荐</p>
+</li>
+<li><p>localStorage.removeItem(“key”)，删除 key 对应的数据</p>
+</li>
+<li><p>localStorage.clear()，清空所有 localStorage 保存的数据</p>
+</li>
+<li><p>localStorage.length，数据总量</p>
+</li>
+<li><p>localStorage.key(index)，获取 key</p>
+</li>
+<li><p>存储 JSON 格式数据</p>
+<p>  JSON.stringify(data)，将一个对象转换成 JSON 格式的数据串，返回转换后的串</p>
+<p>  JSON.parse(data)，将数据解析成 js 对象，返回解析后的对象</p>
+</li>
+<li><p>HTML5 的本地存储，还提供了一个 storage 事件，可以对键值对的改变进行监听，如果我们同时打开了同域名下的多个页面，这时在其中一个页面中对 localStorage 有操作，那其它同域的页面就会触发这个事件</p>
+<p>  对于事件对象 e，是一个 StorageEvent 对象，提供了一些实用的属性，可以很好的观察键值对的变化：</p>
+<ul>
+<li><p>e.key，被修改的键名</p>
+</li>
+<li><p>e.oldValue，被修改的键对应的旧的值</p>
+</li>
+<li><p>e.newValue，被修改的键对应的新的值</p>
+</li>
+<li><p>e.url，解发 storage 事件的 url</p>
+</li>
+<li><p>e.storageArea，当前 Storage 的引用(session 或 local)</p>
+</li>
+</ul>
+</li>
+</ul>
+
     
   </div>
   <footer class="post-footer">
     
-  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/js/">js</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/json/">json</a></li></ul>
+  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/html5/">html5</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/localStorage/">localStorage</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/sessionStorage/">sessionStorage</a></li></ul>
 
   </footer>
 </article>
 
-
-
   
-    <article id="post-mvc" class="post article-type-post">
-  
-    <header class="post-header">
-      
-  
-    <h3 itemprop="name">
-      <a class="post-title" href="/2014/07/28/mvc/">前端MVC模式</a>
-    </h3>
-  
-
-    </header>
-  
-  <div class="post-meta">
-    <time datetime="2014-07-28T03:45:28.000Z" itemprop="datePublished">Jul 28 2014</time>
-    
-  <span class="article-category">
-    <a class="article-category-link" href="/categories/javascript/">javascript</a>
-  </span>
-
-  </div>
-  <div class="post-content">
-    
-      <p><strong><code>MVC</code></strong>模式(Model - View - Controller) 是软件工程中的一种软件架构模式，把软件系统分为三个基本部分：模型(Model)、视图(View)和控制器(Controller)；</p>
-<p><code>MVC</code> 模式的目的是实现一种动态的程序设计，使后续对程序的修改和扩展简化，并且使程序某一个部分的重复利用成为可能；</p>
-<p>除此之外，此模式通过对复杂度的简化，使程序结构更加直观。</p>
-<p>软件系统通过对自身基本部分分离的同时也赋予了各个基本应用的功能。</p>
-
-      
-        <p class="article-more-link">
-          <a href="/2014/07/28/mvc/#more">Read More...</a>
-        </p>
-      
-    
-  </div>
-  <footer class="post-footer">
-    
-  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/js/">js</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/mvc/">mvc</a></li></ul>
-
-  </footer>
-</article>
-
-
-
+<nav class="post-nav">
   
   
+    <a href="/2014/08/03/git/" class="post-nav-link-wrap post-nav-next">
+      <strong class="post-nav-caption">Next:</strong>
+      <span class="post-nav-title">git 常用命令备忘录</span>
+    </a>
+  
+</nav>
+
+
+
+<section class="site-comment" id="comments">
+  <div class="ds-thread" data-thread-key="http://blog.jayself.com/2014/08/14/html5_localStorage_and_sessionStorage/" data-title="HTML5本地存储" data-url="/2014/08/14/html5_localStorage_and_sessionStorage/"></div>
+</section>
+
 </section>
     
       <aside class="site-aside" id="sidebar">
