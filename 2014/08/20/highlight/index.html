@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>vim常用命令 | Jay.Zhang的个人博客，记录分享工作、学习中的一些经验与问题!</title>
+  <title>highlight为文章的代码添加语法高亮 | Jay.Zhang的个人博客，记录分享工作、学习中的一些经验与问题!</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="keywords" content="前端程序员, 前端制作, javascript, css, html, jayself, jayzhang">
   <link type="text/css" rel="stylesheet" href="/css/style.css">
@@ -36,258 +36,71 @@
   </ul>
 </nav></header>
   <main class="site-scroll">
-    <section class="site-main"><article id="post-vim_command" class="post article-type-post">
+    <section class="site-main"><article id="post-highlight" class="post article-type-post">
   
     <header class="post-header">
       
   
     <h3 class="post-title" itemprop="name">
-      vim常用命令
+      highlight为文章的代码添加语法高亮
     </h3>
   
 
     </header>
   
   <div class="post-meta">
-    <time datetime="2014-07-28T04:45:04.000Z" itemprop="datePublished">Jul 28 2014</time>
+    <time datetime="2014-08-20T06:17:24.000Z" itemprop="datePublished">Aug 20 2014</time>
     
   <span class="article-category">
-    <a class="article-category-link" href="/categories/vim/">vim</a>
+    <a class="article-category-link" href="/categories/plug-in/">plug-in</a>
   </span>
 
   </div>
   <div class="post-content">
     
-      <ul>
-<li><p>:w，保存；</p>
+      <p>今天在用 <code>jade</code> 加载 <code>markdown</code> 文件时，想实现 <code>markdown</code> 中代码高亮显示；</p>
+<p>因为，以前一直用的 <code>Google Code Prettify</code>，貌似不能高亮解析后的 <code>markdown</code> 中代码；</p>
+<p>最终，选择了 <a href="https://highlightjs.org/" target="_blank" rel="external">highlightjs</a>，目前最新版为 <code>8.1</code> 其功能主要有：</p>
+<ul>
+<li><p>支持 86 种语法和<a href="https://highlightjs.org/static/test.html" target="_blank" rel="external">49种样式</a>；</p>
 </li>
-<li><p>%，匹配括号；</p>
+<li><p>能够自动检测编程语言</p>
 </li>
-<li><p><code>&gt;&gt;</code>，当前行增加缩进一个TAB；<code>n&gt;&gt;</code>，当前行开始的n行增加缩进一个TAB</p>
+<li><p>同时多种语言代码高亮</p>
 </li>
-<li><p><code>&lt;&lt;</code>，当前行减少一个TAB；<code>n&lt;&lt;</code>，当前行开始的n行减少一个TAB</p>
+<li><p>可以用于 Node.js 平台</p>
+</li>
+<li><p>支持任何标签</p>
+</li>
+<li><p>兼容任何的 <code>js</code> 框架</p>
 </li>
 </ul>
 <a id="more"></a>
 
-<ul>
-<li><p>移动命令</p>
-<ul>
-<li><p>h，向左移动一个字符；</p>
-</li>
-<li><p>l，向右移动一个字符；</p>
-</li>
-<li><p>k，向上移动一个字符；</p>
-</li>
-<li><p>j，向下移动一个字符；</p>
-</li>
-<li><p>以上四个命令可以配合数字使用，比如 20j 就是向下移动20行，5h 就是向左移动 5 个字符；</p>
-</li>
-<li><p>在VI中，很多命令都可以配合数字使用，比如删除10个字符10x，在当前位置后插入3个!，3a!<esc>，这里的esc是必须的，否则命令不生效；</esc></p>
-</li>
-<li><p>H，跳转到当前可见区域的顶部第一个非空字符；</p>
-</li>
-<li><p>M，跳转到当前可见区域的中间第一个非空字符；</p>
-</li>
-<li><p>L，跳转到当前可见区域的最后第一个非空字符；</p>
-</li>
-<li><p>w，向后移动一个单词(光标停在单词首部)，如果已在行尾，则转至下一行行首；</p>
-</li>
-<li><p>b，向前移动一个单词(光标停在单词首部)，5b 向前移动5个单词；</p>
-</li>
-<li><p>e，同w，只是光标停在单词尾部；</p>
-</li>
-<li><p>ge，同b，光标停在单词尾部；</p>
-</li>
-<li><p>number + gg，快速跳转到number行的开头；</p>
-</li>
-<li><p>gg，跳转到文档的开头；等同于[[</p>
-</li>
-<li><p>G，跳转到文档的最后一行的开头；等同于]]</p>
-</li>
-<li><p>$，跳转到行尾；3$，跳转到下面3行的行尾；</p>
-</li>
-<li><p>0，跳转到行首(跳转到一行开始的第一个非空字符)；</p>
-</li>
-<li><p>^，跳转到一行的最开始，包括前面的空格；</p>
-</li>
-<li><p>:number，跳转至第number行；等同于number + G，还等同于number + gg；</p>
-</li>
-<li><p>zz，让当前行居屏幕中间显示；</p>
-</li>
-<li><p>zt，让当前行居屏幕顶部显示；</p>
-</li>
-<li><p>zb，让当前行居屏幕低部显示；</p>
-</li>
-</ul>
-</li>
-<li><p>插入命令</p>
-<ul>
-<li><p>i，在当前位置前插入；</p>
-</li>
-<li><p>I，在当前行首插入；</p>
-</li>
-<li><p>a，在当前位置后插入；</p>
-</li>
-<li><p>A，在当前行尾插入；</p>
-</li>
-<li><p>o，在当前行之后插入一行；</p>
-</li>
-<li><p>O，在当前行之前插入一行；</p>
-</li>
-</ul>
-</li>
-<li><p>查找命令</p>
-<ul>
-<li><p>/text，查找text，按n向下查找下一个，按N向上查找上一个；</p>
-</li>
-<li><p>?text，查找text，反向查找，按n向下查找下一个，按N向上查找上一个；</p>
-</li>
-<li><p>:set ignorecase，忽略大小写的查找；</p>
-</li>
-<li><p>:set noignorecase，不忽略大小写的查找；</p>
-</li>
-<li><p>查找很长的词，键入太麻烦，这时候可以将光标移动到该词上，按 <em> 或 # 键即可以该单词进行搜索，</em> 相当于 / 搜索，而 # 相当于 ？ 搜索；</p>
-</li>
-<li><p>:set hlsearch，高亮搜索结果，所有结果都高亮显示，而不是只显示一个匹配；</p>
-</li>
-<li><p>:set nohlsearch，关闭高亮搜索显示；</p>
-</li>
-<li><p>:nohlsearch，关闭当前的高亮显示，如果再次搜索或按下 n 或 N 键，则会再次高亮；</p>
-</li>
-<li><p>:set incsearch，逐步搜索模式，对当前键入的字符进行搜索而不必等待键入完成；</p>
-</li>
-<li><p>:set wrapscan，重新搜索，在搜索到文件头或尾时，返回继续搜索，默认开启；</p>
-</li>
-</ul>
-</li>
-<li><p>替换命令</p>
-<ul>
-<li><p>r，用新输入的一个字符替换当前一个字符；</p>
-</li>
-<li><p>R，从当前字符开始往后一个一个字符替换为新输入的字符；</p>
-</li>
-<li><p>:10,20 s/^/——/g，从第10行至第20行每行行首插入四个中横杠( - )；</p>
-</li>
-<li><p>:10,20 s/$/——/g，从第10行至第20行每行行尾插入四个中横杠( - )；</p>
-</li>
-<li><p>:s/old/new/，在当前行中用 old 替换 new，替换第一个匹配到的；没提示</p>
-</li>
-<li><p>:s/old/new/c，在当前行中用 old 替换 new，替换第一个匹配到的；有提示</p>
-</li>
-<li><p>:s/old/new/g，在当前行中用 old 替换 new，替换当前行的所有匹配；没提示</p>
-</li>
-<li><p>:s/old/new/gc，在当前行中用 old 替换 new，替换当前行的所有匹配；有提示</p>
-</li>
-<li><p>:s/old/new/gc，在当前行中用 old 替换 new，替换第一个匹配到的；有提示</p>
-</li>
-<li><p>:%s/old/new/g，全文将 old 替换为 new，不提示；</p>
-</li>
-<li><p>:%s/old/new/c，全文将 old 替换为 new，提示是否替换；</p>
-</li>
-</ul>
-</li>
-<li><p>撤销与重做命令</p>
-<ul>
-<li><p>u，撤消上一步的命令(undo)；</p>
-</li>
-<li><p>ctrl + r，重做；</p>
-</li>
-</ul>
-</li>
-<li><p>删除命令</p>
-<ul>
-<li><p>dd，删除当前行；5dd，删除当前行开始向下的5行；</p>
-</li>
-<li><p>dj，删除当前行和下一行；</p>
-</li>
-<li><p>dk，删除当前行和上一行；</p>
-</li>
-<li><p>number + dd，向下删除number行；</p>
-</li>
-<li><p>D，删除至行尾；等同于d$；</p>
-</li>
-<li><p>d0，删除至行首；等同于d^；</p>
-</li>
-<li><p>dw，删除光标所在处一个单词的后部分；</p>
-</li>
-<li><p>dG，删除光标之后至文档结束；</p>
-</li>
-<li><p>dgg，删除光标之前至文档开头；</p>
-</li>
-<li><p>:n1,n2d，删除n1 至 n2行；</p>
-</li>
-<li><p>:n1,$d，删除n1 至文档结束；</p>
-</li>
-<li><p>:1,$d，删除所有行；</p>
-</li>
-<li><p>J，合并当前行与下一行；等同于shift + j；</p>
-</li>
-<li><p>x，向后删除光标所在的一个字符；等同于dl；5x，删除当前向后的5个字符；</p>
-</li>
-<li><p>X，向前删除光标所在的一个字符；等同于dh；</p>
-</li>
-<li><p>cc，删除当前一整行，并进入编辑模式(不会删除行首连续的空字符而dd会删除空字符)；等价于S(大写)；</p>
-</li>
-<li><p>C，删除至行尾，并进入编辑模式；</p>
-</li>
-<li><p>c0，删除至行首，回到一行的第一个字符，包括最前面的空白字符；</p>
-</li>
-<li><p>c^，删除至行首，不会删除行首的空白字符；</p>
-</li>
-</ul>
-</li>
-<li><p>拷贝、剪切与粘贴命令</p>
-<ul>
-<li><p>yy，拷贝当前行；nyy，拷贝当前后开始的n行；等同于Y；</p>
-</li>
-<li><p>y^，复制到行首，不包括当前位置；</p>
-</li>
-<li><p>y$，复制到行尾，包括当前位置；</p>
-</li>
-<li><p>yG，复制到文档尾；ygg，复制到文档头；</p>
-</li>
-<li><p>p，在当前光标后粘贴；</p>
-</li>
-<li><p>P，在当前光标前粘贴；等同于shift + p；</p>
-</li>
-<li><p>:n1,n2 co n3，将n1至n2行拷贝并粘贴到n3行之后；</p>
-</li>
-<li><p>:1,$ co $，将整个文档拷贝一份并添加至文档尾部；</p>
-</li>
-<li><p>v，选中当前所在的字符；</p>
-</li>
-<li><p>V，选中当前所在行；</p>
-</li>
-<li><p>正常模式下按v(逐字)或V(逐行)进入可视模式，然后就可以用jklh命令移动即可选择某些行或字符，然后再按y进行拷贝；</p>
-</li>
-<li><p>dd删除后，可以用p进行粘贴；ddp即实现了当前行与下一行的交换；</p>
-</li>
-<li><p>x删除后，也可以用p进行粘贴；xp即实现了当前字符与其后的一个字符的交换；</p>
-</li>
-<li><p>d相关的命令删除后都可以用p进行粘贴；</p>
-</li>
-</ul>
-</li>
-<li><p>多行注释</p>
-<p>  <code>ctrl + v</code> 进入 <code>visual block</code> 模式；</p>
-<p>  接着按 j 或 k 选中要注释的行；</p>
-<p>  然后按 I， 输入注释符 (<code>//</code>)；</p>
-<p>  最后再按 <code>esc</code> 就会把刚才选中的行都注释掉了；</p>
-</li>
-<li><p>取消多行注释</p>
-<p>  <code>ctrl + v</code> 进入 <code>visual block</code> 模式；</p>
-<p>  接着按 l 选中注释符；例如 <code>//</code> 就是选中这两个斜杠就行啦；</p>
-<p>  然后按 k 选中每行的注释符 (<code>//</code>)；</p>
-<p>  最后再 d 删除选中的注释符就OK啦；</p>
-</li>
-</ul>
-
+<p>对于 <code>highlightjs</code> 的使用也是非常的简单：</p>
+<pre><code><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">type</span>=<span class="value">"text/css"</span> <span class="attribute">href</span>=<span class="value">"/stylesheets/monokai_sublime.css"</span> /&gt;</span>
+//- 引入代码高亮的语法样式，这里引用的是类似 sublime 的样式
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"/javascripts/highlight.min.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+//- 引入highlight的核心js文件
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript">hljs.initHighlightingOnLoad();</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+//- 执行hightlight
+</code></pre><p>把上面三段代码引入到我们的项目就大功告成啦；</p>
+<p><code>highlight</code> 会自动去寻找代码中的 <code>&lt;pre&gt;&lt;code&gt;...&lt;/code&gt;&lt;/pre&gt;</code> 并高亮其中的代码；</p>
+<p>当然，我们也可以指定高亮的语言类型，类似这样设置 <code>&lt;pre&gt;&lt;code class=&quot;html&quot;&gt;...&lt;/code&gt;&lt;/pre&gt;</code>(以 html 类型高亮)</p>
+<p>同时，我们也可以禁用高亮 <code>&lt;pre&gt;&lt;code class=&quot;no-highlight&quot;&gt;...&lt;/code&gt;&lt;/pre&gt;</code></p>
+<p>如果，我们的代码不放到 <code>&lt;pre&gt;&lt;code&gt;...&lt;/code&gt;&lt;/pre&gt;</code>，<code>highlight</code>也支持自定义显示代码块：</p>
+<pre><code><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript">
+    hljs.configure({ useBR: <span class="literal">true</span> });
+    $(<span class="string">'div.code'</span>).each(<span class="function"><span class="keyword">function</span><span class="params">(i, block)</span> </span>{
+        hljs.highlightBlock(block);
+    });
+</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+</code></pre>
     
   </div>
   <footer class="post-footer">
     
-  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/ide/">ide</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/vim/">vim</a></li></ul>
+  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/jade/">jade</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/markdown/">markdown</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/nodejs/">nodejs</a></li></ul>
 
   </footer>
 </article>
@@ -295,19 +108,10 @@
   
 <nav class="post-nav">
   
-    <a href="/2014/07/30/vim_conf_plugin/" class="post-nav-link-wrap post-nav-prev">
-      <strong class="post-nav-caption">Prev:</strong>
-      <span class="post-nav-title">
-        
-          vim常用配置与插件安装
-        
-      </span>
-    </a>
   
-  
-    <a href="/2014/07/28/node_express_basic/" class="post-nav-link-wrap post-nav-next">
+    <a href="/2014/08/14/html5_localStorage_and_sessionStorage/" class="post-nav-link-wrap post-nav-next">
       <strong class="post-nav-caption">Next:</strong>
-      <span class="post-nav-title">Express4.x基础</span>
+      <span class="post-nav-title">HTML5本地存储</span>
     </a>
   
 </nav>
@@ -315,7 +119,7 @@
 
 
 <section class="site-comment" id="comments">
-  <div class="ds-thread" data-thread-key="http://blog.jayself.com/2014/07/28/vim_command/" data-title="vim常用命令" data-url="/2014/07/28/vim_command/"></div>
+  <div class="ds-thread" data-thread-key="http://blog.jayself.com/2014/08/20/highlight/" data-title="highlight为文章的代码添加语法高亮" data-url="/2014/08/20/highlight/"></div>
 </section>
 
 </section>
