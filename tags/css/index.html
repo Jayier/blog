@@ -1,535 +1,149 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: css | Jay.Zhang的个人博客，记录分享工作、学习中的一些经验与问题!</title>
+  <title>Tag: css | Jayier&#39;s web-notes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="前端程序员, 前端制作, javascript, css, html, jayself, jayzhang">
+  <link type="text/css" rel="stylesheet" href="/css/font-awesome.min.css">
   <link type="text/css" rel="stylesheet" href="/css/style.css">
 	<link rel="icon" href="/favicon.ico">
 </head>
 
 <body>
-  <header class="site-header"><nav class="site-nav">
-  <h3 class="site-title">
-    <a href="/tojayself">to myself. Jay</a>
-  </h3>
-  <ul>
+  <div class="j-container">
+	<aside class="j-aside"><a class="j-logo" href="/">Jayier&#39;s web-notes</a>
+<h4 class="j-title">Jayier&#39;s web-notes</h4>
+<p class="j-say">每天进步一点点!</p>
+<div class="j-social">
+  
+    <a href="https://github.com/Jayier" target="_blank" class="fa fa-github"></a>
+  
+    <a href="javascript:;" target="_blank" class="fa fa-weixin"></a>
+  
+    <a href="mailto:jay_f2e@163.com" target="_blank" class="fa fa-envelope"></a>
+   
+  <img src="/images/weixin.png" alt="" class="weixin" />
+</div>
+<nav class="j-nav">
+  <ul class="j-menu">
     
     <li>
-      <a class="main-nav-link" href="/">Home</a>
+      <a href="/about">About</a>
     </li>
     
     <li>
-      <a class="main-nav-link" href="/archives">Archives</a>
-    </li>
-    
-    <li>
-      <a class="main-nav-link" href="/about">About</a>
-    </li>
-    
-    <li>
-      <a class="main-nav-link" href="/whole">Whole</a>
+      <a href="/archives">Archives</a>
     </li>
     
   </ul>
-</nav></header>
-  <main class="site-scroll">
-    <section class="site-main">
+</nav></aside>
+    <div class="j-main">
   
-    <article id="post-first-child_ie7" class="post article-type-post">
   
-    <header class="post-header">
+    
+    
       
-  
-    <h3 itemprop="name">
-      <a class="post-title" href="/2014/08/22/first-child_ie7/">:first-child 在 IE7 的 Bug</a>
-    </h3>
-  
-
-    </header>
-  
-  <div class="post-meta">
-    <time datetime="2014-08-22T02:12:14.000Z" itemprop="datePublished">Aug 22 2014</time>
-    
-  <span class="article-category">
-    <a class="article-category-link" href="/categories/css/">css</a>
-  </span>
-
-  </div>
-  <div class="post-content">
-    
-      <p>对于结构性伪类选择器 :first-child 的浏览器支持还是蛮好的，IE6 及以下不支持外，其他都支持；</p>
-<p><strong>用法及定义</strong></p>
-<p>:first-child 选择器用于选取属于其父元素的第一个子元素：</p>
-<pre><code><span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css">
-<span class="tag">div</span> <span class="pseudo">:first-child</span><span class="rules">{ <span class="rule"><span class="attribute">color</span>:<span class="value"> <span class="hexcolor">#f00</span></span></span>; <span class="rule">}</span></span>
-// 选择所有 <span class="tag">div</span> 里面的第一个子元素
-
-<span class="tag">div</span> <span class="tag">a</span><span class="pseudo">:first-child</span> <span class="rules">{ <span class="rule"><span class="attribute">color</span>:<span class="value"> <span class="hexcolor">#ff0</span></span></span>; <span class="rule">}</span></span>
-// 选择所有 <span class="tag">div</span> 里面的第一个子元素并且这个子元素必须是 <span class="tag">a</span> 
-// 如果第一个子元素不是 <span class="tag">a</span> 则不会选择任何元素
-// &lt;<span class="tag">div</span>&gt;&lt;<span class="tag">span</span>&gt;1&lt;/<span class="tag">span</span>&gt;&lt;<span class="tag">a</span>&gt;2&lt;/<span class="tag">a</span>&gt;&lt;<span class="tag">a</span>&gt;3&lt;/<span class="tag">a</span>&gt;&lt;/<span class="tag">div</span>&gt; 像这样是不会选择任何元素的
-</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
-</code></pre>
       
-        <p class="article-more-link">
-          <a href="/2014/08/22/first-child_ie7/#more">Read More...</a>
-        </p>
-      
+      <article class="post page-archive">
+        <h2 class="page-archive-title">
+          <a href="/archives/2014" class="archive-year">2014</a>
+        </h2>
+        <ul class="page-archive-content">
     
-  </div>
-  <footer class="post-footer">
-    
-  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/bug/">bug</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/css/">css</a></li></ul>
-
-  </footer>
-</article>
-
-
-
+    <li class="archive-item archive-type-post">
+  <time datetime="2014-08-22T02:12:14.000Z" itemprop="datePublished">08-22</time>
   
-    <article id="post-css3_inherit_particularity_stack" class="post article-type-post">
   
-    <header class="post-header">
-      
-  
-    <h3 itemprop="name">
-      <a class="post-title" href="/2014/04/26/css3_inherit_particularity_stack/">CSS3继承、特殊性、重要性与层叠</a>
-    </h3>
+    <a class="archive-item-title" href="/2014/08/22/first-child_ie7/">:first-child 在 IE7 的 Bug</a>
   
 
-    </header>
-  
-  <div class="post-meta">
-    <time datetime="2014-04-26T15:10:25.000Z" itemprop="datePublished">Apr 26 2014</time>
-    
-  <span class="article-category">
-    <a class="article-category-link" href="/categories/css/">css</a>
-  </span>
-
-  </div>
-  <div class="post-content">
-    
-      <h3 id="特殊性">特殊性</h3>
-<p>同一个元素可以设置多个选择器，就会导致可能有重复的规则，但是浏览器不可能两个规则都显示，所以最终只会显示一个规则，那到底是运用哪一个规则呢？</p>
-<p>答案就在于每个选择器的特殊性，最高特殊性的声明会胜出。</p>
-<p>选择器的特殊性由选择器本身的组件确定。特殊性值表述为4个部分：0 0 0 0</p>
-
-      
-        <p class="article-more-link">
-          <a href="/2014/04/26/css3_inherit_particularity_stack/#more">Read More...</a>
-        </p>
-      
-    
-  </div>
-  <footer class="post-footer">
-    
-  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/css/">css</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/css3/">css3</a></li></ul>
-
-  </footer>
-</article>
-
-
-
-  
-    <article id="post-css3_selectors" class="post article-type-post">
-  
-    <header class="post-header">
-      
-  
-    <h3 itemprop="name">
-      <a class="post-title" href="/2014/04/26/css3_selectors/">CSS3选择器整理总结</a>
-    </h3>
-  
-
-    </header>
-  
-  <div class="post-meta">
-    <time datetime="2014-04-26T13:00:27.000Z" itemprop="datePublished">Apr 26 2014</time>
-    
-  <span class="article-category">
-    <a class="article-category-link" href="/categories/css/">css</a>
-  </span>
-
-  </div>
-  <div class="post-content">
-    
-      <h3 id="CSS选择器规则结构">CSS选择器规则结构</h3>
-<p>规则结构由两基本部分组成：选择器<code>(selector)</code>和声明块<code>(declaration block)</code>；</p>
-<p>选择器必须以字母或下划线开头，其后可以是数字、字母、下划线、中横线等，区分大小写；</p>
-<ul>
-<li><p>声明块由一个或多个声明(declaration)组成；</p>
 </li>
-<li><p>每个声明是一个属性—值对(property-value)；</p>
+  
+    
+    
+    <li class="archive-item archive-type-post">
+  <time datetime="2014-04-26T15:10:25.000Z" itemprop="datePublished">04-26</time>
+  
+  
+    <a class="archive-item-title" href="/2014/04/26/css3_inherit_particularity_stack/">CSS3继承、特殊性、重要性与层叠</a>
+  
+
 </li>
-<li><p>每个样式表由一系列的规则组成；</p>
-<p>  <code>h1 {font-size:14px; color:#ff0;}</code> 这是一条简单的声明，选择所有的 <code>h1</code> 标签，其中：</p>
+  
+    
+    
+    <li class="archive-item archive-type-post">
+  <time datetime="2014-04-26T13:00:27.000Z" itemprop="datePublished">04-26</time>
+  
+  
+    <a class="archive-item-title" href="/2014/04/26/css3_selectors/">CSS3选择器整理总结</a>
+  
+
 </li>
-<li><p><code>h1</code>就是选择器；</p>
+  
+    
+    
+    <li class="archive-item archive-type-post">
+  <time datetime="2014-01-20T12:14:46.000Z" itemprop="datePublished">01-20</time>
+  
+  
+    <a class="archive-item-title" href="/2014/01/20/html_layout_vertical_align/">HTML布局之垂直居中</a>
+  
+
 </li>
-<li><p><code>{}</code>大括号里面的是声明块；</p>
-<ul>
-<li><p><code>font-size:14px</code>和<code>color:#ff0</code>是两个声明；</p>
+  
+    
+    
+    <li class="archive-item archive-type-post">
+  <time datetime="2014-01-19T05:24:43.000Z" itemprop="datePublished">01-19</time>
+  
+  
+    <a class="archive-item-title" href="/2014/01/19/html_layout_lr/">HTML布局之左右结构</a>
+  
+
 </li>
-<li><p><code>font-size</code>和<code>color</code>是属性；</p>
+  
+    
+    
+    <li class="archive-item archive-type-post">
+  <time datetime="2014-01-16T15:22:23.000Z" itemprop="datePublished">01-16</time>
+  
+  
+    <a class="archive-item-title" href="/2014/01/16/cssdoc/">CSSDOC</a>
+  
+
 </li>
-<li><p><code>14px</code>和<code>#ff0</code>是值；</p>
+  
+    
+    
+      
+        </ul></article>
+      
+      
+      <article class="post page-archive">
+        <h2 class="page-archive-title">
+          <a href="/archives/2013" class="archive-year">2013</a>
+        </h2>
+        <ul class="page-archive-content">
+    
+    <li class="archive-item archive-type-post">
+  <time datetime="2013-12-26T15:45:35.000Z" itemprop="datePublished">12-26</time>
+  
+  
+    <a class="archive-item-title" href="/2013/12/26/emmet_css/">用 Emmet 书写 css</a>
+  
+
 </li>
-</ul>
-</li>
-</ul>
-
-      
-        <p class="article-more-link">
-          <a href="/2014/04/26/css3_selectors/#more">Read More...</a>
-        </p>
-      
-    
-  </div>
-  <footer class="post-footer">
-    
-  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/css/">css</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/css3/">css3</a></li></ul>
-
-  </footer>
-</article>
-
-
-
-  
-    <article id="post-html_layout_vertical_align" class="post article-type-post">
-  
-    <header class="post-header">
-      
-  
-    <h3 itemprop="name">
-      <a class="post-title" href="/2014/01/20/html_layout_vertical_align/">HTML布局之垂直居中</a>
-    </h3>
-  
-
-    </header>
-  
-  <div class="post-meta">
-    <time datetime="2014-01-20T12:14:46.000Z" itemprop="datePublished">Jan 20 2014</time>
-    
-  <span class="article-category">
-    <a class="article-category-link" href="/categories/html/">html</a>
-  </span>
-
-  </div>
-  <div class="post-content">
-    
-      <p>css 中虽然有 <code>vertical-align</code> 属性，但是这个属性并非是对布局设置垂直居中用的；</p>
-<p>这里，记录一下自己常用的布局垂直居中的方法：</p>
-<h3 id="设置_display:_table-cell">设置 <code>display: table-cell</code></h3>
-<p>表格单元格的内容默认是垂直居中显示的；所以，我们也可以将一个 div 模拟成一个 td，这样再设置内容垂直居中就行了；不过 IE7以下浏览器不支持 <code>display: table-cell</code>：</p>
-<p>HTML：</p>
-<pre><code>&lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"box"</span>&gt;
-    &lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"con"</span>&gt;con&lt;/<span class="keyword">div</span>&gt;
-&lt;/<span class="keyword">div</span>&gt;
-</code></pre><p>CSS:</p>
-<pre><code><span class="class">.box</span> <span class="rules">{
-    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100px</span></span></span>;
-    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100px</span></span></span>;
-    <span class="rule"><span class="attribute">display</span>:<span class="value"> table-cell</span></span>;
-    <span class="rule"><span class="attribute">vertical-align</span>:<span class="value"> middle</span></span>;
-    <span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="hexcolor">#03c6a8</span></span></span>;
-<span class="rule">}</span></span>
-<span class="class">.con</span> <span class="rules">{
-    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">50px</span></span></span>;
-    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">50px</span></span></span>;
-    <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">0</span> auto</span></span>;
-    <span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="hexcolor">#0a727d</span></span></span>;
-<span class="rule">}</span></span>
-</code></pre><p>显示效果：</p>
-<blockquote>
-<div class="box"> <style type="text/css" scoped> .box {width: 100px; height: 100px; display: table-cell; vertical-align: middle; background-color: #03c6a8; } .content {width: 50px; height: 50px; margin: 0 auto; background-color: #0a727d; } </style> <div class="content">div</div> </div>
-
-</blockquote>
-<h3 id="定位">定位</h3>
-<p>定位，主要是设置子元素的 left 和 top 相对于父元素 50%，然后再用 margin-left 和 margin-top 设置其值为子元素宽度的一半；</p>
-<p>HTML：</p>
-<pre><code>&lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"box02"</span>&gt;
-    &lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"con02"</span>&gt;con&lt;/<span class="keyword">div</span>&gt;
-&lt;/<span class="keyword">div</span>&gt;
-</code></pre><p>CSS:</p>
-<pre><code><span class="class">.box02</span> <span class="rules">{
-    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100px</span></span></span>;
-    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100px</span></span></span>;
-    <span class="rule"><span class="attribute">position</span>:<span class="value"> relative</span></span>;
-    <span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="hexcolor">#03c6a8</span></span></span>;
-<span class="rule">}</span></span>
-<span class="class">.con02</span> <span class="rules">{
-    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">50px</span></span></span>;
-    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">50px</span></span></span>;
-    <span class="rule"><span class="attribute">position</span>:<span class="value"> absolute</span></span>;
-    <span class="rule"><span class="attribute">left</span>:<span class="value"> <span class="number">50%</span></span></span>;
-    <span class="rule"><span class="attribute">top</span>:<span class="value"> <span class="number">50%</span></span></span>;
-    <span class="rule"><span class="attribute">margin-left</span>:<span class="value"> -<span class="number">25px</span></span></span>;
-    <span class="rule"><span class="attribute">margin-top</span>:<span class="value"> -<span class="number">25px</span></span></span>;
-    <span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="hexcolor">#0a727d</span></span></span>;
-<span class="rule">}</span></span>
-</code></pre><p>显示效果：</p>
-<blockquote>
-<div class="box02"> <style type="text/css">.box02 {width: 100px; height: 100px; position: relative; background-color: #03c6a8; } .con02 {width: 50px; height: 50px; position: absolute; left: 50%; top: 50%; margin-left: -25px; margin-top: -25px; background-color: #0a727d; }</style> <div class="con02">div</div> </div>
-
-</blockquote>
-<h3 id="使用_vertical-align:_middle">使用 vertical-align: middle</h3>
-<p>vertical-align，不能运用于块元素，所以，如果要让 div 使这个属性，首先得设置 div 的 display: inline-block；行内元素如果要有宽、高也得先具有块元素的特性；</p>
-<p>HTML：</p>
-<pre><code><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"box03"</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"con03"</span>&gt;</span>con03<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"con03-span"</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span>/* 两span间不要换行 */
-<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-</code></pre><p>CSS：</p>
-<pre><code><span class="class">.box03</span> <span class="rules">{
-    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100px</span></span></span>;
-    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100px</span></span></span>;
-    <span class="rule"><span class="attribute">text-align</span>:<span class="value"> center</span></span>;
-    <span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="hexcolor">#03c6a8</span></span></span>;
-<span class="rule">}</span></span>
-<span class="class">.con03</span> <span class="rules">{
-    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">50px</span></span></span>;
-    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">50px</span></span></span>;
-    <span class="rule"><span class="attribute">display</span>:<span class="value"> inline-block</span></span>;
-    <span class="rule"><span class="attribute">vertical-align</span>:<span class="value"> middle</span></span>;
-<span class="rule">}</span></span>
-<span class="class">.con03-span</span> <span class="rules">{
-    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">1px</span></span></span>;
-    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100%</span></span></span>;
-    <span class="rule"><span class="attribute">margin-right</span>:<span class="value"> -<span class="number">1px</span></span></span>;
-    <span class="rule"><span class="attribute">display</span>:<span class="value"> inline-block</span></span>;
-    <span class="rule"><span class="attribute">vertical-align</span>:<span class="value"> middle</span></span>;
-<span class="rule">}</span></span>
-</code></pre><p>显示效果：</p>
-<blockquote>
-<div class="box03"> <style type="text/css"> .box03 {width: 100px; height: 100px; text-align: center; background-color: #03c6a8; } .con03 {width: 50px; height: 50px; text-align: left; display: inline-block; vertical-align: middle; background-color: #0a727d; } .con03-span {width: 1px; height: 100%; margin-right: -1px; display: inline-block; vertical-align: middle; } </style> <span class="con03">div</span><span class="con03-span"></span> </div>
-</blockquote>
-
-    
-  </div>
-  <footer class="post-footer">
-    
-  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/css/">css</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/html/">html</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/layout/">layout</a></li></ul>
-
-  </footer>
-</article>
-
-
-
-  
-    <article id="post-html_layout_lr" class="post article-type-post">
-  
-    <header class="post-header">
-      
-  
-    <h3 itemprop="name">
-      <a class="post-title" href="/2014/01/19/html_layout_lr/">HTML布局之左右结构</a>
-    </h3>
-  
-
-    </header>
-  
-  <div class="post-meta">
-    <time datetime="2014-01-19T05:24:43.000Z" itemprop="datePublished">Jan 19 2014</time>
-    
-  <span class="article-category">
-    <a class="article-category-link" href="/categories/html/">html</a>
-  </span>
-
-  </div>
-  <div class="post-content">
-    
-      <p>在进行 html 结构布局之时，常用到的一种布局结构就是左右结构，比如注册表单之类的(左边标题，右边是表单控件)，还比如常用的1:2:1的结构布局。这些情况下，我们常希望是左(或右)固定，而右(或左)能根据父元素的宽度自适应。</p>
-
-      
-        <p class="article-more-link">
-          <a href="/2014/01/19/html_layout_lr/#more">Read More...</a>
-        </p>
-      
-    
-  </div>
-  <footer class="post-footer">
-    
-  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/css/">css</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/html/">html</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/layout/">layout</a></li></ul>
-
-  </footer>
-</article>
-
-
-
-  
-    <article id="post-cssdoc" class="post article-type-post">
-  
-    <header class="post-header">
-      
-  
-    <h3 itemprop="name">
-      <a class="post-title" href="/2014/01/16/cssdoc/">CSSDOC</a>
-    </h3>
-  
-
-    </header>
-  
-  <div class="post-meta">
-    <time datetime="2014-01-16T15:22:23.000Z" itemprop="datePublished">Jan 16 2014</time>
-    
-  <span class="article-category">
-    <a class="article-category-link" href="/categories/css/">css</a>
-  </span>
-
-  </div>
-  <div class="post-content">
-    
-      <p><code>CSSDOC</code>采用的是<code>DocBlock</code>，一个借鉴自<code>PHPDocumentor</code>项目的术语。一段<code>DocBlock</code>是一段可供人类和机器读取的数据块；</p>
-<p>一段<code>DocBlock</code>以 <code>/**</code> 开头，以空格加 <code>*/</code> 结尾(像正常<code>CSS</code>注释一样)。而它的每一行必须以空格加星号(<code>*</code>)开头，否则将被文档生成器忽略。标签以<code>@</code>开始，紧跟着名字，中间不带空格。标签的描述或值应该放在标签名称之后，前面用空格分开。</p>
-
-      
-        <p class="article-more-link">
-          <a href="/2014/01/16/cssdoc/#more">Read More...</a>
-        </p>
-      
-    
-  </div>
-  <footer class="post-footer">
-    
-  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/css/">css</a></li></ul>
-
-  </footer>
-</article>
-
-
-
-  
-    <article id="post-emmet_css" class="post article-type-post">
-  
-    <header class="post-header">
-      
-  
-    <h3 itemprop="name">
-      <a class="post-title" href="/2013/12/26/emmet_css/">用 Emmet 书写 css</a>
-    </h3>
-  
-
-    </header>
-  
-  <div class="post-meta">
-    <time datetime="2013-12-26T15:45:35.000Z" itemprop="datePublished">Dec 26 2013</time>
-    
-  <span class="article-category">
-    <a class="article-category-link" href="/categories/emmet/">emmet</a>
-  </span>
-
-  </div>
-  <div class="post-content">
-    
-      <p>对于<code>css</code>的<code>emmet</code>语法，多数情况下直接取第一个字母，如果是多个单词连接，一般取每个单词的首字母或取第一个单词的首字母和第二个单词的前两字母；</p>
-<p>对于<code>sublime</code>，如果装了<code>emmet</code>插件，一般输入一个字母后就会有提示：</p>
-
-      
-        <p class="article-more-link">
-          <a href="/2013/12/26/emmet_css/#more">Read More...</a>
-        </p>
-      
-    
-  </div>
-  <footer class="post-footer">
-    
-  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/css/">css</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/emmet/">emmet</a></li></ul>
-
-  </footer>
-</article>
-
-
-
   
   
-</section>
-    
-      <aside class="site-aside" id="sidebar">
+    </ul></article>
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/compass/">compass</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/emmet/">emmet</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mongodb/">mongodb</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/plug-in/">plug-in</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ubuntu/">ubuntu</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vim/">vim</a><span class="category-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/appjs/">app.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compass/">compass</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/">css3</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emmet/">emmet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/express/">express</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html5/">html5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ide/">ide</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jade/">jade</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/json/">json</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/layout/">layout</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/localStorage/">localStorage</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/module/">module</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/">mongodb</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongoose/">mongoose</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mvc/">mvc</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nosql/">nosql</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sass/">sass</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scss/">scss</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sessionStorage/">sessionStorage</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/">sql</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/">ssh</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web-app/">web app</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xshell/">xshell</a><span class="tag-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/appjs/" style="font-size: 10.00px;">app.js</a><a href="/tags/bug/" style="font-size: 10.00px;">bug</a><a href="/tags/compass/" style="font-size: 10.00px;">compass</a><a href="/tags/css/" style="font-size: 20.00px;">css</a><a href="/tags/css3/" style="font-size: 12.50px;">css3</a><a href="/tags/emmet/" style="font-size: 12.50px;">emmet</a><a href="/tags/express/" style="font-size: 15.00px;">express</a><a href="/tags/git/" style="font-size: 10.00px;">git</a><a href="/tags/html/" style="font-size: 17.50px;">html</a><a href="/tags/html5/" style="font-size: 10.00px;">html5</a><a href="/tags/ide/" style="font-size: 12.50px;">ide</a><a href="/tags/jade/" style="font-size: 12.50px;">jade</a><a href="/tags/js/" style="font-size: 12.50px;">js</a><a href="/tags/json/" style="font-size: 10.00px;">json</a><a href="/tags/layout/" style="font-size: 12.50px;">layout</a><a href="/tags/localStorage/" style="font-size: 10.00px;">localStorage</a><a href="/tags/markdown/" style="font-size: 10.00px;">markdown</a><a href="/tags/module/" style="font-size: 10.00px;">module</a><a href="/tags/mongodb/" style="font-size: 15.00px;">mongodb</a><a href="/tags/mongoose/" style="font-size: 12.50px;">mongoose</a><a href="/tags/mvc/" style="font-size: 10.00px;">mvc</a><a href="/tags/node/" style="font-size: 20.00px;">node</a><a href="/tags/nodejs/" style="font-size: 10.00px;">nodejs</a><a href="/tags/nosql/" style="font-size: 15.00px;">nosql</a><a href="/tags/sass/" style="font-size: 10.00px;">sass</a><a href="/tags/scss/" style="font-size: 10.00px;">scss</a><a href="/tags/sessionStorage/" style="font-size: 10.00px;">sessionStorage</a><a href="/tags/sql/" style="font-size: 15.00px;">sql</a><a href="/tags/ssh/" style="font-size: 10.00px;">ssh</a><a href="/tags/ubuntu/" style="font-size: 12.50px;">ubuntu</a><a href="/tags/vim/" style="font-size: 12.50px;">vim</a><a href="/tags/web-app/" style="font-size: 10.00px;">web app</a><a href="/tags/xshell/" style="font-size: 10.00px;">xshell</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08">August 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07">July 2014</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04">April 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03">March 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01">January 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12">December 2013</a><span class="archive-list-count">2</span></li></ul>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recents</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2014/08/22/first-child_ie7/">:first-child 在 IE7 的 Bug</a>
-          </li>
-        
-          <li>
-            <a href="/2014/08/20/highlight/">highlight为文章的代码添加语法高亮</a>
-          </li>
-        
-          <li>
-            <a href="/2014/08/14/html5_localStorage_and_sessionStorage/">HTML5本地存储</a>
-          </li>
-        
-          <li>
-            <a href="/2014/08/03/git/">git 常用命令备忘录</a>
-          </li>
-        
-          <li>
-            <a href="/2014/08/01/xshell4_sftp/">Xshell连接远程主机与本机进行文件传输</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-    
-  </main>
-  <footer class="site-footer"><div id="footer-info" class="inner">
-  <span>&copy; 2014 Jay.Zhang</span>
-  <span> Theme by Jay.Zhang</span>
-  <span>Powered by </span><a href="http://hexo.io/" target="_blank">Hexo</a>
 </div>
-<script type="text/javascript" src="/js/jquery-1.9.1.min.js"></script>
-<script type="text/javascript" src="/js/tomyself.js"></script>
-<script type="text/javascript" src="/js/duoshuo.js"></script>
-<script type="text/javascript">
-var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fa0b0be95a722cee5d961503045be2a81' type='text/javascript'%3E%3C/script%3E"));
-</script>
-</footer>
+	<footer class="j-footer"><span>&copy; 2014 Jayier</span>
+<em>, </em>
+<span>Powered by </span><a href="http://hexo.io/" target="_blank">Hexo</a></footer>
+  </div>
+  <script type="text/javascript" src="/js/jquery-1.9.1.min.js"></script>
 </body>
 </html>
