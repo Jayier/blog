@@ -40,6 +40,54 @@
 </nav></aside>
     <div class="j-main">
   
+    <section id="post-debug_mobile_page" class="post-item">
+  
+    <header class="post-header">
+      
+  
+    <h3 itemprop="name">
+      <a class="post-title" href="/2014/12/24/debug_mobile_page/">在 PC 上调试 移动网页</a>
+    </h3>
+  
+
+    </header>
+  
+  <div class="post-meta">
+    <span>归类于:</span>
+    
+  <i class="fa fa-book"></i>
+    <a class="category-link" href="/categories/html5/">html5</a>
+
+    <time datetime="2014-12-24T09:48:59.000Z" itemprop="datePublished">2014-12-24</time>
+  </div>
+  <article class="post-content">
+    
+      <p>最近开始做移动端的网站，一直是用 Chrome 模拟手机显示来进行调试，不过这样还是有一些差别的；于是在网上找到一个工具(<a href="http://people.apache.org/~pmuellr/weinre/docs/latest/Home.html" target="_blank" rel="external">weinre</a>)可以在 PC 上调试，手机上直接不用刷新就自动更新~;</p>
+<ul>
+<li><p>首先，需要安装 <a href="http://nodejs.org/" target="_blank" rel="external">Node.js</a>，然后用 <code>npm</code> 安装 <code>weinre</code> :</p>
+<pre><code>  <span class="variable">$ </span>npm install -g weinre
+</code></pre></li>
+<li><p>安装完成后，使用 weinre 命令启动：</p>
+<pre><code>  $ weinre
+  2014-12-24T11:04:20.640Z weinre: starting server at [<span class="link_label">http://localhost:8080</span>](<span class="link_url">http://localhost:8080</span>)
+  //- 默认配置启动，只能用 localhost 访问，这样手机是不能防问的，所以需要修改启动配置，让能通过IP防问
+</code></pre>
+      
+        <p class="article-more-link">
+          <a href="/2014/12/24/debug_mobile_page/#more">Continue →</a>
+        </p>
+      
+    
+  </article>
+  <footer class="post-footer">
+    <span>Tags: </span>
+    
+  <a class="tag-link" href="/tags/debug/">debug</a>, <a class="tag-link" href="/tags/html5/">html5</a>
+
+  </footer>
+</section>
+
+  
     <section id="post-html5_localStorage_and_sessionStorage" class="post-item">
   
     <header class="post-header">

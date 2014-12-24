@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  
+  <title>在 PC 上调试 移动网页 | Jayier&#39;s web-notes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link type="text/css" rel="stylesheet" href="/css/font-awesome.min.css">
+  <link type="text/css" rel="stylesheet" href="/css/style.css">
+	<link rel="icon" href="/favicon.ico">
+</head>
+
+<body>
+  <div class="j-container">
+	<aside class="j-aside"><a class="j-logo" href="/">Jayier&#39;s web-notes</a>
+<h4 class="j-title">Jayier&#39;s web-notes</h4>
+<p class="j-say">每天进步一点点!</p>
+<div class="j-social">
+  
+    <a href="https://github.com/Jayier" target="_blank" class="fa fa-github"></a>
+  
+    <a href="javascript:;" target="_blank" class="fa fa-weixin"></a>
+  
+    <a href="mailto:jay_f2e@163.com" target="_blank" class="fa fa-envelope"></a>
+   
+  <img src="/images/weixin.png" alt="" class="weixin" />
+</div>
+<nav class="j-nav">
+  <ul class="j-menu">
+    
+    <li>
+      <a href="/about">About</a>
+    </li>
+    
+    <li>
+      <a href="/archives">Archives</a>
+    </li>
+    
+  </ul>
+</nav></aside>
+    <div class="j-main"><section id="post-debug_mobile_page" class="post-item">
+  
+    <header class="post-header">
+      
+  
+    <h3 class="post-title" itemprop="name">
+      在 PC 上调试 移动网页
+    </h3>
+  
+
+    </header>
+  
+  <div class="post-meta">
+    <span>归类于:</span>
+    
+  <i class="fa fa-book"></i>
+    <a class="category-link" href="/categories/html5/">html5</a>
+
+    <time datetime="2014-12-24T09:48:59.000Z" itemprop="datePublished">2014-12-24</time>
+  </div>
+  <article class="post-content">
+    
+      <p>最近开始做移动端的网站，一直是用 Chrome 模拟手机显示来进行调试，不过这样还是有一些差别的；于是在网上找到一个工具(<a href="http://people.apache.org/~pmuellr/weinre/docs/latest/Home.html" target="_blank" rel="external">weinre</a>)可以在 PC 上调试，手机上直接不用刷新就自动更新~;</p>
+<ul>
+<li><p>首先，需要安装 <a href="http://nodejs.org/" target="_blank" rel="external">Node.js</a>，然后用 <code>npm</code> 安装 <code>weinre</code> :</p>
+<pre><code>  <span class="variable">$ </span>npm install -g weinre
+</code></pre></li>
+<li><p>安装完成后，使用 weinre 命令启动：</p>
+<pre><code>  $ weinre
+  2014-12-24T11:04:20.640Z weinre: starting server at [<span class="link_label">http://localhost:8080</span>](<span class="link_url">http://localhost:8080</span>)
+  //- 默认配置启动，只能用 localhost 访问，这样手机是不能防问的，所以需要修改启动配置，让能通过IP防问
+</code></pre><a id="more"></a></li>
+<li><p>weinre 提供了 6 个启动参数：</p>
+<pre><code>  $ weinre -?
+  usage:   weinre [options]
+  version: <span class="number">2.0</span>.<span class="number">0</span>-pre-I0Z7U9OV
+
+  options:
+      --httpPort     port <span class="keyword">to</span> run the http server <span class="keyword">on</span>        <span class="keyword">default</span>: <span class="number">8080</span>
+      --boundHost    ip address <span class="keyword">to</span> bind the server <span class="keyword">to</span>      <span class="keyword">default</span>: localhost
+      --verbose      print more diagnostics                <span class="keyword">default</span>: <span class="keyword">false</span>
+      --debug        print even more diagnostics           <span class="keyword">default</span>: <span class="keyword">false</span>
+      --readTimeout  seconds <span class="keyword">to</span> wait <span class="keyword">for</span> a client message  <span class="keyword">default</span>: <span class="number">5</span>
+      --deathTimeout seconds <span class="keyword">to</span> wait <span class="keyword">to</span> kill client        <span class="keyword">default</span>: <span class="number">3</span>*readTimeout
+
+  --boundHost can be an ip address, hostname, <span class="keyword">or</span> -all-, <span class="keyword">where</span> -all-
+  means binding <span class="keyword">to</span> all ip address <span class="keyword">on</span> the current machine<span class="string">'
+
+  for more info see: http://people.apache.org/~pmuellr/weinre/</span>
+</code></pre><ul>
+<li><p>常用的就两参数 <code>--httpPort</code> 设置端口；<code>--boundHost</code> 设置调试服务器绑定的 IP 地址；</p>
+<pre><code>  $ weinre <span class="comment">--httpPort 8899 --boundHost -all-</span>
+  <span class="number">2014</span>-<span class="number">12</span>-<span class="number">24</span>T11:<span class="number">17</span>:<span class="number">56.773</span>Z weinre: starting server <span class="keyword">at</span> <span class="keyword">http</span>://localhost:<span class="number">8899</span>
+ <span class="comment"> //- 设置启动的端口为 8899，`-all-`表示绑定到所有当前机器可以访问的接口，现在就可以通过 IP 防问啦</span>
+</code></pre></li>
+<li><p><img src="/images/weinre.png" alt="weinre"></p>
+<p>  主要用到：<code>debug client user interface:</code> 后面的 URL，这个URL就是在 PC 上打开一个调试界面</p>
+<p>  然后在需要调试的页面中引入 <code>Target Script</code> 中脚本文件</p>
+<p>  OK，现在可以在手机端打开需要调试的页面，然后在 PC 上尽情的调试吧。</p>
+<p>更多内容，<a href="http://muellerware.org/papers/weinre/manual.html" target="_blank" rel="external">点击这里</a><br><a href="http://www.cnblogs.com/lhb25/p/debug-mobile-site-and-app-with-weinre.html" target="_blank" rel="external">中文版</a></p>
+</li>
+</ul>
+</li>
+</ul>
+
+    
+  </article>
+  <footer class="post-footer">
+    <span>Tags: </span>
+    
+  <a class="tag-link" href="/tags/debug/">debug</a>, <a class="tag-link" href="/tags/html5/">html5</a>
+
+  </footer>
+</section>
+
+  
+<nav class="post-nav">
+  
+  
+    <a href="/2014/08/22/first-child_ie7/" class="post-nav-next">
+      <span class="post-nav-title">:first-child 在 IE7 的 Bug</span>
+      <strong class="post-nav-caption">→</strong>
+    </a>
+  
+</nav>
+
+</div>
+	<footer class="j-footer"><span>&copy; 2014 Jayier</span>
+<em>, </em>
+<span>Powered by </span><a href="http://hexo.io/" target="_blank">Hexo</a></footer>
+  </div>
+  <script type="text/javascript" src="/js/jquery-1.9.1.min.js"></script>
+</body>
+</html>
